@@ -29,14 +29,14 @@ public class Proves {
         System.out.println(s.isEmpty());
         
         
-        List<Person> persones = new ArrayList();
-        persones.add(new Person("Nil"));
-        persones.add(new Person("Arnau"));
-        
-        Person mayte = new Person("Mayte");
-        persones.remove(mayte);
-        
-        persones.remove(-1);
+//        List<Person> persones = new ArrayList();
+//        persones.add(new Person("Nil"));
+//        persones.add(new Person("Arnau"));
+//        
+//        Person mayte = new Person("Mayte");
+//        persones.remove(mayte);
+//        
+//        persones.remove(-1);
         
     }
     
