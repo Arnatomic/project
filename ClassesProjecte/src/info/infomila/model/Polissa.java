@@ -28,7 +28,8 @@ public class Polissa {
     private BigDecimal importContingut;
 
     //substituir el camp adreca per poblacio string + linia adreça;
-    private Adreca adreca;
+   private String poblacio;
+   private String liniaAdreca;
     private Cobertura cobertura;
     private Client client;
 
@@ -39,11 +40,12 @@ public class Polissa {
     protected Polissa() {
     }
 
-    public Polissa(int numero, Adreca adreca, Cobertura cobertura, Date dataInici, Date dataFi, BigDecimal importPolissa,
+    public Polissa(int numero, String poblacio, String liniaAdreca, Cobertura cobertura, Date dataInici, Date dataFi, BigDecimal importPolissa,
             BigDecimal importContinent, BigDecimal importContingut, Client client, TIPUS_HABITATGE tipusHabitatge) {
 
         setNumero(numero);
-        setAdreca(adreca);
+        setPoblacio(poblacio);
+        setLiniaAdreca(liniaAdreca);
         setCobertura(cobertura);
         setDataInici(dataInici);
         setDataFi(dataFi);
@@ -67,17 +69,27 @@ public class Polissa {
         }
     }
 
-    public Adreca getAdreca() {
-        return adreca;
+    public String getPoblacio() {
+        return poblacio;
     }
 
-    public void setAdreca(Adreca adreca) {
-        if (adreca != null) {
-            this.adreca = adreca;
-        } else {
-            throw new PolissaException("adreca invàlida (valor null no permés)");
-        }
+    public void setPoblacio(String poblacio) {
+        if(poblacio != null &&  poblacio.length()>2)
+        this.poblacio = poblacio;
+        else throw new PolissaException("població invàlida (valor null o menor a longitud 3 no permés)");
     }
+
+    public String getLiniaAdreca() {
+        return liniaAdreca;
+    }
+
+    public void setLiniaAdreca(String liniaAdreca) {
+        if(liniaAdreca != null && liniaAdreca.length()>3)
+        this.liniaAdreca = liniaAdreca;
+        else throw new PolissaException("linia adreça invàlida (valor null o menor a 4 no permés)");
+    }
+
+    
 
     public Cobertura getCobertura() {
         return cobertura;
@@ -241,7 +253,7 @@ public class Polissa {
 
     @Override
     public String toString() {
-        return "Polissa{" + "numero=" + numero + ", adreca=" + adreca + ", cobertura=" + cobertura + ", dataInici=" + dataInici + ", dataFi=" + dataFi + ", importPolissa=" + importPolissa + ", importContinent=" + importContinent + ", importContingut=" + importContingut + '}';
+        return "Polissa{" + "numero=" + numero + ", adreca=" + poblacio + " - " + liniaAdreca + ", cobertura=" + cobertura + ", dataInici=" + dataInici + ", dataFi=" + dataFi + ", importPolissa=" + importPolissa + ", importContinent=" + importContinent + ", importContingut=" + importContingut + '}';
     }
 
 }
