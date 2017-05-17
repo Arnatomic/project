@@ -27,6 +27,7 @@ public class Polissa {
     private BigDecimal importContinent;
     private BigDecimal importContingut;
 
+    //substituir el camp adreca per poblacio string + linia adreça;
     private Adreca adreca;
     private Cobertura cobertura;
     private Client client;
