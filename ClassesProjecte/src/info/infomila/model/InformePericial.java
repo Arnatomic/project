@@ -31,12 +31,13 @@ public class InformePericial {
     private ESTAT_INFORME estatInforme;
 
     private List<EntradaInforme> entrades = new ArrayList();
-    private List<Sinistre> sinistres = new ArrayList();
+    private Sinistre sinistre;
 
     protected InformePericial() {
     }
 
-    public InformePericial(Date dataEmisio, BigDecimal importCobert, String informe, Perit perit, RESULTAT_PERITATGE resultatPeritatge, ESTAT_INFORME estatInforme) {
+    public InformePericial(Date dataEmisio, BigDecimal importCobert, String informe, Perit perit, RESULTAT_PERITATGE resultatPeritatge,
+            ESTAT_INFORME estatInforme, Sinistre sinistre) {
 
         setDataEmisio(dataEmisio);
         setImportCobert(importCobert);
@@ -44,6 +45,7 @@ public class InformePericial {
         setPerit(perit);
         setResultatPeritatge(resultatPeritatge);
         setEstatInforme(estatInforme);
+        setSinistre(sinistre);
 
     }
 
@@ -107,42 +109,17 @@ public class InformePericial {
         }
     }
 
-    public Iterator<Sinistre> getSinistres() {
-        return sinistres.iterator();
+    public Sinistre getSinistre() {
+        return sinistre;
     }
 
-    public void setSinistres(List<Sinistre> sinistres) {
-        if (sinistres != null) {
-            this.sinistres = sinistres;
-        } else {
-            throw new InformePericialException("sinistres invàlids (valor null no permés)");
-        }
-    }
-
-    public void addSinistre(Sinistre sinistre) {
-
-        if (sinistre != null && !sinistres.contains(sinistre)) {
-            sinistres.add(sinistre);
-        } else {
-            throw new InformePericialException("sinistre invàlid (valor null o repetit no permés)");
-        }
-    }
-
-    public void removeSinistreByIndex(int index) {
-        if (index >= 0) {
-            try {
-                sinistres.remove(index);
-            } catch (IndexOutOfBoundsException ex) {
-                throw new InformePericialException("index invàlid (fora de rang)", ex);
+    public void setSinistre(Sinistre sinistre) {
+        if (sinistre != null) {
+            this.sinistre = sinistre;
+            if(!sinistre.getInforme().equals(this)){
+               sinistre.setInforme(this);
             }
         }
-    }
-    
-    public void removeSinistre(Sinistre sinistre){
-        if(sinistre != null && sinistres.contains(sinistre))
-            sinistres.remove(sinistre);
-        else throw new InformePericialException("sinistre invàlid (valor null o no existent a sinistres)");
-        
     }
 
     public String getInforme() {
@@ -168,14 +145,16 @@ public class InformePericial {
             throw new InformePericialException("entrades invàlides (valor null no permés)");
         }
     }
-    
-    public void addEntrada(EntradaInforme entrada){
-        if(entrada != null && ! entrades.contains(entrada))
+
+    public void addEntrada(EntradaInforme entrada) {
+        if (entrada != null && !entrades.contains(entrada)) {
             entrades.add(entrada);
-        else throw new InformePericialException("entrada invàlida (valor null o repetit no permés)");
+        } else {
+            throw new InformePericialException("entrada invàlida (valor null o repetit no permés)");
+        }
     }
-    
-    public void removeEntradaByIndex(int index){
+
+    public void removeEntradaByIndex(int index) {
         if (index >= 0) {
             try {
                 entrades.remove(index);
@@ -184,13 +163,14 @@ public class InformePericial {
             }
         }
     }
-    
-    public void removeEntrada(EntradaInforme entrada){
-        if(entrada != null && entrades.contains(entrada))
+
+    public void removeEntrada(EntradaInforme entrada) {
+        if (entrada != null && entrades.contains(entrada)) {
             entrades.remove(entrada);
-        else throw new InformePericialException("entrada invàlida (valor null o no existent no permés)");
+        } else {
+            throw new InformePericialException("entrada invàlida (valor null o no existent no permés)");
+        }
     }
-    
 
     @Override
     public int hashCode() {

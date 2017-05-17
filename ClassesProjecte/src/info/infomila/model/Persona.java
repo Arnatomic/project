@@ -8,12 +8,16 @@ package info.infomila.model;
 import info.infomila.exceptions.PersonaException;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Embeddable;
 
 /**
  *
  * @author Mr. Robot
  */
+@Embeddable
 public class Persona {
+    
+    
     private String nif;
     private String nom;
     private String cognom1;
