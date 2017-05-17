@@ -8,12 +8,17 @@ package info.infomila.model;
 import info.infomila.exceptions.TrucadaException;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Mr. Robot
  */
+@Embeddable
 public class Trucada {
+
     private Date dataHora;
     private String descripcio;
     private String PersonaContacte;

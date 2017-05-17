@@ -1,6 +1,6 @@
 drop table if exists perit;
 create table perit(
-  numero int,
+  numero int not null auto_increment,
   nif varchar(9) not null,
   nom varchar(30) not null,
   cognom1 varchar(30) not null,
@@ -41,7 +41,7 @@ create table client(
 
 drop table if exists polissa;
 create table polissa(
-  numero int not null,
+  numero int not null auto_increment,
   data_fi date not null,
   data_inici date not null,
   import_polissa double(9,2) not null,
@@ -85,7 +85,7 @@ create table cobertura(
 
 drop table if exists sinistre;
 create table sinistre(
-  numero int not null,
+  numero int not null auto_increment,
   data_assignacio date not null,
   data_obertura date,
   data_tancament date,
@@ -179,7 +179,7 @@ drop table if exists entrada_informe;
 create table entrada_informe(
   num_sinistre int not null,
   
-  numero int not null, 
+  numero int not null auto_increment, 
   data_informe date not null,
   descripcio varchar(100) not null,
   despres_reparacio int(1) not null,

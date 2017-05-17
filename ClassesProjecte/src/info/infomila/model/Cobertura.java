@@ -11,6 +11,7 @@ import info.infomila.exceptions.CoberturaException;
  *
  * @author Mr. Robot
  */
+
 public class Cobertura {
     
     private int codi;

@@ -8,6 +8,8 @@ package info.infomila.model;
 import info.infomila.exceptions.PersonaException;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
@@ -17,11 +19,16 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Persona {
     
-    
+    @Column(length = 9)
     private String nif;
+    @Column(length = 30, nullable = false)
     private String nom;
+    @Column(length = 30, nullable = false)
     private String cognom1;
+    @Basic(optional = true)
+    @Column(length = 30, nullable = true)
     private String cognom2;
+    @Column(name = "data_naix")
     private Date dataNaix;
 
     protected Persona() {

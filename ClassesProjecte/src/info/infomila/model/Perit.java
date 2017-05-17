@@ -11,16 +11,21 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author Mr. Robot
  */
+@Entity
 public class Perit {
 
     private static final int passwordLenght = 9;
-
+    @Id
     private int numero;
+
     private String login;
     //min Lenght (9)
     private String password;

@@ -12,6 +12,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OrderColumn;
 
 /**
  *
@@ -20,33 +30,53 @@ import java.util.List;
 public class Polissa {
 
     //readOnly
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int numero;
+    @Column(name = "data_inici")
     private Date dataInici;
+    @Column(name = "data_fi")
     private Date dataFi;
+    @Column(name = "import_polissa", precision = 2)
     private BigDecimal importPolissa;
+    @Column(name = "import_continent", precision = 2)
     private BigDecimal importContinent;
+    @Column(name = "import_contingut", precision = 2)
     private BigDecimal importContingut;
 
-    //substituir el camp adreca per poblacio string + linia adreça;
-   private String poblacio;
-   private String liniaAdreca;
-    private Cobertura cobertura;
+    @Column(length = 40)
+    private String poblacio;
+    @Column(name = "linia_adreca", length = 80)
+    private String liniaAdreca;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "cobertura", joinColumns = @JoinColumn(name="numero"))
+    @Column(name = "num_polissa")
+    @OrderColumn(name = "codi")
+    private List<Cobertura> cobertures = new ArrayList();
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "numero_client", nullable = false)
     private Client client;
 
+    @Column(name = "tipus_habitatge")
     private TIPUS_HABITATGE tipusHabitatge;
 
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "sinistre", joinColumns = @JoinColumn(name="numero"))
+    @Column(name = "num_polissa")
+    @OrderColumn(name = "numero")
     private List<Sinistre> sinistres = new ArrayList();
 
     protected Polissa() {
     }
 
-    public Polissa(int numero, String poblacio, String liniaAdreca, Cobertura cobertura, Date dataInici, Date dataFi, BigDecimal importPolissa,
+    public Polissa(int numero, String poblacio, String liniaAdreca, Date dataInici, Date dataFi, BigDecimal importPolissa,
             BigDecimal importContinent, BigDecimal importContingut, Client client, TIPUS_HABITATGE tipusHabitatge) {
 
         setNumero(numero);
         setPoblacio(poblacio);
-        setLiniaAdreca(liniaAdreca);
-        setCobertura(cobertura);
+        setLiniaAdreca(liniaAdreca);       
         setDataInici(dataInici);
         setDataFi(dataFi);
         setImportPolissa(importPolissa);
@@ -74,9 +104,11 @@ public class Polissa {
     }
 
     public void setPoblacio(String poblacio) {
-        if(poblacio != null &&  poblacio.length()>2)
-        this.poblacio = poblacio;
-        else throw new PolissaException("població invàlida (valor null o menor a longitud 3 no permés)");
+        if (poblacio != null && poblacio.length() > 2) {
+            this.poblacio = poblacio;
+        } else {
+            throw new PolissaException("població invàlida (valor null o menor a longitud 3 no permés)");
+        }
     }
 
     public String getLiniaAdreca() {
@@ -84,22 +116,40 @@ public class Polissa {
     }
 
     public void setLiniaAdreca(String liniaAdreca) {
-        if(liniaAdreca != null && liniaAdreca.length()>3)
-        this.liniaAdreca = liniaAdreca;
-        else throw new PolissaException("linia adreça invàlida (valor null o menor a 4 no permés)");
-    }
-
-    
-
-    public Cobertura getCobertura() {
-        return cobertura;
-    }
-
-    public void setCobertura(Cobertura cobertura) {
-        if (cobertura != null) {
-            this.cobertura = cobertura;
+        if (liniaAdreca != null && liniaAdreca.length() > 3) {
+            this.liniaAdreca = liniaAdreca;
         } else {
-            throw new PolissaException("cobertura invàlida (valor null no permés)");
+            throw new PolissaException("linia adreça invàlida (valor null o menor a 4 no permés)");
+        }
+    }
+
+    public Iterator<Cobertura> getCobertures() {
+        return cobertures.iterator();
+    }
+
+    public void addCobertura(Cobertura cobertura) {
+        if (cobertura != null && !cobertures.contains(cobertura)) {
+            cobertures.add(cobertura);
+        } else {
+            throw new PolissaException("cobertura invàlida (valor null o repetit no permés)");
+        }
+    }
+    
+    public void removeCoberturaByIndex(int index) {
+        if (index > 0) {
+            try {
+                cobertures.remove(index);
+            } catch (IndexOutOfBoundsException ex) {
+                throw new PolissaException("index invàlid (fora de rang)", ex);
+            }
+        }
+    }
+    
+     public void removeCobertura(Cobertura cobertura) {
+        if (cobertura != null && cobertures.contains(cobertura)) {           
+            cobertures.remove(cobertura);
+        } else {
+            throw new PolissaException("cobertura invàlid (valor null o no existent no permés)");
         }
     }
 
@@ -253,7 +303,7 @@ public class Polissa {
 
     @Override
     public String toString() {
-        return "Polissa{" + "numero=" + numero + ", adreca=" + poblacio + " - " + liniaAdreca + ", cobertura=" + cobertura + ", dataInici=" + dataInici + ", dataFi=" + dataFi + ", importPolissa=" + importPolissa + ", importContinent=" + importContinent + ", importContingut=" + importContingut + '}';
+        return "Polissa{" + "numero=" + numero + ", adreca=" + poblacio + " - " + liniaAdreca + ", dataInici=" + dataInici + ", dataFi=" + dataFi + ", importPolissa=" + importPolissa + ", importContinent=" + importContinent + ", importContingut=" + importContingut + '}';
     }
 
 }
