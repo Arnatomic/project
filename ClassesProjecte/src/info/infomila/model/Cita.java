@@ -9,16 +9,27 @@ import info.infomila.exceptions.CitaException;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 /**
  *
  * @author Mr. Robot
  */
+@Embeddable
 public class Cita implements Serializable{
     
+    @Transient
     private Date diaHora;
+    @Column(name = "duracio")
     private int horesPrevistes;
     
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "num_sinistre", nullable = false)
     private Sinistre sinistre;
 
     protected Cita() {

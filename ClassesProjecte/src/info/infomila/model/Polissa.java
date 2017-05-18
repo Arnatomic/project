@@ -18,12 +18,15 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
 /**
@@ -54,22 +57,20 @@ public class Polissa implements Serializable {
     private String liniaAdreca;
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "cobertura", joinColumns = @JoinColumn(name="numero"))
+    @CollectionTable(name = "cobertura", joinColumns = @JoinColumn(name="num_polissa"))
     @Column(name = "num_polissa")
-    @OrderColumn(name = "codi")
+    @OrderColumn(name = "codi",columnDefinition = "auto_increment")
     private List<Cobertura> cobertures = new ArrayList();
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "numero_client", nullable = false)
+    @JoinColumn(name = "num_client", nullable = false)
     private Client client;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "tipus_habitatge")
     private TIPUS_HABITATGE tipusHabitatge;
 
-    @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "sinistre", joinColumns = @JoinColumn(name="numero"))
-    @Column(name = "num_polissa")
-    @OrderColumn(name = "numero")
+    @OneToMany(mappedBy = "polissa")
     private List<Sinistre> sinistres = new ArrayList();
 
     protected Polissa() {

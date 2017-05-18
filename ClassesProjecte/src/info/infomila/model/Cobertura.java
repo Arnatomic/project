@@ -9,6 +9,7 @@ import info.infomila.exceptions.CoberturaException;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 
 /**
  *
@@ -17,7 +18,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Cobertura {
     
-    
+    @Transient
     private int codi;
     @Column(length = 100, nullable = false)
     private String descripcio;

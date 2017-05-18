@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -22,7 +23,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
+import javax.persistence.Transient;
 
 /**
  *
@@ -30,7 +33,7 @@ import javax.persistence.OrderColumn;
  */
 @Entity
 public class Perit  implements Serializable{
-
+    @Transient
     private static final int passwordLenght = 9;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,15 +47,12 @@ public class Perit  implements Serializable{
     private Persona persona;
     
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "cita", joinColumns = @JoinColumn(name = "numero"))
+    @CollectionTable(name = "cita", joinColumns = @JoinColumn(name = "num_perit"))
     @Column(name = "cita")
-    @OrderColumn(name = "dia_hora")
+    @OrderColumn(name = "id")
     private List<Cita> cites = new ArrayList();
     
-    @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "sinistre", joinColumns = @JoinColumn(name = "numero"))
-    @Column(name = "num_perit")
-    @OrderColumn(name = "numero")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "perit")
     private List<Sinistre> sinistres = new ArrayList();
 
     protected Perit() {

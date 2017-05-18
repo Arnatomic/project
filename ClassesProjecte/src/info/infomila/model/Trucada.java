@@ -20,8 +20,12 @@ import javax.persistence.Entity;
 @Embeddable
 public class Trucada implements Serializable {
 
+    
+    @Column(name = "data_hora", nullable = false)
     private Date dataHora;
+    @Column(length = 100, nullable = false)
     private String descripcio;
+    @Column(name = "persona_contacte", nullable = false)        
     private String PersonaContacte;
 
     protected Trucada() {

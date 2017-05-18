@@ -15,23 +15,61 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
+import javax.persistence.Table;
 
 /**
  *
  * @author Mr. Robot
  */
-public class InformePericial  implements Serializable{
+@Entity
+@Table(name = "informe_pericial")
+public class InformePericial implements Serializable {
 
+    @Id()    
+    @Column(name = "num_sinistre")
+    private int numero;
+    @Column(name = "data_emisio", nullable = false)
     private Date dataEmisio;
+    @Column(name = "import_cobert", precision = 2, nullable = false)
     private BigDecimal importCobert;
+    @Column(length = 100)
     private String informe;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "num_perit")
     private Perit perit;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "resultat_peritatge", nullable = false)
     private RESULTAT_PERITATGE resultatPeritatge;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estat_informe", nullable = false)
     private ESTAT_INFORME estatInforme;
 
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "entrada_informe",
+            joinColumns = @JoinColumn(name = "numero"))
+    @Column(name = "numero", nullable = false, unique = true)
+    @OrderColumn(name = "ordre")
     private List<EntradaInforme> entrades = new ArrayList();
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "num_sinistre")
+    @MapsId
     private Sinistre sinistre;
 
     protected InformePericial() {
@@ -117,8 +155,8 @@ public class InformePericial  implements Serializable{
     public void setSinistre(Sinistre sinistre) {
         if (sinistre != null) {
             this.sinistre = sinistre;
-            if(!sinistre.getInforme().equals(this)){
-               sinistre.setInforme(this);
+            if (!sinistre.getInforme().equals(this)) {
+                sinistre.setInforme(this);
             }
         }
     }

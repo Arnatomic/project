@@ -13,6 +13,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -21,11 +22,15 @@ import javax.persistence.Table;
 @Embeddable
 public class EntradaInforme implements Serializable {
   
+    @Transient
+    private int numero;
+    
     @Column(name = "data_informe" ,nullable = false)
     private Date data;
     //nullable
     @Column(length = 100)
-    private String descripcio;
+    private String descripcio;   
+    
     private Blob foto;
     @Column(name = "despres_reparacio", nullable = false)
     private boolean postReparacio;

@@ -4,9 +4,14 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>info.infomila.model.Client</class>
         <class>info.infomila.model.Persona</class> 
-        <class>info.infomila.model.Cobertura</class>
+        <class>info.infomila.model.Cobertura</class>        
+        <class>info.infomila.model.Cita</class>
+        <class>info.infomila.model.Trucada</class>
+        <class>info.infomila.model.Polissa</class>      
+        <class>info.infomila.model.Sinistre</class> 
+        <class>info.infomila.model.Perit</class> 
+        <class>info.infomila.model.InformePericial</class> 
         <class>info.infomila.model.EntradaInforme</class> 
-        <!--class>info.infomila.model.Polissa</class-->      
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/projecte"/>            
             <property name="javax.persistence.jdbc.user" value="root"/>
