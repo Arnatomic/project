@@ -6,6 +6,7 @@
 package info.infomila.model;
 
 import info.infomila.exceptions.ClientException;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import javax.persistence.Id;
  * @author Mr. Robot
  */
 @Entity
-public class Client {
+public class Client implements Serializable {
     @Id
     private int numero;
     @Embedded

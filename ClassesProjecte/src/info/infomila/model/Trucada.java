@@ -6,6 +6,7 @@
 package info.infomila.model;
 
 import info.infomila.exceptions.TrucadaException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ import javax.persistence.Entity;
  * @author Mr. Robot
  */
 @Embeddable
-public class Trucada {
+public class Trucada implements Serializable {
 
     private Date dataHora;
     private String descripcio;

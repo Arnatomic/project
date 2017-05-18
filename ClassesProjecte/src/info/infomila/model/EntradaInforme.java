@@ -6,25 +6,34 @@
 package info.infomila.model;
 
 import info.infomila.exceptions.EntradaInformeException;
+import java.io.Serializable;
 import java.sql.Blob;
 import java.util.Date;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Table;
 
 /**
  *
  * @author Mr. Robot
  */
-public class EntradaInforme {
-    private int numero;
+@Embeddable
+public class EntradaInforme implements Serializable {
+  
+    @Column(name = "data_informe" ,nullable = false)
     private Date data;
     //nullable
+    @Column(length = 100)
+    private String descripcio;
     private Blob foto;
-    
+    @Column(name = "despres_reparacio", nullable = false)
     private boolean postReparacio;
 
-    public EntradaInforme(int numero, Date data, Blob foto, boolean postReparacio) {
+    public EntradaInforme(Date data,String descripcio, Blob foto, boolean postReparacio) {
         
-        setNumero(numero);
         setData(data);
+        setDescripcio(descripcio);
         setFoto(foto);
         setPostReparacio(postReparacio);      
     }
@@ -32,16 +41,7 @@ public class EntradaInforme {
     protected EntradaInforme() {
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        if(numero >0)
-        this.numero = numero;
-        else throw new EntradaInformeException("numero invàlid (valor estrictament positiu)");
-    }
-
+    
     public Date getData() {
         return (Date) data.clone();
     }
@@ -51,6 +51,18 @@ public class EntradaInforme {
         this.data = new Date(data.getTime());
         else throw new EntradaInformeException("data invàlida (valor null no permés)");
     }
+
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public void setDescripcio(String descripcio) {
+        if(descripcio != null && ! descripcio.isEmpty())
+        this.descripcio = descripcio;
+        else throw new EntradaInformeException("descripcio invàlida (valor null o cadena buida no permés)");
+    }
+    
+    
 
     public Blob getFoto() {
         return foto;
@@ -68,35 +80,7 @@ public class EntradaInforme {
         this.postReparacio = postReparacio;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.numero;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (!(this instanceof EntradaInforme)) {
-            return false;
-        }
-        final EntradaInforme other = (EntradaInforme) obj;
-        if (this.numero != other.numero) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "EntradaInforme{" + "numero=" + numero + ", data=" + data + ", foto=" + foto + ", postReparacio=" + postReparacio + '}';
-    }
+    
     
     
 }

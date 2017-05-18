@@ -7,32 +7,52 @@ package info.infomila.model;
 
 import info.infomila.exceptions.CitaException;
 import info.infomila.exceptions.PeritException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OrderColumn;
 
 /**
  *
  * @author Mr. Robot
  */
 @Entity
-public class Perit {
+public class Perit  implements Serializable{
 
     private static final int passwordLenght = 9;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int numero;
-
+    @Column(length = 30, nullable = false)
     private String login;
     //min Lenght (9)
+    @Column(length = 50, nullable = false)
     private String password;
-
+    @Embedded
     private Persona persona;
-
+    
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "cita", joinColumns = @JoinColumn(name = "numero"))
+    @Column(name = "cita")
+    @OrderColumn(name = "dia_hora")
     private List<Cita> cites = new ArrayList();
+    
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "sinistre", joinColumns = @JoinColumn(name = "numero"))
+    @Column(name = "num_perit")
+    @OrderColumn(name = "numero")
     private List<Sinistre> sinistres = new ArrayList();
 
     protected Perit() {

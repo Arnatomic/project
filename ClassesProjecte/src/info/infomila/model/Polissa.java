@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package info.infomila.model;
 
 import info.infomila.enums.TIPUS_HABITATGE;
 import info.infomila.exceptions.PolissaException;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +17,7 @@ import java.util.List;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +30,8 @@ import javax.persistence.OrderColumn;
  *
  * @author Mr. Robot
  */
-public class Polissa {
+ @Entity
+public class Polissa implements Serializable {
 
     //readOnly
     @Id

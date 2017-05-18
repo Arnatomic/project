@@ -21,7 +21,7 @@ create table perit(
 );
 
 
-drop table if exists client cascade;
+drop table if exists client;
 create table client(
   numero int not null,
   nif varchar(9) not null,

@@ -8,6 +8,7 @@ package info.infomila.model;
 import info.infomila.enums.ESTAT_INFORME;
 import info.infomila.enums.RESULTAT_PERITATGE;
 import info.infomila.exceptions.InformePericialException;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +20,7 @@ import java.util.Objects;
  *
  * @author Mr. Robot
  */
-public class InformePericial {
+public class InformePericial  implements Serializable{
 
     private Date dataEmisio;
     private BigDecimal importCobert;

@@ -6,15 +6,20 @@
 package info.infomila.model;
 
 import info.infomila.exceptions.CoberturaException;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 /**
  *
  * @author Mr. Robot
  */
-
+@Embeddable
 public class Cobertura {
     
+    
     private int codi;
+    @Column(length = 100, nullable = false)
     private String descripcio;
 
     protected Cobertura() {

@@ -6,6 +6,7 @@
 package info.infomila.model;
 
 import info.infomila.exceptions.CitaException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ import java.util.Objects;
  *
  * @author Mr. Robot
  */
-public class Cita {
+public class Cita implements Serializable{
     
     private Date diaHora;
     private int horesPrevistes;

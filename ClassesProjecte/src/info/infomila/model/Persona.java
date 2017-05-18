@@ -6,6 +6,7 @@
 package info.infomila.model;
 
 import info.infomila.exceptions.PersonaException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Basic;
@@ -17,7 +18,7 @@ import javax.persistence.Embeddable;
  * @author Mr. Robot
  */
 @Embeddable
-public class Persona {
+public class Persona implements Serializable {
     
     @Column(length = 9)
     private String nif;
