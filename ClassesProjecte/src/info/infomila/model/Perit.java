@@ -49,7 +49,7 @@ public class Perit  implements Serializable{
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "cita", joinColumns = @JoinColumn(name = "num_perit"))
     @Column(name = "cita")
-    @OrderColumn(name = "id")
+    @OrderColumn(name = "id", columnDefinition = "auto_increment")
     private List<Cita> cites = new ArrayList();
     
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "perit")

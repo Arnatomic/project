@@ -23,7 +23,7 @@ import javax.persistence.Transient;
 @Embeddable
 public class Cita implements Serializable{
     
-    @Transient
+    @Column(name = "dia_hora")
     private Date diaHora;
     @Column(name = "duracio")
     private int horesPrevistes;

@@ -71,7 +71,7 @@ create table polissa(
 create table cobertura(
   num_polissa int not null,
   codi int not null auto_increment,
-  descripcio varchar(100) not null,
+  descripcio varchar(255) not null,
   
   primary key(codi),
   CHECK(num_polissa>0),
@@ -86,8 +86,8 @@ create table cobertura(
 
 create table sinistre(
   numero int not null auto_increment,
-  data_assignacio date not null,
-  data_obertura date,
+  data_assignacio date,
+  data_obertura date not null,
   data_tancament date,
   descripcio varchar(100) not null,
   num_polissa int not null,
@@ -114,13 +114,13 @@ create table sinistre(
 
 
 create table cita(
-  id int not null,
+  id int not null auto_increment,
   num_perit int not null,
   dia_hora date not null,
   num_sinistre int not null,
   duracio int not null,
   
-  primary key(num_perit,id),
+  primary key(id),
   
   CHECK(length(num_perit)>0),
   CHECK(duracio >0),
@@ -134,13 +134,13 @@ create table cita(
 
 
 create table trucada(
-  ordre int not null,
+  ordre int not null auto_increment,
   num_sinistre int not null,
   data_hora date not null,
   descripcio varchar(100) not null,
   persona_contacte varchar(30) not null,
   
-  primary key(num_sinistre,ordre),
+  primary key(ordre),
   
   CHECK(num_sinistre>0),
   CHECK(length(descripcio)>0),
@@ -158,8 +158,8 @@ create table informe_pericial(
   import_cobert decimal(8,2) not null,
   informe varchar(100),
   num_perit int not null,  
-  estat_informe varchar(30) not null,
-  resultat_peritatge varchar(30) not null,
+  estat_informe varchar(30),
+  resultat_peritatge varchar(30),
   
   primary key(num_sinistre),
   
@@ -177,14 +177,14 @@ create table informe_pericial(
 
 create table entrada_informe(
   numero int not null,
-  ordre int not null,
+  ordre int not null auto_increment,
   
   data_informe date not null,
   descripcio varchar(100) not null,
   despres_reparacio bit not null,
   foto longblob,
   
-  primary key(numero,ordre),
+  primary key(ordre),
   
   CHECK(numero>0),
   CHECK(length(descripcio)>0),

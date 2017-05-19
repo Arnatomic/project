@@ -45,9 +45,9 @@ public class Sinistre implements Serializable{
     private int numero;
     @Column(name = "data_assignacio", nullable = false)
     private Date dataAssignacio;
-    @Column(name = "data_obertura", nullable = false)
+    @Column(name = "data_obertura")
     private Date dataObertura;
-    @Column(name = "data_tancament", nullable = false)
+    @Column(name = "data_tancament")
     private Date dataTancament;
     @Column(length = 100, nullable = false)
     private String descripcio;
@@ -79,7 +79,7 @@ public class Sinistre implements Serializable{
     @CollectionTable(name = "trucada",
             joinColumns = @JoinColumn(name = "num_sinistre"))
     @Column(name = "trucada", nullable = false, unique = true)
-    @OrderColumn(name = "ordre")
+    @OrderColumn(name = "ordre", columnDefinition = "auto_increment")
     private List<Trucada> trucades = new ArrayList();
 
     public Sinistre() {
