@@ -30,6 +30,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 
 /**
@@ -41,7 +42,10 @@ public class Sinistre implements Serializable{
 
     //readOnly
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableGenerator(name = "comptadors_generator", table = "comptadors",
+            pkColumnName = "TAULA", pkColumnValue = "sinistre",
+            valueColumnName = "COMPTADOR", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "comptadors_generator")
     private int numero;
     @Column(name = "data_assignacio", nullable = false)
     private Date dataAssignacio;

@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 /**
  *
@@ -21,7 +22,10 @@ import javax.persistence.Id;
 @Entity
 public class Client implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableGenerator(name = "comptadors_generator", table = "comptadors",
+            pkColumnName = "TAULA", pkColumnValue = "client",
+            valueColumnName = "COMPTADOR", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "comptadors_generator")
     private int numero;
     @Embedded
     private Persona persona;

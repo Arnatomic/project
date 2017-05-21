@@ -39,7 +39,7 @@ import javax.persistence.Table;
 @Table(name = "informe_pericial")
 public class InformePericial implements Serializable {
 
-    @Id()    
+    @Id    
     @Column(name = "num_sinistre")
     private int numero;
     @Column(name = "data_emisio", nullable = false)

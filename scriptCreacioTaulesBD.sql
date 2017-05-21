@@ -1,3 +1,14 @@
+
+create table comptadors(
+	taula varchar(30) not null,
+    comptador bigint not null,
+    
+    primary key(taula),
+    CHECK(length(taula)>0),
+    CHECK(comptador >=0)
+
+);
+
 create table perit(
   numero int not null auto_increment,
   nif varchar(9) not null unique,
@@ -18,6 +29,27 @@ create table perit(
   CHECK(length(login)>0),
   CHECK(length(password)>0)
 
+);
+
+create table user_online(
+	connection_code bigint not null,
+    id_user int,
+    user_name varchar(30),
+    connection_time date not null,
+    
+    primary key (connection_code),
+    
+    CHECK(connection_code >0)
+
+);
+
+create table user_ids(
+	connection_code bigint not null,
+    ordre int not null,
+    
+    primary key (connection_code),
+    
+    FOREIGN KEY (connection_code) REFERENCES users_online(connection_code)
 );
 
 
@@ -180,7 +212,7 @@ create table entrada_informe(
   ordre int not null auto_increment,
   
   data_informe date not null,
-  descripcio varchar(100) not null,
+  descripcio varchar(255) not null,
   despres_reparacio bit not null,
   foto longblob,
   

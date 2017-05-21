@@ -28,6 +28,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
+import javax.persistence.TableGenerator;
 
 /**
  *
@@ -38,7 +39,10 @@ public class Polissa implements Serializable {
 
     //readOnly
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableGenerator(name = "comptadors_generator", table = "comptadors",
+            pkColumnName = "TAULA", pkColumnValue = "polissa",
+            valueColumnName = "COMPTADOR", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "comptadors_generator")
     private int numero;
     @Column(name = "data_inici")
     private Date dataInici;

@@ -25,6 +25,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
+import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 
 /**
@@ -36,7 +37,10 @@ public class Perit  implements Serializable{
     @Transient
     private static final int passwordLenght = 9;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableGenerator(name = "comptadors_generator", table = "comptadors",
+            pkColumnName = "TAULA", pkColumnValue = "perit",
+            valueColumnName = "COMPTADOR", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "comptadors_generator")
     private int numero;
     @Column(length = 30, nullable = false)
     private String login;

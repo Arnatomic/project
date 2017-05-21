@@ -7,6 +7,7 @@ package info.infomila.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,6 +29,9 @@ public class Proves {
         
         System.out.println(s.isEmpty());
         
+        List<Sinistre> sinistres = new ArrayList<>();
+        
+      
         
 //        List<Person> persones = new ArrayList();
 //        persones.add(new Person("Nil"));

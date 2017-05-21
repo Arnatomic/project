@@ -4,11 +4,15 @@ insert into perit values(null,"55667788B","Oriol","Bernaus","Rovira",date'1992-0
 insert into perit values(null,"22334455C","Carles","Mas","Jene",date'1974-11-06',"cmas","fcb1cb75483e6bc683fa92f7c4dd9611");
 insert into perit values(null,"99887766H","Cristian","Lopez",null,date'1974-11-06',"clopez","3cd5d210acb9a1b81c04150ca305d662");
 
+insert into comptadors values("perit",6);
+
 insert into client values(null,"56478632L","Uriel","Costa","Bonet",date'1982-02-03');
 insert into client values(null,"98542365K","Ester","Mas",null,date'1992-07-15');
 insert into client values(null,"47111543J","Guillem","Estany","Bosch",date'1994-10-22');
 insert into client values(null,"77233568S","Eduard","Lorente",null,date'1991-01-01');
 insert into client values(null,"11323456Y","Pau","Ter","Caberizo",date'1995-11-11');
+
+insert into comptadors values("client",6);
 
 
 insert into polissa values(null,date'2016-12-12','2017-12-12',1147.54,850,297.54,4,"Igualada","Av. Gaudí nº 55, B7","PIS");
@@ -25,6 +29,11 @@ insert into polissa values(null,date'2017-02-21','2019-02-21',450.75,200,250.75,
 insert into polissa values(null,date'2014-11-21','2017-11-21',480.20,0,480.20,3,"Cervera","C. Fals nº 99","PARKING");
 
 insert into polissa values(null,date'2017-05-18','2020-05-18',4500.21,3850,650.21,5,"Castellolí","C. Angel Guimerà nº 4","CASA_ADOSADA");
+
+
+
+insert into comptadors values("polissa",10);
+
 
 
 insert into cobertura values(1,null,"Cobertura Bàsica, cobreix fins a 850€ en relació a (Desperfectes Estructurals,Robatori,Incendi) i 279.54€ en relació (Objectes robats, desperfectes materials)");
@@ -57,7 +66,10 @@ insert into sinistre values(null,null,date'2017-05-19',null,
                 
 insert into sinistre values(null,date'2017-03-24',date'2017-03-19',null,
 				"Explosió de gas que ha esfondrat parcialment un local",7,2,"GAS","ASSIGNAT",0);   
-           
+     
+     
+insert into comptadors values("sinistre",5);
+
 -- perits 1,2,4
 insert into cita values(null,1,date'2017-05-10',1,1);
 insert into cita values(null,1,date'2017-05-19',1,2);
@@ -83,29 +95,21 @@ insert into informe_pericial values(1,date'2017-05-10',0.00,"Han entrat a robar 
 
 insert into informe_pericial values(2,date'2017-01-27',0.00,"Humitats que han causat desperfectes a la paret i a la pintura del cotxe",1,"TANCAT","SENSE_COBERTURA");
 
-insert into informe_pericial values(4,date'2017-05-10',0.00,"Han entrat a robar al pis, hem detectat que el client disposava d'alarma però la tenia desactivada..",1,"TANCAT","SENSE_COBERTURA");
 
-/*
-insert into cita values(null,1,date'2017-05-10',1,1);
-insert into cita values(null,1,date'2017-05-19',1,2);
-insert into cita values(null,1,date'2017-05-25',1,3);
-
-insert into cita values(null,4,date'2017-04-20',2,2);
-
-insert into cita values(null,2,date'2017-04-10',4,3);
-insert into cita values(null,2,date'2017-04-21',4,1);
-insert into cita values(null,2,date'2017-05-12',4,1);
-*/
 insert into entrada_informe values(1,null,date'2017-05-10',"Hi ha hagut un robatori mentre el client estava de cap de setmana",0,null);
 insert into entrada_informe values(1,null,date'2017-04-21',"He comprovat la alarma per determinar perqué no va saltar, i no estava activada el dia del robatori",0,null);
 insert into entrada_informe values(1,null,date'2017-05-25',"Al tenir la alarma operativa, però sense activar, no ens fem càrrec dels danys causats, ho sentim.",0,null);
 
+insert into entrada_informe values(2,null,date'2017-01-25',"El veí de dalt ha deixat la aixeta oberta i això ha provocat humitats al parking, desperfetes al cotxe.",0,null);
 
 
+
+/*
 select * from perit;
 select * from client;
 select * from polissa;
 select * from cobertura;
 select * from sinistre;
+select * from comptadors;
+*/
 
-delete from cobertura where num_polissa =1;
