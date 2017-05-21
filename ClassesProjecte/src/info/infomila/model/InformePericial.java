@@ -27,6 +27,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
@@ -35,6 +37,11 @@ import javax.persistence.Table;
  *
  * @author Mr. Robot
  */
+@NamedQueries({
+    @NamedQuery(name="InformePericial.getInformePericial", 
+            query="select i from InformePericial i where i.numero = ?1")})
+
+
 @Entity
 @Table(name = "informe_pericial")
 public class InformePericial implements Serializable {
@@ -86,6 +93,10 @@ public class InformePericial implements Serializable {
         setEstatInforme(estatInforme);
         setSinistre(sinistre);
 
+    }
+    
+    public int getNumero(){
+        return numero;
     }
 
     public Date getDataEmisio() {

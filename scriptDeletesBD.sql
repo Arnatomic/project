@@ -1,7 +1,6 @@
 -- DROPS
 SET foreign_key_checks = 0;
 drop table if exists user_online;
-drop table if exists user_ids;
 drop table if exists comptadors;
 drop table if exists entrada_informe;
 drop table if exists informe_pericial;

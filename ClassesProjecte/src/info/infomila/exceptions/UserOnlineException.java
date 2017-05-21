@@ -3,24 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package info.infomila;
+package info.infomila.exceptions;
 
 /**
  *
  * @author Mr. Robot
  */
-public class IComponentSGBDException extends Exception{
+public class UserOnlineException extends RuntimeException {
 
-    public IComponentSGBDException() {
+    public UserOnlineException() {
     }
 
-    public IComponentSGBDException(String message) {
+    public UserOnlineException(String message) {
         super(message);
     }
 
-    public IComponentSGBDException(String message, Throwable cause) {
+    public UserOnlineException(String message, Throwable cause) {
         super(message, cause);
     }
+
     
     
 }

@@ -12,6 +12,8 @@ import java.util.Date;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -19,6 +21,10 @@ import javax.persistence.Transient;
  *
  * @author Mr. Robot
  */
+
+
+
+
 @Embeddable
 public class EntradaInforme implements Serializable {
   

@@ -12,6 +12,7 @@
         <class>info.infomila.model.Perit</class> 
         <class>info.infomila.model.InformePericial</class> 
         <class>info.infomila.model.EntradaInforme</class> 
+        <class>info.infomila.gestio.UserOnline</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/projecte"/>            
             <property name="javax.persistence.jdbc.user" value="root"/>

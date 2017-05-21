@@ -5,8 +5,22 @@
  */
 package info.infomila;
 
+import info.infomila.enums.ESTAT_INFORME;
+import info.infomila.enums.RESULTAT_PERITATGE;
+import static info.infomila.enums.RESULTAT_PERITATGE.REPARAT;
+import info.infomila.enums.TIPUS_HABITATGE;
+import info.infomila.enums.TIPUS_SINISTRE;
+import info.infomila.model.InformePericial;
+import info.infomila.model.Perit;
+import info.infomila.model.Persona;
+import info.infomila.model.Polissa;
+import info.infomila.model.Sinistre;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -62,13 +76,42 @@ public class Proves {
             System.out.println("Connexió establerta");
             
             
-            int num = obj.login("nilcente", "4567527766403b33df1717882f8c2d3c");
+            long num = 0;
+            try {
+                num = obj.login("nilcente", "4567527766403b33df1717882f8c2d3c");
+            
             
             System.out.println("He trobat: " + num);
             
-            obj.tancarConexio();
             
-           return;
+            for(Sinistre ss: obj.getLlistatSinistres(num)){
+                System.out.println("Sinistre: " + ss);
+            }
+            
+            
+            
+            Sinistre xx = obj.getInfoSinistre(num, 2);
+            
+                System.out.println("Sinistre Suelto: " + xx);
+                
+                InformePericial ip = obj.getInformePericial(num, 2);
+//                Polissa p = new Polissa(0, nomFitxerConfiguracio, classeCapaPersistencia, dataInici, dataFi, BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ZERO, client, TIPUS_HABITATGE.TRASTER)
+//                Sinistre jj = new Sinistre(22, new Date(), new Date(), new Date(), "Sinistre Prova", ESTAT_SINISTRE.ASSIGNAT, TIPUS_SINISTRE.ELECTRICITAT, pp, new Polissa(), ip), TIPUS_SINISTRE.ELECTRICITAT, perit, polissa, ip);
+//                System.out.println("Informe Suelto: " + ip);
+//                Persona p = new Persona("47111651S","nom", "cognom1", "cognom2", new Date());
+                Perit pp = new Perit("pepe","gotera123456",p);
+                InformePericial vv = new InformePericial(new Date(), new BigDecimal(1203.33), "Informe Molt detallat",
+                        pp, RESULTAT_PERITATGE.COBERT_PARCIAL,ESTAT_INFORME.PENDENT,xx);
+                        
+                obj.desarInforme(num, vv);
+                
+            } catch (IComponentSGBDException ex) {
+                System.out.println("Error: " + ex.getMessage());
+            }
+            
+            obj.tancarConexio(num);
+            
+           System.exit(0);
             
         } catch (InstantiationException | IllegalAccessException ex) {
             System.out.println("No es pot obtenir l'objecte de persistència");

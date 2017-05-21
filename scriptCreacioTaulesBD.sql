@@ -30,27 +30,31 @@ create table perit(
   CHECK(length(password)>0)
 
 );
-
-create table user_online(
+/*
+create table user_log(
 	connection_code bigint not null,
-    id_user int,
+    user_id int,
     user_name varchar(30),
     connection_time date not null,
     
     primary key (connection_code),
     
     CHECK(connection_code >0)
-
 );
+*/
 
-create table user_ids(
+create table user_online(
 	connection_code bigint not null,
-    ordre int not null,
+    user_id int unique,
+    user_name varchar(30),
+    connection_time date not null,
     
     primary key (connection_code),
     
-    FOREIGN KEY (connection_code) REFERENCES users_online(connection_code)
+    CHECK(connection_code >0)
 );
+
+
 
 
 

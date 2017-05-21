@@ -103,7 +103,12 @@ insert into entrada_informe values(1,null,date'2017-05-25',"Al tenir la alarma o
 insert into entrada_informe values(2,null,date'2017-01-25',"El veí de dalt ha deixat la aixeta oberta i això ha provocat humitats al parking, desperfetes al cotxe.",0,null);
 
 
+insert into user_online values (212323234434234,2,"mayte",date'2017-04-04');
 
+select * from user_online;
+select * from user_ids;
+delete from user_online where user_id = 1;
+select * from informe_pericial;
 /*
 select * from perit;
 select * from client;
@@ -111,5 +116,6 @@ select * from polissa;
 select * from cobertura;
 select * from sinistre;
 select * from comptadors;
+select * from trucada;
 */
 

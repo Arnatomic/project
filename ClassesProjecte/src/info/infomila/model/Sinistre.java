@@ -27,9 +27,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Query;
 import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 
@@ -37,6 +40,14 @@ import javax.persistence.Transient;
  *
  * @author Mr. Robot
  */
+@NamedQueries({
+    @NamedQuery(name="Sinistre.getLlistaSinistres", 
+            query="select s from Sinistre s"),
+    
+    @NamedQuery(name = "Sinistre.getSinistrePeriNum",
+            query = "select s from Sinistre s where s.numero = ?1")})
+
+
 @Entity
 public class Sinistre implements Serializable{
 
@@ -90,7 +101,7 @@ public class Sinistre implements Serializable{
     }
 
     public Sinistre(int numero, Date dataAssignacio, Date dataObertura, Date dataTancament, String descripcio,
-            ESTAT_SINISTRE estatSinistre, TIPUS_SINISTRE tipusSinistre, Perit perit, Polissa polissa, InformePericial informe) {
+            ESTAT_SINISTRE estatSinistre, TIPUS_SINISTRE tipusSinistre, Perit perit, Polissa polissa) {
 
         setNumero(numero);
         setDataAssignacio(dataAssignacio);
@@ -101,7 +112,7 @@ public class Sinistre implements Serializable{
         setTipusSinistre(tipusSinistre);
         setPerit(perit);
         setPolissa(polissa);
-        setInforme(informe);
+  
 
     }
 
@@ -270,8 +281,10 @@ public class Sinistre implements Serializable{
 
     @Override
     public String toString() {
-        return "Sinistre{" + "numero=" + numero + ", dataAssignacio=" + dataAssignacio + ", dataObertura=" + dataObertura + ", dataTancament=" + dataTancament + ", descripcio=" + descripcio + ", estatSinistre=" + estatSinistre + ", tipusSinistre=" + tipusSinistre  + '}';
+        return "Sinistre{" + "numero=" + numero + ", dataAssignacio=" + dataAssignacio + ", dataObertura=" + dataObertura + ", dataTancament=" + dataTancament + ", descripcio=" + descripcio + ", estatSinistre=" + estatSinistre + ", tipusSinistre=" + tipusSinistre + ", polissa=" + polissa + ", perit=" + perit + ", informe=" + informe + ", trucades=" + trucades + '}';
     }
+
+    
 
 
 }

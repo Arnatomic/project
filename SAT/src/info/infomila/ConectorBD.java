@@ -20,23 +20,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.RollbackException;
 
 /**
  *
  * @author Mr. Robot
  */
-public class ConectorBD implements IComponentSGBD{
-    
+public class ConectorBD implements IComponentSGBD {
+
     private EntityManager em;
     private EntityManagerFactory emf;
     private Query q;
-   
-    
-    public ConectorBD(){
+
+    public ConectorBD() throws IComponentSGBDException {
         this("propietatsUnitatPersistencia.txt");
     }
-    
-    public ConectorBD(String nomFitxerPropietats){
+
+    public ConectorBD(String nomFitxerPropietats) throws IComponentSGBDException {
         Properties props = new Properties();
         try {
             props.load(new FileReader(nomFitxerPropietats));
@@ -55,75 +55,159 @@ public class ConectorBD implements IComponentSGBD{
             throw new IComponentSGBDException("Problemes en crear EntityManagerFactory.", ex);
         }
         try {
-            em = emf.createEntityManager();                        
+            em = emf.createEntityManager();
         } catch (Exception ex) {
             throw new IComponentSGBDException("Problemes en crear EntityManager", ex);
         }
-        
+
         System.out.println("Entity manager Creat");
     }
 
     @Override
-    public int login(String user, String password) {
-        q = em.createQuery("select p from Perit p where p.login=?1 and p.password=?2");
+    public long login(String user, String password) throws IComponentSGBDException {
+        q = em.createNamedQuery("Perit.login", Long.class);
         q.setParameter(1, user);
         q.setParameter(2, password);
-        
-        Perit p = (Perit)q.getSingleResult();
-        
-        return p.getNumero();
+
+        long res = (long) q.getSingleResult();
+
+        if (res == 1) {
+            q = em.createNamedQuery("Perit.getPeritPerLogin", Integer.class);
+            q.setParameter(1, user);
+            int numPerit = (int) q.getSingleResult();
+
+            List<Long> connectionCodes = getIdsSessio();
+
+            UserOnline usuariEntrant = new UserOnline(numPerit, user, connectionCodes);
+
+            try {
+                em.persist(usuariEntrant);
+                em.getTransaction().begin();
+                em.getTransaction().commit();
+            } catch (RollbackException e) {
+                throw new IComponentSGBDException("Error, Usuari ja connectat");
+            }
+
+            return usuariEntrant.getConnectionCode();
+        }
+        throw new IComponentSGBDException("Usuari invàlid, usuari o contrassenya errònis.");
     }
 
     @Override
-    public List<Sinistre> getLlistatSinistres(int idSessio) {
+    public List<Sinistre> getLlistatSinistres(long idSessio) throws IComponentSGBDException {
+
+        if (validaIdSessio(idSessio)) {
+            q = em.createNamedQuery("Sinistre.getLlistaSinistres", Sinistre.class);
+            return q.getResultList();
+
+        }
+        throw new IComponentSGBDException("Identificador de Sessio invàlid, entrada no desitjada");
+
+    }
+
+    @Override
+    public Sinistre getInfoSinistre(long idSessio, int numSinistre) throws IComponentSGBDException {
+        if (validaIdSessio(idSessio)) {
+            q = em.createNamedQuery("Sinistre.getSinistrePeriNum", Sinistre.class);
+            q.setParameter(1, numSinistre);
+
+            return (Sinistre) q.getSingleResult();
+        }
+        throw new IComponentSGBDException("Identificador de Sessio invàlid, entrada no desitjada");
+    }
+
+    @Override
+    public InformePericial getInformePericial(long idSessio, int numSinistre) throws IComponentSGBDException {
+
+        if (validaIdSessio(idSessio)) {
+            q = em.createNamedQuery("InformePericial.getInformePericial", InformePericial.class);
+            q.setParameter(1, numSinistre);
+
+            return (InformePericial) q.getSingleResult();
+        }
+        throw new IComponentSGBDException("Identificador de Sessio invàlid, entrada no desitjada");
+    }
+
+    @Override
+    public Byte[] getFoto(long idSessio, int numSinistre, int numEntrada) throws IComponentSGBDException {
+        if (validaIdSessio(idSessio)) {
+
+        }
+        return null;
+    }
+
+    @Override
+    public int desarInforme(long idSessio, InformePericial informe) throws IComponentSGBDException {
+
+        if (validaIdSessio(idSessio)) {
+
+            em.find(InformePericial.class, informe.getNumero());
+
+            if (em == null) {
+                em.getTransaction().begin();
+                em.persist(informe);
+                em.getTransaction().commit();
+                return 0;
+            }
+            System.out.println("Informe ja existent");
+            return -1;
+
+        }
+        throw new IComponentSGBDException("Identificador de Sessio invàlid, entrada no desitjada");
+    }
+
+    @Override
+    public int desarEntradaInforme(long idSessio, EntradaInforme entrada) throws IComponentSGBDException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Sinistre getInfoSinistre(int idSessio, int numSinistre) {
+    public int eliminarEntradaInforme(long idSessio, int numSinistre, int numEntrada) throws IComponentSGBDException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public InformePericial getInformePericial(int idSessio, int numSinistre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Byte[] getFoto(int idSessio, int numSinistre, int numEntrada) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int desarInforme(int idSessio, int numSinistre, InformePericial informe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int desarEntradaInforme(int idSessio, int numSinistre, EntradaInforme entrada) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int eliminarEntradaInforme(int idSessio, int numSinistre, int numEntrada) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void tancarConexio() {
-        if(em!=null){
+    public void tancarConexio(long idSessio) {
+        if (em != null) {
+            UserOnline usuari = em.find(UserOnline.class, idSessio);
+            em.getTransaction().begin();
+            em.remove(usuari);
+            em.getTransaction().commit();
             em.close();
         }
     }
 
     @Override
     public int commit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            em.getTransaction().commit();
+            return 1;
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     @Override
     public int rollback() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            em.getTransaction().rollback();
+            return 1;
+        } catch (Exception e) {
+            return 0;
+        }
     }
-    
+
+    //------- UTILS ---------
+    public List<Long> getIdsSessio() {
+        q = em.createNamedQuery("UserOnline.getConnectionCodes", Long.class);
+        return q.getResultList();
+    }
+
+    public boolean validaIdSessio(long idSessio) {
+        q = em.createNamedQuery("UserOnline.validaConnectionCode", Long.class);
+        q.setParameter(1, idSessio);
+
+        return (long) q.getSingleResult() == 1;
+    }
+
 }
