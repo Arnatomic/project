@@ -45,7 +45,10 @@ import javax.persistence.Transient;
             query="select s from Sinistre s"),
     
     @NamedQuery(name = "Sinistre.getSinistrePeriNum",
-            query = "select s from Sinistre s where s.numero = ?1")})
+            query = "select s from Sinistre s where s.numero = ?1"),
+    
+    @NamedQuery(name = "Sinistre.getSinistresFromClient",
+            query = "select s from Sinistre s where s.polissa.client.numero = ?1")})
 
 
 @Entity

@@ -10,6 +10,7 @@ import info.infomila.enums.RESULTAT_PERITATGE;
 import static info.infomila.enums.RESULTAT_PERITATGE.REPARAT;
 import info.infomila.enums.TIPUS_HABITATGE;
 import info.infomila.enums.TIPUS_SINISTRE;
+import info.infomila.model.Client;
 import info.infomila.model.InformePericial;
 import info.infomila.model.Perit;
 import info.infomila.model.Persona;
@@ -19,6 +20,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -76,25 +80,25 @@ public class Proves {
             System.out.println("Connexió establerta");
             
             
-            long num = 0;
-            try {
-                num = obj.login("nilcente", "4567527766403b33df1717882f8c2d3c");
-            
-            
-            System.out.println("He trobat: " + num);
-            
-            
-            for(Sinistre ss: obj.getLlistatSinistres(num)){
-                System.out.println("Sinistre: " + ss);
-            }
-            
-            
-            
-            Sinistre xx = obj.getInfoSinistre(num, 2);
-            
-                System.out.println("Sinistre Suelto: " + xx);
-                
-                InformePericial ip = obj.getInformePericial(num, 2);
+//            long num = 0;
+        try {
+//                num = obj.login("nilcente", "4567527766403b33df1717882f8c2d3c");
+//            
+//            
+//            System.out.println("He trobat: " + num);
+//            
+//            
+//            for(Sinistre ss: obj.getLlistatSinistres(num)){
+//                System.out.println("Sinistre: " + ss);
+//            }
+//            
+//            
+//            
+//            Sinistre xx = obj.getInfoSinistre(num, 2);
+//            
+//                System.out.println("Sinistre Suelto: " + xx);
+//                
+//                InformePericial ip = obj.getInformePericial(num, 2);
 //                Polissa p = new Polissa(0, nomFitxerConfiguracio, classeCapaPersistencia, dataInici, dataFi, BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ZERO, client, TIPUS_HABITATGE.TRASTER)
 //                Sinistre jj = new Sinistre(22, new Date(), new Date(), new Date(), "Sinistre Prova", ESTAT_SINISTRE.ASSIGNAT, TIPUS_SINISTRE.ELECTRICITAT, pp, new Polissa(), ip), TIPUS_SINISTRE.ELECTRICITAT, perit, polissa, ip);
 //                System.out.println("Informe Suelto: " + ip);
@@ -104,14 +108,78 @@ public class Proves {
 //                        pp, RESULTAT_PERITATGE.COBERT_PARCIAL,ESTAT_INFORME.PENDENT,xx);
 //                        
 //                obj.desarInforme(num, vv);
+
+                System.out.println("get clients: ");
                 
+                List<Client> cli = obj.getLlistatClients();
+                
+                for(Client cll : cli){
+                    System.out.println(cll);                   
+                }
+                
+                System.out.println("get polices: ");
+
+            List<Polissa> pol = obj.getLlistaPolicesPerNumClient(4);
+            System.out.println("S: " + pol.size());
+            for(Polissa s : pol){
+                System.out.println("Polissa: " + s);
+            }
+            
+            
+            System.out.println("getClient x dni");
+            
+            List<Client> clientsXdni = obj.getClientPerDni("3");
+            
+            System.out.println("ClientsXDni: " + clientsXdni.size());
+                
+            for(Client ccc : clientsXdni){
+                System.out.println("Client: " + ccc);
+            }
+            
+            
+            System.out.println("getClients x nom");
+            
+            List<Client> clientsXnomCognomEtc = obj.getClientPerNomCognoms("e", null, null);
+            System.out.println("ClientsXNOM: " + clientsXnomCognomEtc.size());
+            for(Client vvv : clientsXnomCognomEtc){
+                System.out.println("Client: " + vvv);
+            }
+             try {
+                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+                Date data = df.parse("1982/02/03");
+            
+               
+                    System.out.println("Data: " + data.toString() + "  -  " + df.parse("1992/02/03"));
+                    List<Client> clientsXData = obj.getClientPerDataNaix(new java.sql.Date(data.getTime()));
+                    
+                    System.out.println("ClientsXData: " + clientsXData.size());
+                    for(Client ggg : clientsXData){
+                        System.out.println("Client: " + ggg);
+                    }
+                    
+                    
+                    List<Sinistre> sinistresXclient = obj.getLlistatSinistresPerClient(3);
+                    System.out.println("getSinistresXClient: ");
+                    
+                    for(Sinistre sc : sinistresXclient){
+                        System.out.println("Sinistre: " + sc);
+                    }
+                    
+                    
+                } catch (ParseException ex) {
+                    System.out.println("Error parsejant data");
+                }
+            
             } catch (IComponentSGBDException ex) {
                 System.out.println("Error: " + ex.getMessage());
             }
+        
+        
             
-            obj.tancarConexio(num);
             
-           System.exit(0);
+            //obj.tancarConexio(num);
+            
+           
             
         } catch (InstantiationException | IllegalAccessException ex) {
             System.out.println("No es pot obtenir l'objecte de persistència");
@@ -120,6 +188,8 @@ public class Proves {
                 System.out.println("Causat per: " + ex.getCause().getMessage());
             }
             System.exit(1);
+        }finally{
+           
         } 
     
     

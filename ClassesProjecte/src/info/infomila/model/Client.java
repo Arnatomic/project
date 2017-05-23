@@ -13,12 +13,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.TableGenerator;
 
 /**
  *
  * @author Mr. Robot
  */
+
+@NamedQueries({
+    @NamedQuery(name="Client.getLlistaClients", 
+            query="select c from Client c"),
+    
+    @NamedQuery(name = "Client.getClientPerDni",
+            query = "select c from Client c where c.persona.nif like ?1"),
+    
+    @NamedQuery(name = "Client.getClientPerNomCognoms",
+            query = "select c from Client c where (?1='' or c.persona.nom like ?1) and (?2='' or c.persona.cognom1 like?2) and (?3='' or c.persona.cognom2 is null or c.persona.cognom2 like ?3)"),
+    
+    @NamedQuery(name = "Client.getClientPerDataNaix",
+            query = "select c from Client c where c.persona.dataNaix = ?1"),})
+
+
 @Entity
 public class Client implements Serializable {
     @Id
@@ -84,14 +101,15 @@ public class Client implements Serializable {
         }
         return true;
     }
-    
-    
 
     @Override
     public String toString() {
-        return "Client{" + "numero=" + numero + '}';
+        return "Client{" + "numero=" + numero + ", persona=" + persona + '}';
     }
+    
+    
 
+    
    
     
     

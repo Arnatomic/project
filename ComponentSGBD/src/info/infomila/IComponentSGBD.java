@@ -5,9 +5,12 @@
  */
 package info.infomila;
 
+import info.infomila.model.Client;
 import info.infomila.model.EntradaInforme;
 import info.infomila.model.InformePericial;
+import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -96,5 +99,20 @@ public interface IComponentSGBD {
      * @return, retorna 0 si s'ha pogut realitzar el commit, negatiu en cas contrari.
      */
     public int rollback();
+
+//    public List<Sinistre> getLlistaSinistresPerClient(int i) throws IComponentSGBDException;
     
+    public List<Client> getLlistatClients();
+    
+    public List<Client> getClientPerDni(String dni) throws IComponentSGBDException;
+    
+    public List<Client> getClientPerNomCognoms(String nom, String cognom1, String cognom2) throws IComponentSGBDException;
+    
+    public List<Client> getClientPerDataNaix(java.sql.Date dataNaix) throws IComponentSGBDException;
+    
+    public List<Polissa> getLlistaPolices();
+    
+    public List<Polissa> getLlistaPolicesPerNumClient(int numClient) throws IComponentSGBDException;
+    
+    public List<Sinistre> getLlistatSinistresPerClient(int numClient) throws IComponentSGBDException;
 }

@@ -26,6 +26,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.TableGenerator;
@@ -34,6 +36,18 @@ import javax.persistence.TableGenerator;
  *
  * @author Mr. Robot
  */
+
+    @NamedQueries({
+    @NamedQuery(name="Polissa.getPolissaPerNumClient", 
+            query="select p from Polissa p where p.client.numero = ?1"),
+    @NamedQuery(name = "Polissa.getLlistaPolices",
+            query = "select p from Polissa p"),
+    
+    @NamedQuery(name = "Polissa.getSinistresFromPolissa",
+            query = "select p.sinistres from Polissa p where p.client.numero = ?1")})
+    
+    
+
  @Entity
 public class Polissa implements Serializable {
 
