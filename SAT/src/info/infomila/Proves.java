@@ -99,11 +99,11 @@ public class Proves {
 //                Sinistre jj = new Sinistre(22, new Date(), new Date(), new Date(), "Sinistre Prova", ESTAT_SINISTRE.ASSIGNAT, TIPUS_SINISTRE.ELECTRICITAT, pp, new Polissa(), ip), TIPUS_SINISTRE.ELECTRICITAT, perit, polissa, ip);
 //                System.out.println("Informe Suelto: " + ip);
 //                Persona p = new Persona("47111651S","nom", "cognom1", "cognom2", new Date());
-                Perit pp = new Perit("pepe","gotera123456",p);
-                InformePericial vv = new InformePericial(new Date(), new BigDecimal(1203.33), "Informe Molt detallat",
-                        pp, RESULTAT_PERITATGE.COBERT_PARCIAL,ESTAT_INFORME.PENDENT,xx);
-                        
-                obj.desarInforme(num, vv);
+//               // Perit pp = new Perit("pepe","gotera123456",p);
+//                InformePericial vv = new InformePericial(new Date(), new BigDecimal(1203.33), "Informe Molt detallat",
+//                        pp, RESULTAT_PERITATGE.COBERT_PARCIAL,ESTAT_INFORME.PENDENT,xx);
+//                        
+//                obj.desarInforme(num, vv);
                 
             } catch (IComponentSGBDException ex) {
                 System.out.println("Error: " + ex.getMessage());
