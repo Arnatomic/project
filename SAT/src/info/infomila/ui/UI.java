@@ -5,6 +5,7 @@ import info.infomila.IComponentSGBDException;
 import info.infomila.model.Client;
 import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
+import java.awt.BorderLayout;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -37,17 +39,18 @@ public class UI extends javax.swing.JFrame {
     private TableModel clientsModel;
     private TableModel sinistresModel;
     private List<Client> clients;
-    private List<Sinistre> sinistres;
-    private List<Sinistre> sinistresFiltrats;
-
+    private List<Sinistre> sinistres = new ArrayList<>();
+    private List<Sinistre> sinistresFiltrats = new ArrayList<>();
+    private JFrame me;
     /**
      * Creates new form UI
      */
     public UI(IComponentSGBD dbConnector) {
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.dbConnector = dbConnector;
+     
+        this.dbConnector = dbConnector;          
+        me = this;
         initComponents();
-        inirComponentsCorrectly();
+        initComponentsCorrectly();
     }
 
     /**
@@ -67,14 +70,11 @@ public class UI extends javax.swing.JFrame {
         taNif = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         taNom = new javax.swing.JTextArea();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        taDataNaix = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
         taCognom2 = new javax.swing.JTextArea();
         btnActivarFiltre = new javax.swing.JButton();
         btnDesactivarFiltre = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -84,6 +84,12 @@ public class UI extends javax.swing.JFrame {
         taNumSinistre = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         btnFiltreSinistre = new javax.swing.JButton();
+        btnDesactivaFiltreSinistres = new javax.swing.JButton();
+        jXDatePickerDnaix = new org.jdesktop.swingx.JXDatePicker();
+        jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        tfNif = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,14 +121,19 @@ public class UI extends javax.swing.JFrame {
         if (jtClients.getColumnModel().getColumnCount() > 0) {
             jtClients.getColumnModel().getColumn(0).setPreferredWidth(100);
             jtClients.getColumnModel().getColumn(0).setMaxWidth(100);
+            jtClients.getColumnModel().getColumn(0).setHeaderValue("NIF");
             jtClients.getColumnModel().getColumn(1).setPreferredWidth(110);
             jtClients.getColumnModel().getColumn(1).setMaxWidth(110);
+            jtClients.getColumnModel().getColumn(1).setHeaderValue("Nom");
             jtClients.getColumnModel().getColumn(2).setPreferredWidth(120);
             jtClients.getColumnModel().getColumn(2).setMaxWidth(120);
+            jtClients.getColumnModel().getColumn(2).setHeaderValue("Cognom1");
             jtClients.getColumnModel().getColumn(3).setPreferredWidth(120);
             jtClients.getColumnModel().getColumn(3).setMaxWidth(120);
+            jtClients.getColumnModel().getColumn(3).setHeaderValue("Cognom2");
             jtClients.getColumnModel().getColumn(4).setPreferredWidth(140);
             jtClients.getColumnModel().getColumn(4).setMaxWidth(140);
+            jtClients.getColumnModel().getColumn(4).setHeaderValue("Data Naixement");
         }
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -149,14 +160,6 @@ public class UI extends javax.swing.JFrame {
         taNom.setRows(5);
         jScrollPane4.setViewportView(taNom);
 
-        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane5.setToolTipText("Nom");
-        jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        taDataNaix.setColumns(20);
-        taDataNaix.setRows(5);
-        jScrollPane5.setViewportView(taDataNaix);
-
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setToolTipText("Nom");
         jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -178,15 +181,8 @@ public class UI extends javax.swing.JFrame {
                 btnDesactivarFiltreMouseClicked(evt);
             }
         });
-        btnDesactivarFiltre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDesactivarFiltreActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("NIF");
-
-        jLabel2.setText("Nom");
 
         jLabel3.setText("Cognom1");
 
@@ -222,20 +218,28 @@ public class UI extends javax.swing.JFrame {
         if (jtSinistres.getColumnModel().getColumnCount() > 0) {
             jtSinistres.getColumnModel().getColumn(0).setPreferredWidth(100);
             jtSinistres.getColumnModel().getColumn(0).setMaxWidth(100);
+            jtSinistres.getColumnModel().getColumn(0).setHeaderValue("Num");
             jtSinistres.getColumnModel().getColumn(1).setPreferredWidth(110);
             jtSinistres.getColumnModel().getColumn(1).setMaxWidth(110);
+            jtSinistres.getColumnModel().getColumn(1).setHeaderValue("Data Assignació");
             jtSinistres.getColumnModel().getColumn(2).setPreferredWidth(120);
             jtSinistres.getColumnModel().getColumn(2).setMaxWidth(120);
+            jtSinistres.getColumnModel().getColumn(2).setHeaderValue("Data Obertura");
             jtSinistres.getColumnModel().getColumn(3).setPreferredWidth(120);
             jtSinistres.getColumnModel().getColumn(3).setMaxWidth(120);
+            jtSinistres.getColumnModel().getColumn(3).setHeaderValue("Data Tancament");
             jtSinistres.getColumnModel().getColumn(4).setPreferredWidth(140);
             jtSinistres.getColumnModel().getColumn(4).setMaxWidth(140);
+            jtSinistres.getColumnModel().getColumn(4).setHeaderValue("Descripció");
             jtSinistres.getColumnModel().getColumn(5).setPreferredWidth(100);
             jtSinistres.getColumnModel().getColumn(5).setMaxWidth(100);
+            jtSinistres.getColumnModel().getColumn(5).setHeaderValue("Num Polissa");
             jtSinistres.getColumnModel().getColumn(6).setPreferredWidth(100);
             jtSinistres.getColumnModel().getColumn(6).setMaxWidth(100);
+            jtSinistres.getColumnModel().getColumn(6).setHeaderValue("Tipus Sinistre");
             jtSinistres.getColumnModel().getColumn(7).setPreferredWidth(100);
             jtSinistres.getColumnModel().getColumn(7).setMaxWidth(100);
+            jtSinistres.getColumnModel().getColumn(7).setHeaderValue("Estat Sinistre");
         }
 
         jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -249,95 +253,124 @@ public class UI extends javax.swing.JFrame {
         jLabel6.setText("Num Sinistre");
 
         btnFiltreSinistre.setText("Activar Filtre");
+        btnFiltreSinistre.setEnabled(false);
         btnFiltreSinistre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnFiltreSinistreMouseClicked(evt);
             }
         });
 
+        btnDesactivaFiltreSinistres.setText("Desactivar Filtre");
+        btnDesactivaFiltreSinistres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDesactivaFiltreSinistresMouseClicked(evt);
+            }
+        });
+
+        jLabel7.setText("Nom");
+
+        jButton1.setText("Nou Sinistre");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Afegir Trucada");
+        jButton2.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnFiltreSinistre))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(149, 149, 149)
-                                    .addComponent(btnActivarFiltre))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnDesactivarFiltre))))))
-                .addContainerGap(366, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnFiltreSinistre)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDesactivaFiltreSinistres)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 894, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfNif, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jXDatePickerDnaix, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnActivarFiltre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDesactivarFiltre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnActivarFiltre)
-                        .addComponent(btnDesactivarFiltre))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addComponent(tfNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnFiltreSinistre))
-                .addGap(55, 55, 55))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jXDatePickerDnaix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(btnActivarFiltre)
+                            .addComponent(btnDesactivarFiltre))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnFiltreSinistre)
+                                .addComponent(jButton2)
+                                .addComponent(btnDesactivaFiltreSinistres)
+                                .addComponent(jButton1))
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(8, 8, 8)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))))
         );
 
         pack();
@@ -351,9 +384,10 @@ public class UI extends javax.swing.JFrame {
         System.out.println("num CLient: " + codiClient);
         try {
             sinistres = dbConnector.getLlistatSinistresPerClient(codiClient);
-            sinistresFiltrats = sinistres;
-            SinistresTableModel stb = new SinistresTableModel(sinistres);
-            jtSinistres.setModel(stb);
+            sinistresFiltrats.clear();
+            sinistresFiltrats.addAll(sinistres);
+            sinistresModel = new SinistresTableModel(sinistresFiltrats);
+            jtSinistres.setModel(sinistresModel);           
         } catch (IComponentSGBDException ex) {
             System.out.println("Error en recuperar sinistres: " + ex.getMessage());
         }
@@ -364,10 +398,6 @@ public class UI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtSinistresMouseClicked
 
-    private void btnDesactivarFiltreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarFiltreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDesactivarFiltreActionPerformed
-
     private void btnActivarFiltreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActivarFiltreMouseClicked
         filtrarLlistaClients();
     }//GEN-LAST:event_btnActivarFiltreMouseClicked
@@ -377,10 +407,22 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDesactivarFiltreMouseClicked
 
     private void btnFiltreSinistreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFiltreSinistreMouseClicked
-        sinistresModel = new SinistresTableModel(sinistres);
-        jtSinistres.setModel(sinistresModel);
         filtrarSinistresPerCodi();
     }//GEN-LAST:event_btnFiltreSinistreMouseClicked
+
+    private void btnDesactivaFiltreSinistresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDesactivaFiltreSinistresMouseClicked
+        disableFiltreSinistres();
+    }//GEN-LAST:event_btnDesactivaFiltreSinistresMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FormulariSinistre(me);
+                
+            }
+        });
+        this.setEnabled(false);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -473,71 +515,77 @@ public class UI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActivarFiltre;
+    private javax.swing.JButton btnDesactivaFiltreSinistres;
     private javax.swing.JButton btnDesactivarFiltre;
     private javax.swing.JButton btnFiltreSinistre;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private org.jdesktop.swingx.JXDatePicker jXDatePickerDnaix;
     private javax.swing.JTable jtClients;
     private javax.swing.JTable jtSinistres;
     private javax.swing.JTextArea taCognom1;
     private javax.swing.JTextArea taCognom2;
-    private javax.swing.JTextArea taDataNaix;
     private javax.swing.JTextArea taNif;
     private javax.swing.JTextArea taNom;
     private javax.swing.JTextArea taNumSinistre;
+    private javax.swing.JTextField tfNif;
     // End of variables declaration//GEN-END:variables
 
-    private void inirComponentsCorrectly() {
+    private void initComponentsCorrectly() {
         clients = dbConnector.getLlistatClients();
 
         clientsModel = new ClientsTableModel(clients);
+        jXDatePickerDnaix.setFormats("yyyy-MM-dd");
         jtClients.setModel(clientsModel);
         taNumSinistre.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void insertUpdate(DocumentEvent e) {
-                btnFiltreSinistre.setEnabled(!taNumSinistre.getText().isEmpty());
+            public void insertUpdate(DocumentEvent e) {              
+                btnFiltreSinistre.setEnabled(!taNumSinistre.getText().isEmpty() && sinistresFiltrats.size()>0);
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                btnFiltreSinistre.setEnabled(!taNumSinistre.getText().isEmpty());
+                btnFiltreSinistre.setEnabled(!taNumSinistre.getText().isEmpty() && sinistresFiltrats.size()>0);
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                btnFiltreSinistre.setEnabled(!taNumSinistre.getText().isEmpty());
+                btnFiltreSinistre.setEnabled(!taNumSinistre.getText().isEmpty() && sinistresFiltrats.size()>0);
             }
+            
+            
         });
 
     }
 
-    private void filtrarLlistaClients() {
-        System.out.println("nif: " + taNif.getText() + " - Nom: " + taNom.getText() + " - ");
+    private void filtrarLlistaClients() {      
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date dNaix = jXDatePickerDnaix.getDate();
+      
         java.sql.Date dataNaix;
         try {
-            if (!taDataNaix.getText().isEmpty()) {
-                dataNaix = new java.sql.Date(df.parse(taDataNaix.getText()).getTime());
+            if (dNaix != null) {
+                dataNaix = new java.sql.Date(dNaix.getTime());
+                System.out.println("Data naix: " + dataNaix);
             } else {
-                dataNaix = null;
+                return;
             }
             clients = dbConnector.getClientFiltrat(taNif.getText(), taNom.getText(), taCognom1.getText(), taCognom2.getText(), dataNaix);
             clientsModel = new ClientsTableModel(clients);
-            jtClients.setModel(clientsModel);
-        } catch (ParseException ex) {
-            System.out.println("Error parsejant data: " + ex.getMessage());
+            jtClients.setModel(clientsModel);       
         } catch (IComponentSGBDException ex) {
             System.out.println("Error recuperant Clients Filtrats");
         }
@@ -552,26 +600,42 @@ public class UI extends javax.swing.JFrame {
         taNif.setText("");
         taNom.setText("");
         taCognom1.setText("");
-        taCognom2.setText("");
-        taDataNaix.setText("");
+        taCognom2.setText("");       
+        jXDatePickerDnaix.setDate(null);
 
     }
 
     private void filtrarSinistresPerCodi() {
-        try {
-            int codiSinistre = Integer.parseInt(taNumSinistre.getText());
-            Sinistre s = null;
-            for(Sinistre si : sinistresFiltrats){
-                if(si.getNumero() == codiSinistre) s = si;
-            }
-            
-            sinistresFiltrats.clear();
-            
-            if(s != null) sinistresFiltrats.add(s);
-            sinistresModel = new SinistresTableModel(sinistresFiltrats);
-            jtSinistres.setModel(sinistresModel);
-            
+        
+         sinistresFiltrats.clear();
+        
+        Integer codiSinistre = null;
+        try{
+        codiSinistre = Integer.parseInt(taNumSinistre.getText());
         } catch (NumberFormatException ex) {
+            //Obrir Dialog
         }
+        
+        for(Sinistre s : sinistres){
+            if(s.getNumero() == codiSinistre){
+                sinistresFiltrats.add(s);
+            }
+        }
+        
+        sinistresModel = new SinistresTableModel(sinistresFiltrats);
+        jtSinistres.setModel(sinistresModel);
+        
+    }
+
+    private void disableFiltreSinistres() {
+        sinistresFiltrats.clear();
+        sinistresFiltrats.addAll(sinistres);
+        sinistresModel = new SinistresTableModel(sinistresFiltrats);
+        jtSinistres.setModel(sinistresModel);
+        taNumSinistre.setText("");
+    }
+
+    void addSinistre(Sinistre x) {
+        System.out.println("************** Sinistre Creat!! **************");
     }
 }

@@ -8,6 +8,7 @@ package info.infomila.ui;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import info.infomila.model.Client;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,7 @@ public class ClientsTableModel extends AbstractTableModel{
     
     private List<Client> clients = new ArrayList<>();
     private String[] columnes;
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     
     public ClientsTableModel(List<Client> clients){
         super();
@@ -43,7 +45,7 @@ public class ClientsTableModel extends AbstractTableModel{
             case 1: return client.getPersona().getNom();
             case 2: return client.getPersona().getCognom1();
             case 3: return client.getPersona().getCognom2();
-            case 4: return client.getPersona().getDataNaix();
+            case 4: return new java.sql.Date(client.getPersona().getDataNaix().getTime());
             
             default: return null;
         
