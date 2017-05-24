@@ -110,6 +110,8 @@ public interface IComponentSGBD {
     
     public List<Client> getClientPerDataNaix(java.sql.Date dataNaix) throws IComponentSGBDException;
     
+    public List<Client> getClientFiltrat(String dni,String nom, String cognom1,String cognom2, java.sql.Date dataNaix) throws IComponentSGBDException;
+    
     public List<Polissa> getLlistaPolices();
     
     public List<Polissa> getLlistaPolicesPerNumClient(int numClient) throws IComponentSGBDException;

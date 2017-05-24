@@ -263,6 +263,18 @@ public class ConectorBD implements IComponentSGBD {
         q.setParameter(1, dataNaix);
         return q.getResultList();
     }
+    
+     @Override
+    public List<Client> getClientFiltrat(String dni,String nom, String cognom1, String cognom2, java.sql.Date dataNaix) throws IComponentSGBDException {
+        q = em.createNamedQuery("Client.fitreTotal",Client.class);
+        q.setParameter(1, "%"+dni+"%");
+        q.setParameter(2, "%"+nom+"%");
+        q.setParameter(3, "%"+cognom1+"%");
+        q.setParameter(4, "%"+cognom2+"%");
+        q.setParameter(5, dataNaix);
+        
+        return q.getResultList();
+    }
 
     @Override
     public List<Polissa> getLlistaPolices() {
@@ -289,5 +301,7 @@ public class ConectorBD implements IComponentSGBD {
          }
          throw new IComponentSGBDException("Identificador invàlid, num client estrictament positiu");
     }
+
+   
 
 }

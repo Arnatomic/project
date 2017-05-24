@@ -30,10 +30,15 @@ import javax.persistence.TableGenerator;
             query = "select c from Client c where c.persona.nif like ?1"),
     
     @NamedQuery(name = "Client.getClientPerNomCognoms",
-            query = "select c from Client c where (?1='' or c.persona.nom like ?1) and (?2='' or c.persona.cognom1 like?2) and (?3='' or c.persona.cognom2 is null or c.persona.cognom2 like ?3)"),
+            query = "select c from Client c where (?1='' or c.persona.nom like ?1) and (?2='' or c.persona.cognom1 like ?2) and (?3='' or c.persona.cognom2 is null or c.persona.cognom2 like ?3)"),
     
     @NamedQuery(name = "Client.getClientPerDataNaix",
-            query = "select c from Client c where c.persona.dataNaix = ?1"),})
+            query = "select c from Client c where c.persona.dataNaix = ?1"),
+    @NamedQuery(name ="Client.fitreTotal",
+            query = "select c from Client c where (?1='' or c.persona.nif like ?1) and (?2='' or c.persona.nom like ?2) "
+                    + "and (?3='' or c.persona.cognom1 like ?3) and (?4='' or c.persona.cognom2 is null or c.persona.cognom2 like ?4) and(?5 is null or c.persona.dataNaix = ?5)")
+
+    })
 
 
 @Entity

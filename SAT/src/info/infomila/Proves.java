@@ -158,7 +158,7 @@ public class Proves {
                     }
                     
                     
-                    List<Sinistre> sinistresXclient = obj.getLlistatSinistresPerClient(3);
+                    List<Sinistre> sinistresXclient = obj.getLlistatSinistresPerClient(2);
                     System.out.println("getSinistresXClient: ");
                     
                     for(Sinistre sc : sinistresXclient){

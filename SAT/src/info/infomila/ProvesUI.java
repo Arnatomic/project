@@ -11,9 +11,9 @@ import info.infomila.ui.UI;
  *
  * @author Mr. Robot
  */
-public class ProvesMain {
+public class ProvesUI {
     public static void main(String[] args) {
-        Proves.main(new String[]{"info.infomila.ConectorBD"});
+        UI.main(new String[]{"info.infomila.ConectorBD"});
         
       // System.exit(0);
     }

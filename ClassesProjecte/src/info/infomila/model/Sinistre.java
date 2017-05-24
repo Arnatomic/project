@@ -132,7 +132,9 @@ public class Sinistre implements Serializable{
     }
 
     public Date getDataAssignacio() {
+        if(dataAssignacio != null)
         return (Date) dataAssignacio.clone();
+        else return null;
     }
 
     public void setDataAssignacio(Date dataAssignacio) {
@@ -156,7 +158,9 @@ public class Sinistre implements Serializable{
     }
 
     public Date getDataTancament() {
+        if(dataTancament != null)
         return (Date) dataTancament.clone();
+        else return null;
     }
 
     public void setDataTancament(Date dataTancament) {
