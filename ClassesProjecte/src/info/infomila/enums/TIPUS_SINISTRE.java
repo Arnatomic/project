@@ -15,5 +15,17 @@ public enum TIPUS_SINISTRE {
     GAS,
     ELECTRODOMESTIC,
     ROBATORI,
-    HUMITAT
+    HUMITAT;
+    
+    public static TIPUS_SINISTRE getTipusFromString(String tipusSinistre){
+        switch(tipusSinistre){
+            case "FUITA_AIGUA": return FUITA_AIGUA;
+            case "ELECTRICITAT": return ELECTRICITAT;
+            case "GAS": return GAS;
+            case "ELECTRODOMESTIC": return ELECTRODOMESTIC;
+            case "ROBATORI": return ROBATORI;
+            case "HUMITAT": return HUMITAT;
+            default: return null;
+        }
+    }
 }

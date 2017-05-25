@@ -12,6 +12,7 @@ import info.infomila.model.InformePericial;
 import info.infomila.model.Perit;
 import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
+import info.infomila.model.Trucada;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -291,6 +292,12 @@ public class ConectorBD implements IComponentSGBD {
        }
        throw new IComponentSGBDException("Identificador invàlid, num client estrictament posisiu");
     }
+    
+    public Polissa getPolissaPerId(int idPolissa) throws IComponentSGBDException {
+        q = em.createNamedQuery("Polissa.getPolissaPerId",Polissa.class);
+        q.setParameter(1, idPolissa);
+        return (Polissa) q.getSingleResult();
+    }
 
     @Override
     public List<Sinistre> getLlistatSinistresPerClient(int numClient) throws IComponentSGBDException {
@@ -300,6 +307,36 @@ public class ConectorBD implements IComponentSGBD {
              return q.getResultList();
          }
          throw new IComponentSGBDException("Identificador invàlid, num client estrictament positiu");
+    }
+
+    @Override
+    public boolean existeixSinistre(int numSinistre) {
+        if(numSinistre>0){
+            return em.find(Sinistre.class, numSinistre) != null;
+        }
+       return false;
+    }
+
+    @Override
+    public boolean crearNouSinistre(Sinistre s) throws IComponentSGBDException {
+        if(!existeixSinistre(s.getNumero())){
+            em.getTransaction().begin();
+            em.persist(s);
+            em.getTransaction().commit();
+            return true;
+        }else throw new IComponentSGBDException("Sinistre ja existent");
+    }
+
+    @Override
+    public boolean afegirTrucada(Trucada tr, Sinistre s) {
+            if(existeixSinistre(s.getNumero())){
+                em.getTransaction().begin();
+                em.persist(tr);
+                em.getTransaction().commit();
+                s.addTrucada(tr);
+                return true;
+            }
+            return false;
     }
 
    

@@ -10,6 +10,7 @@ import info.infomila.model.EntradaInforme;
 import info.infomila.model.InformePericial;
 import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
+import info.infomila.model.Trucada;
 import java.util.Date;
 import java.util.List;
 
@@ -116,5 +117,13 @@ public interface IComponentSGBD {
     
     public List<Polissa> getLlistaPolicesPerNumClient(int numClient) throws IComponentSGBDException;
     
+    public Polissa getPolissaPerId(int idPolissa) throws IComponentSGBDException;
+    
     public List<Sinistre> getLlistatSinistresPerClient(int numClient) throws IComponentSGBDException;
+    
+    public boolean existeixSinistre(int numSinistre);
+    
+    public boolean crearNouSinistre(Sinistre s) throws IComponentSGBDException;
+    
+    public boolean afegirTrucada(Trucada tr, Sinistre s) throws IComponentSGBDException;
 }
