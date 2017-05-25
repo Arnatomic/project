@@ -41,7 +41,9 @@ import javax.persistence.Transient;
             query="select count(p.numero) from Perit p where p.login=?1 and p.password=?2"),
 
     @NamedQuery(name="Perit.getPeritPerLogin",
-            query="select p.numero from Perit p where p.login=?1")})  
+            query="select p.numero from Perit p where p.login=?1"),
+    @NamedQuery(name = "Perit.getLlistaPerits",
+            query = "select p from Perit p")})  
    
 
 
@@ -66,7 +68,7 @@ public class Perit  implements Serializable{
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "cita", joinColumns = @JoinColumn(name = "num_perit"))
     @Column(name = "cita")
-    @OrderColumn(name = "id", columnDefinition = "auto_increment")
+    @OrderColumn(name = "id")
     private List<Cita> cites = new ArrayList();
     
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "perit")

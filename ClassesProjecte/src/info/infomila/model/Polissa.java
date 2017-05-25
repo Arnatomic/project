@@ -46,7 +46,7 @@ import javax.persistence.TableGenerator;
     @NamedQuery(name = "Polissa.getSinistresFromPolissa",
             query = "select p.sinistres from Polissa p where p.client.numero = ?1"),
     @NamedQuery(name = "Polissa.getPolissaPerId",
-            query = "select p from Polissa where p.numero = ?1")})
+            query = "select p from Polissa p where p.numero = ?1")})
     
     
 

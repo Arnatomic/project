@@ -7,11 +7,18 @@ package info.infomila.ui;
 
 import info.infomila.IComponentSGBD;
 import info.infomila.IComponentSGBDException;
+import info.infomila.enums.ESTAT_SINISTRE;
+import info.infomila.enums.TIPUS_SINISTRE;
+import info.infomila.model.Perit;
 import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
@@ -29,10 +36,14 @@ public class FormulariSinistre extends javax.swing.JFrame {
     private String[] tipusSinistres = new String[]{"FUITA_AIGUA", "ELECTRICITAT", "GAS", "ELECTRODOMESTIC", "ROBATORI", "HUMITAT"};
     private String[] estatSinistre = new String[]{"NOU", "ASSIGNAT", "TANCAT"};
     private IComponentSGBD dbConnector;
+    private List<Perit> perits = new ArrayList<>();
+    private List<Polissa> polices = new ArrayList();
+    private boolean tancat = false;
+
     /**
      * Creates new form FormulariSinistre
      */
-    public FormulariSinistre(JFrame parent,IComponentSGBD dbConnector) {
+    public FormulariSinistre(JFrame parent, IComponentSGBD dbConnector) {
         initComponents();
         this.parentFrame = parent;
         this.dbConnector = dbConnector;
@@ -54,7 +65,6 @@ public class FormulariSinistre extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tfNumPolissaNou = new javax.swing.JTextField();
         jXDatePickerObertura = new org.jdesktop.swingx.JXDatePicker();
         jXDatePickerTancament = new org.jdesktop.swingx.JXDatePicker();
         jXDatePickerAssignacio = new org.jdesktop.swingx.JXDatePicker();
@@ -62,12 +72,14 @@ public class FormulariSinistre extends javax.swing.JFrame {
         taDescripcio = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        chkbArxivat = new javax.swing.JCheckBox();
         cboxTipusSinistre = new javax.swing.JComboBox<>();
         cboxEstatSinistre = new javax.swing.JComboBox<>();
         btnDesarSinistre = new javax.swing.JButton();
         btnCancelarSinistre = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        cboxPerits = new javax.swing.JComboBox<>();
+        cboxPolices = new javax.swing.JComboBox<>();
+        btnTancarObrir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,8 +97,6 @@ public class FormulariSinistre extends javax.swing.JFrame {
 
         jLabel6.setText("Numero Polissa");
 
-        tfNumPolissaNou.setBackground(new java.awt.Color(255, 102, 102));
-
         jXDatePickerObertura.setEnabled(false);
 
         taDescripcio.setBackground(new java.awt.Color(255, 102, 102));
@@ -98,13 +108,12 @@ public class FormulariSinistre extends javax.swing.JFrame {
 
         jLabel8.setText("Estat Sinistre");
 
-        jLabel9.setText("Arxivat");
-
         cboxTipusSinistre.setBackground(new java.awt.Color(255, 102, 102));
         cboxTipusSinistre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cboxEstatSinistre.setBackground(new java.awt.Color(255, 102, 102));
         cboxEstatSinistre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxEstatSinistre.setEnabled(false);
 
         btnDesarSinistre.setText("Desar");
         btnDesarSinistre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,6 +129,19 @@ public class FormulariSinistre extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setText("Perit");
+
+        cboxPerits.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cboxPolices.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnTancarObrir.setText("Tancar");
+        btnTancarObrir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTancarObrirMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,87 +150,86 @@ public class FormulariSinistre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 220, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jXDatePickerAssignacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jXDatePickerTancament, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(28, 28, 28)
+                                .addGap(18, 18, 18)
                                 .addComponent(jXDatePickerObertura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(27, 27, 27)
-                                .addComponent(tfNumPolissaNou, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cboxEstatSinistre, 0, 119, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cboxTipusSinistre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnDesarSinistre)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(chkbArxivat)))
                                 .addGap(18, 18, 18)
+                                .addComponent(cboxPolices, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jXDatePickerTancament, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jXDatePickerAssignacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cboxPerits, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cboxTipusSinistre, 0, 140, Short.MAX_VALUE)
+                                    .addComponent(cboxEstatSinistre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnTancarObrir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDesarSinistre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCancelarSinistre)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(4, 4, 4))))
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(tfNumPolissaNou, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(cboxTipusSinistre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboxTipusSinistre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboxPolices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jXDatePickerObertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(cboxEstatSinistre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboxEstatSinistre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkbArxivat, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jXDatePickerTancament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jXDatePickerTancament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(cboxPerits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jXDatePickerAssignacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDesarSinistre)
-                    .addComponent(btnCancelarSinistre))
-                .addGap(18, 18, 18)
+                    .addComponent(btnCancelarSinistre)
+                    .addComponent(btnTancarObrir))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -220,24 +241,44 @@ public class FormulariSinistre extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarSinistreMouseClicked
 
     private void btnDesarSinistreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDesarSinistreMouseClicked
-       if(!tfNumPolissaNou.getText().isEmpty() && ! taDescripcio.getText().isEmpty()){ 
-           Sinistre result = creaObjecteSinistre();
-        ((UI) parentFrame).addSinistre(null);
-        parentFrame.setEnabled(true);
-        this.dispose();
-       }else {
-           JOptionPane.showMessageDialog(null, "Camps marcats en vermell OBLIGATORIS","ERROR",JOptionPane.ERROR_MESSAGE);
-       }
+        if (!taDescripcio.getText().isEmpty()) {
+            Sinistre result = creaObjecteSinistre();            
+            parentFrame.setEnabled(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Camps marcats en vermell OBLIGATORIS", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDesarSinistreMouseClicked
+
+    private void btnTancarObrirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTancarObrirMouseClicked
+
+        tancat = btnTancarObrir.getText().equals("Tancar");
+        if (tancat) {
+            btnTancarObrir.setText("Obrir");
+            cboxEstatSinistre.setSelectedIndex(2);
+        } else {
+            btnTancarObrir.setText("Tancar");
+            if (cboxPerits.getSelectedIndex() == 0) {
+                cboxEstatSinistre.setSelectedIndex(0);
+            }
+            if (cboxPerits.getSelectedIndex() > 0) {
+                cboxEstatSinistre.setSelectedIndex(1);
+            }
+        }
+    
+    }//GEN-LAST:event_btnTancarObrirMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarSinistre;
     private javax.swing.JButton btnDesarSinistre;
+    private javax.swing.JButton btnTancarObrir;
     private javax.swing.JComboBox<String> cboxEstatSinistre;
+    private javax.swing.JComboBox<String> cboxPerits;
+    private javax.swing.JComboBox<String> cboxPolices;
     private javax.swing.JComboBox<String> cboxTipusSinistre;
-    private javax.swing.JCheckBox chkbArxivat;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -245,13 +286,11 @@ public class FormulariSinistre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerAssignacio;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerObertura;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerTancament;
     private javax.swing.JTextArea taDescripcio;
-    private javax.swing.JTextField tfNumPolissaNou;
     // End of variables declaration//GEN-END:variables
 
     private void initComponentsCorrectly() {
@@ -263,16 +302,77 @@ public class FormulariSinistre extends javax.swing.JFrame {
         cboxEstatSinistre.setModel(new DefaultComboBoxModel(estatSinistre));
         jXDatePickerObertura.setDate(new Date());
 
+        perits = dbConnector.getLlistaPerits();
+        if (perits != null) {
+            List<String> peritNames = new ArrayList<>();
+            peritNames.add("No assignat");
+            for (Perit p : perits) {
+                peritNames.add(p.getPersona().getNom() + " " + p.getPersona().getCognom1());
+            }
+            cboxPerits.setModel(new DefaultComboBoxModel(peritNames.toArray()));
+        } else {
+            String[] defaultPerits = new String[]{"No hi ha Perits que mostrar"};
+            cboxPerits.setModel(new DefaultComboBoxModel(defaultPerits));
+        }
+        polices = dbConnector.getLlistaPolices();
+        if (polices != null) {
+            List<String> polissaIds = new ArrayList<>();
+            for (Polissa p : polices) {
+                polissaIds.add(String.valueOf(p.getNumero() + " " + p.getTipusHabitatge()));
+            }
+            cboxPolices.setModel(new DefaultComboBoxModel(polissaIds.toArray()));
+        } else {
+            String[] defaultPolices = new String[]{"No hi ha Polices que mostrar"};
+            cboxPolices.setModel(new DefaultComboBoxModel(defaultPolices));
+        }
+
+        cboxPerits.addActionListener(new GestioEstatSinistre());
+
     }
 
     private Sinistre creaObjecteSinistre() {
-        try {
-            Sinistre s = new Sinistre();
-            
-            Polissa p = dbConnector.getPolissaPerId(1);
-        } catch (IComponentSGBDException ex) {
-            JOptionPane.showMessageDialog(null, "Codi polissa inexistent","ERROR",JOptionPane.ERROR_MESSAGE);
+       try {
+        Sinistre s = new Sinistre();
+
+        s.setDataObertura(jXDatePickerObertura.getDate());
+        s.setDataTancament(jXDatePickerTancament.getDate());
+        s.setDataAssignacio(jXDatePickerAssignacio.getDate());
+
+        s.setDescripcio(taDescripcio.getText());
+        s.setTipusSinistre(TIPUS_SINISTRE.getTipusFromString(cboxTipusSinistre.getSelectedItem().toString()));
+        s.setEstatSinistre(ESTAT_SINISTRE.getEstatSinistreFromString(cboxEstatSinistre.getSelectedItem().toString()));
+
+        if (cboxPerits.getSelectedIndex() == 0) {
+            s.setPerit(null);
+        } else {
+            s.setPerit(perits.get(cboxPerits.getSelectedIndex()));
         }
+        
+        s.setPolissa(polices.get(cboxPolices.getSelectedIndex()));
+
+       
+            dbConnector.crearNouSinistre(s);
+        } catch (IComponentSGBDException ex) {
+            JOptionPane.showMessageDialog(null, "Problemes en enregistrar el Sinistre","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+
         return null;
     }
+
+    class GestioEstatSinistre implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("SSS: " + cboxPerits.getSelectedItem());
+            if (!cboxPerits.getSelectedItem().toString().equals("No assignat") && !tancat) {
+                cboxEstatSinistre.setSelectedIndex(1);
+            } else if (!tancat) {
+                cboxEstatSinistre.setSelectedIndex(0);
+            } else if (tancat) {
+                cboxEstatSinistre.setSelectedIndex(2);
+            }
+        }
+
+    }
 }
+

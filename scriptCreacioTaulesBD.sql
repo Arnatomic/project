@@ -10,7 +10,7 @@ create table comptadors(
 );
 
 create table perit(
-  numero int not null auto_increment,
+  numero int not null,
   nif varchar(9) not null unique,
   nom varchar(30) not null,
   cognom1 varchar(30) not null,
@@ -59,7 +59,7 @@ create table user_online(
 
 
 create table client(
-  numero int not null auto_increment,
+  numero int not null,
   nif varchar(9) not null unique,
   nom varchar(30) not null,
   cognom1 varchar(30) not null,
@@ -77,7 +77,7 @@ create table client(
 
 
 create table polissa(
-  numero int not null auto_increment,
+  numero int not null,
   data_fi date not null,
   data_inici date not null,
   import_polissa decimal(9,2) not null,
@@ -121,7 +121,7 @@ create table cobertura(
 
 
 create table sinistre(
-  numero int not null auto_increment,
+  numero int not null,
   data_assignacio date,
   data_obertura date not null,
   data_tancament date,
@@ -150,13 +150,13 @@ create table sinistre(
 
 
 create table cita(
-  id int not null auto_increment,
+  id int not null,
   num_perit int not null,
   dia_hora date not null,
   num_sinistre int not null,
   duracio int not null,
   
-  primary key(id),
+  primary key(id,num_perit),
   
   CHECK(length(num_perit)>0),
   CHECK(duracio >0),
@@ -170,13 +170,13 @@ create table cita(
 
 
 create table trucada(
-  ordre int not null auto_increment,
+  ordre int not null,
   num_sinistre int not null,
   data_hora date not null,
   descripcio varchar(100) not null,
   persona_contacte varchar(30) not null,
   
-  primary key(ordre),
+  primary key(ordre,num_sinistre),
   
   CHECK(num_sinistre>0),
   CHECK(length(descripcio)>0),
@@ -213,14 +213,14 @@ create table informe_pericial(
 
 create table entrada_informe(
   numero int not null,
-  ordre int not null auto_increment,
+  ordre int not null,
   
   data_informe date not null,
   descripcio varchar(255) not null,
   despres_reparacio bit not null,
   foto longblob,
   
-  primary key(ordre),
+  primary key(ordre,numero),
   
   CHECK(numero>0),
   CHECK(length(descripcio)>0),

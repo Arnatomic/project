@@ -8,6 +8,7 @@ package info.infomila;
 import info.infomila.model.Client;
 import info.infomila.model.EntradaInforme;
 import info.infomila.model.InformePericial;
+import info.infomila.model.Perit;
 import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
 import info.infomila.model.Trucada;
@@ -120,6 +121,8 @@ public interface IComponentSGBD {
     public Polissa getPolissaPerId(int idPolissa) throws IComponentSGBDException;
     
     public List<Sinistre> getLlistatSinistresPerClient(int numClient) throws IComponentSGBDException;
+    
+    public List<Perit> getLlistaPerits();
     
     public boolean existeixSinistre(int numSinistre);
     

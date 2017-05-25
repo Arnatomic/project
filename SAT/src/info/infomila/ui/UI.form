@@ -33,11 +33,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnFiltreSinistre" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAddtrucada" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnDesactivaFiltreSinistres" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnNouSinistre" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -101,9 +101,9 @@
                           <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                               <Component id="btnFiltreSinistre" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAddtrucada" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnDesactivaFiltreSinistres" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNouSinistre" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfNumSinistre" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -324,19 +324,22 @@
         <Property name="text" type="java.lang.String" value="Nom"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnNouSinistre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nou Sinistre"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnNouSinistreMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnAddtrucada">
       <Properties>
         <Property name="text" type="java.lang.String" value="Afegir Trucada"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddtrucadaMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfNif">
     </Component>

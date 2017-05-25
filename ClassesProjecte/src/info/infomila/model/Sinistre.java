@@ -97,7 +97,7 @@ public class Sinistre implements Serializable{
     @CollectionTable(name = "trucada",
             joinColumns = @JoinColumn(name = "num_sinistre"))
     @Column(name = "trucada", nullable = false, unique = true)
-    @OrderColumn(name = "ordre", columnDefinition = "auto_increment")
+    @OrderColumn(name = "ordre")
     private List<Trucada> trucades = new ArrayList();
 
     public Sinistre() {
@@ -260,6 +260,10 @@ public class Sinistre implements Serializable{
         if (trucada != null && !trucades.contains(trucada)) {
             trucades.add(trucada);
         } else {
+            System.out.println("Mostre: " + trucada);
+            for(Trucada t: trucades){
+                System.out.println("T: " + t);
+            }
             throw new SinistreException("trucada invàlida (valor null o repetit no permés)");
         }
     }

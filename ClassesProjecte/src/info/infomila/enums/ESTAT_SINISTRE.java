@@ -14,7 +14,7 @@ public enum ESTAT_SINISTRE {
     ASSIGNAT,
     TANCAT;
 
-    public ESTAT_SINISTRE getEstatSinistreFromString(String estatSinistre) {
+    public static ESTAT_SINISTRE getEstatSinistreFromString(String estatSinistre) {
         switch (estatSinistre) {
             case "NOU":
                 return NOU;

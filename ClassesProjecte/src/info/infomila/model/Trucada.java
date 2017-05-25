@@ -88,7 +88,7 @@ public class Trucada implements Serializable {
             return false;
         }
         final Trucada other = (Trucada) obj;
-        if (!Objects.equals(this.dataHora, other.dataHora)) {
+        if (!Objects.equals(this.descripcio, other.descripcio)) {
             return false;
         }
         return true;

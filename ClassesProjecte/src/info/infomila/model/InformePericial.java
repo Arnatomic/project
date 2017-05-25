@@ -71,7 +71,7 @@ public class InformePericial implements Serializable {
     @CollectionTable(name = "entrada_informe",
             joinColumns = @JoinColumn(name = "numero"))
     @Column(name = "numero", nullable = false, unique = true)
-    @OrderColumn(name = "ordre", columnDefinition = "auto_increment")
+    @OrderColumn(name = "ordre")
     private List<EntradaInforme> entrades = new ArrayList();
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)

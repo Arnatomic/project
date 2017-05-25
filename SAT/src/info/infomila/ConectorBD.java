@@ -330,13 +330,19 @@ public class ConectorBD implements IComponentSGBD {
     @Override
     public boolean afegirTrucada(Trucada tr, Sinistre s) {
             if(existeixSinistre(s.getNumero())){
-                em.getTransaction().begin();
-                em.persist(tr);
-                em.getTransaction().commit();
                 s.addTrucada(tr);
+                em.getTransaction().begin();               
+                em.persist(s);
+                em.getTransaction().commit();                
                 return true;
             }
             return false;
+    }
+
+    @Override
+    public List<Perit> getLlistaPerits() {
+        q = em.createNamedQuery("Perit.getLlistaPerits",Perit.class);
+        return q.getResultList();
     }
 
    

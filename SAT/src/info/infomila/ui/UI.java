@@ -6,6 +6,8 @@ import info.infomila.model.Client;
 import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
@@ -22,6 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -44,12 +47,13 @@ public class UI extends javax.swing.JFrame {
     private List<Sinistre> sinistres = new ArrayList<>();
     private List<Sinistre> sinistresFiltrats = new ArrayList<>();
     private JFrame me;
+
     /**
      * Creates new form UI
      */
     public UI(IComponentSGBD dbConnector) {
-     
-        this.dbConnector = dbConnector;          
+
+        this.dbConnector = dbConnector;
         me = this;
         initComponents();
         initComponentsCorrectly();
@@ -79,8 +83,8 @@ public class UI extends javax.swing.JFrame {
         btnDesactivaFiltreSinistres = new javax.swing.JButton();
         jXDatePickerDnaix = new org.jdesktop.swingx.JXDatePicker();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnNouSinistre = new javax.swing.JButton();
+        btnAddtrucada = new javax.swing.JButton();
         tfNif = new javax.swing.JTextField();
         tfCognom1 = new javax.swing.JTextField();
         tfCognom2 = new javax.swing.JTextField();
@@ -225,15 +229,20 @@ public class UI extends javax.swing.JFrame {
 
         jLabel7.setText("Nom");
 
-        jButton1.setText("Nou Sinistre");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnNouSinistre.setText("Nou Sinistre");
+        btnNouSinistre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnNouSinistreMouseClicked(evt);
             }
         });
 
-        jButton2.setText("Afegir Trucada");
-        jButton2.setEnabled(false);
+        btnAddtrucada.setText("Afegir Trucada");
+        btnAddtrucada.setEnabled(false);
+        btnAddtrucada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddtrucadaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,11 +258,11 @@ public class UI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFiltreSinistre)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btnAddtrucada)
                         .addGap(18, 18, 18)
                         .addComponent(btnDesactivaFiltreSinistres)
                         .addGap(38, 38, 38)
-                        .addComponent(jButton1))
+                        .addComponent(btnNouSinistre))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -309,9 +318,9 @@ public class UI extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnFiltreSinistre)
-                                .addComponent(jButton2)
+                                .addComponent(btnAddtrucada)
                                 .addComponent(btnDesactivaFiltreSinistres)
-                                .addComponent(jButton1)
+                                .addComponent(btnNouSinistre)
                                 .addComponent(tfNumSinistre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(8, 8, 8)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,9 +349,9 @@ public class UI extends javax.swing.JFrame {
             sinistresFiltrats.clear();
             sinistresFiltrats.addAll(sinistres);
             sinistresModel = new SinistresTableModel(sinistresFiltrats);
-            jtSinistres.setModel(sinistresModel);           
+            jtSinistres.setModel(sinistresModel);
         } catch (IComponentSGBDException ex) {
-            JOptionPane.showMessageDialog(null, "Impossible recuperar sinistres... disculpi","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Impossible recuperar sinistres... disculpi", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_jtClientsMouseClicked
@@ -367,15 +376,26 @@ public class UI extends javax.swing.JFrame {
         disableFiltreSinistres();
     }//GEN-LAST:event_btnDesactivaFiltreSinistresMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnNouSinistreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNouSinistreMouseClicked
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormulariSinistre(me,dbConnector);
-                
+                new FormulariSinistre(me, dbConnector);
+
             }
         });
         this.setEnabled(false);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnNouSinistreMouseClicked
+
+    private void btnAddtrucadaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddtrucadaMouseClicked
+      Sinistre sinistreTrucada = sinistresFiltrats.get(jtSinistres.getSelectedRow());
+       
+      java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FormulariTrucada(me,dbConnector,sinistreTrucada).setVisible(true);
+            }
+        });
+      this.setEnabled(false);
+    }//GEN-LAST:event_btnAddtrucadaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -443,7 +463,7 @@ public class UI extends javax.swing.JFrame {
                     }
                     System.exit(1);
                 }
-            }          
+            }
 
             final IComponentSGBD bdConector = obj;
 
@@ -456,7 +476,7 @@ public class UI extends javax.swing.JFrame {
             });
 
         } catch (InstantiationException | IllegalAccessException ex) {
-            JOptionPane.showMessageDialog(null, "No es pot obtenir l'objecte de persistència","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No es pot obtenir l'objecte de persistència", "ERROR", JOptionPane.ERROR_MESSAGE);
             System.out.println("Més informació: " + ex.getMessage());
             if (ex.getCause() != null) {
                 System.out.println("Causat per: " + ex.getCause().getMessage());
@@ -467,11 +487,11 @@ public class UI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActivarFiltre;
+    private javax.swing.JButton btnAddtrucada;
     private javax.swing.JButton btnDesactivaFiltreSinistres;
     private javax.swing.JButton btnDesactivarFiltre;
     private javax.swing.JButton btnFiltreSinistre;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnNouSinistre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -496,40 +516,24 @@ public class UI extends javax.swing.JFrame {
         clientsModel = new ClientsTableModel(clients);
         jXDatePickerDnaix.setFormats("yyyy-MM-dd");
         jtClients.setModel(clientsModel);
-        tfNumSinistre.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {              
-                btnFiltreSinistre.setEnabled(!tfNumSinistre.getText().isEmpty() && sinistresFiltrats.size()>0);
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                btnFiltreSinistre.setEnabled(!tfNumSinistre.getText().isEmpty() && sinistresFiltrats.size()>0);
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                btnFiltreSinistre.setEnabled(!tfNumSinistre.getText().isEmpty() && sinistresFiltrats.size()>0);
-            }
-            
-            
-        });
-
+        tfNumSinistre.getDocument().addDocumentListener(new GestioCodiSinistre());
+        ListSelectionModel s = jtSinistres.getSelectionModel();
+        s.addListSelectionListener(new GestioTaulaSinistres());
     }
 
-    private void filtrarLlistaClients() {      
+    private void filtrarLlistaClients() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date dNaix = jXDatePickerDnaix.getDate();       
+        Date dNaix = jXDatePickerDnaix.getDate();
         java.sql.Date dataNaix = null;
         try {
             if (dNaix != null) {
-                dataNaix = new java.sql.Date(dNaix.getTime());               
-            } 
+                dataNaix = new java.sql.Date(dNaix.getTime());
+            }
             clients = dbConnector.getClientFiltrat(tfNif.getText(), tfNom.getText(), tfCognom1.getText(), tfCognom2.getText(), dataNaix);
             clientsModel = new ClientsTableModel(clients);
-            jtClients.setModel(clientsModel);              
+            jtClients.setModel(clientsModel);
         } catch (IComponentSGBDException ex) {
-           JOptionPane.showMessageDialog(null, "Impossible filtrar els clients... disculpi","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Impossible filtrar els clients... disculpi", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -542,31 +546,31 @@ public class UI extends javax.swing.JFrame {
         tfNif.setText("");
         tfNom.setText("");
         tfCognom1.setText("");
-        tfCognom2.setText("");       
+        tfCognom2.setText("");
         jXDatePickerDnaix.setDate(null);
 
     }
 
     private void filtrarSinistresPerCodi() {
-        
-         sinistresFiltrats.clear();
-        
+
+        sinistresFiltrats.clear();
+
         Integer codiSinistre = null;
-        try{
-        codiSinistre = Integer.parseInt(tfNumSinistre.getText());
+        try {
+            codiSinistre = Integer.parseInt(tfNumSinistre.getText());
         } catch (NumberFormatException ex) {
             //Obrir Dialog
         }
-        
-        for(Sinistre s : sinistres){
-            if(s.getNumero() == codiSinistre){
+
+        for (Sinistre s : sinistres) {
+            if (s.getNumero() == codiSinistre) {
                 sinistresFiltrats.add(s);
             }
         }
-        
+
         sinistresModel = new SinistresTableModel(sinistresFiltrats);
         jtSinistres.setModel(sinistresModel);
-        
+
     }
 
     private void disableFiltreSinistres() {
@@ -577,7 +581,36 @@ public class UI extends javax.swing.JFrame {
         tfNumSinistre.setText("");
     }
 
-    void addSinistre(Sinistre x) {
-        System.out.println("************** Sinistre Creat!! **************");
+    class GestioTaulaSinistres implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            if (jtSinistres.getSelectedRow() != -1) {
+                btnAddtrucada.setEnabled(true);
+            } else {
+                btnAddtrucada.setEnabled(false);
+            }
+        }
+
     }
+
+    class GestioCodiSinistre implements DocumentListener {
+
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            btnFiltreSinistre.setEnabled(!tfNumSinistre.getText().isEmpty() && sinistresFiltrats.size() > 0);
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            btnFiltreSinistre.setEnabled(!tfNumSinistre.getText().isEmpty() && sinistresFiltrats.size() > 0);
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+            btnFiltreSinistre.setEnabled(!tfNumSinistre.getText().isEmpty() && sinistresFiltrats.size() > 0);
+        }
+
+    }
+
 }
