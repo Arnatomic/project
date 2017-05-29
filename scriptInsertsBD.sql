@@ -106,13 +106,14 @@ insert into entrada_informe values(2,null,date'2017-01-25',"El veí de dalt ha d
 insert into user_online values (212323234434234,2,"mayte",date'2017-04-04');
 
 
+select * from sinistre s join polissa p on (s.num_polissa = p.numero) where 1=1 and p.num_client = 1;
+
 /*
 select * from user_online;
 select * from user_ids;
 delete from user_online where user_id = 1;
 select * from informe_pericial;
 desc sinistre;
-
 select * from perit;
 select * from client;
 select * from polissa;

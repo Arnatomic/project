@@ -1,0 +1,166 @@
+﻿<UserControl
+    x:Class="NullPointerSegurosApp.Controls.DetallSinistre"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NullPointerSegurosApp.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="gridSinistre">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.ColumnSpan="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Detall Sinistre" FontSize="62" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"/>
+                <Button x:Name="btnEnrere" Grid.Column="1" Content="TORNAR" HorizontalAlignment="Right" Foreground="Azure" Height="70" Margin="0,0,30,0" Click="btnEnrere_Click"/>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="4">
+                <TextBlock Text="Num Sinistre: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                <TextBlock x:Name="tbNumSinistre" Text="{Binding Numero}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                <TextBlock Text="Data Obertura: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                <TextBlock x:Name="tbDataObertura" Text="{Binding DataObertura}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                <TextBlock Text="Data Assignació: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                <TextBlock x:Name="tbDataAssignacio" Text="{Binding DataAssignacio}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                <TextBlock Text="Data Tancament: : " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                <TextBlock x:Name="tbDataTancament" Text="{Binding DataTancament}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal"  VerticalAlignment="Top">
+                    <TextBlock Text="Tipus Sinistre: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbTipusSinistre" Text="{Binding TipusSinistre}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="Data Obertura: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                    <TextBlock x:Name="tbEstatSinistre" Text="{Binding EstatSinistre}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="Perit: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                    <ComboBox x:Name="cboxPerits" Width="200" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <Button x:Name="btnCanviarPerit" Content="Canvia/Assignar Perit" Margin="20,0,0,0"/>
+                </StackPanel>
+                <TextBlock Grid.Row="1" Text="Descripció Sinistre: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+            </Grid>
+
+
+            <Border Grid.Row="3" Grid.ColumnSpan="4" Margin="20,0,20,0" BorderBrush="Black" BorderThickness="4">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBlock  FontSize="25" Text="{Binding Descripcio}" TextWrapping="Wrap" />
+                </ScrollViewer>
+            </Border>
+
+
+        </Grid>
+
+        <Grid x:Name="gridPolissaInforme" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Vertical" Padding="20" >
+                <TextBlock Text="Polissa" VerticalAlignment="Center" FontSize="35" FontWeight="Bold" Margin="10,0,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Num Polissa: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbNumPolissa" Text="{Binding Polissa.Numero}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="Data Inici: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                    <TextBlock x:Name="tbDataInici" Text="{Binding Polissa.DataInici}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Data Fi: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbDataFi" Text="{Binding Polissa.DataFi}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="Import: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                    <TextBlock x:Name="tbImport" Text="{Binding Polissa.ImportPolissa}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="€" VerticalAlignment="Center" FontSize="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Import Continent: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbImportContinent" Text="{Binding Polissa.ImportContinent}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="Import Contingut: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                    <TextBlock x:Name="tbImportContingut" Text="{Binding Polissa.ImportContingut}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="€"  VerticalAlignment="Center" FontSize="25"/>
+                </StackPanel>
+                <!-- Client-->
+                <TextBlock Text="Client" VerticalAlignment="Center" FontSize="35" FontWeight="Bold" Margin="10,20,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Num Client: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbNumClient" Text="{Binding Polissa.Client.Numero}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Nom Complet: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbNomClient" Text="{Binding Polissa.Client.Nom}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbCognom1" Text="{Binding Polissa.Client.Cognom1}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbCognom2" Text="{Binding Polissa.Client.Cognom2}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Poblacio: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbPoblacio" Text="{Binding Polissa.Poblacio}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Adreça: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbAdreca" Text="{Binding Polissa.LiniaAdreca}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Tipus Habitatge: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbTipusHabitatge" Text="{Binding Polissa.TipusHabitatge}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Vertical" Padding="20" Grid.Column="1" >
+                <TextBlock Text="Informe" VerticalAlignment="Center" FontSize="35" FontWeight="Bold" Margin="10,0,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Num Informe: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbNumInfome" Text="{Binding Informe.Numero}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="Data Enmissió: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                    <TextBlock x:Name="tbDataEmisio" Text="{Binding Informe.DataEmisio}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Import Cobert: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbImportCobert" Text="{Binding Informe.ImportCobert}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="€" VerticalAlignment="Center" FontSize="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Estat Informe: " VerticalAlignment="Center" FontSize="25" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="tbEstatInforme" Text="{Binding Informe.EstatInforme}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="Resultat Informe: " VerticalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="20,0,0,0"/>
+                    <TextBlock x:Name="tbResultatInforme" Text="{Binding Informe.ResultatPeritatge}" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
+                    <TextBlock Text="€"  VerticalAlignment="Center" FontSize="25"/>
+                </StackPanel>
+
+                <Border Margin="20,20,20,0" BorderBrush="Black" BorderThickness="4" Height="200">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <TextBlock  FontSize="25" Text="{Binding Informe.Informe}" TextWrapping="Wrap" />
+                    </ScrollViewer>
+                </Border>
+                <StackPanel Orientation="Vertical">
+                    <Button x:Name="btnInformes" Content="Mostra Informes" HorizontalAlignment="Right" Margin="0,20,30,0" Click="btnInformes_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- INFORME-->
+        </Grid>
+
+    </Grid>
+</UserControl>

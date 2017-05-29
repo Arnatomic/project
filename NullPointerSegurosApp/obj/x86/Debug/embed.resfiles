@@ -1,0 +1,9 @@
+App.xbf
+Controls\Control_ListViewDBCreator.xbf
+Controls\ControlCalendar.xbf
+Controls\DetallSinistre.xbf
+MainPage.xbf
+Pages\AgendaPage.xbf
+Pages\EntradaInformeDetallPage.xbf
+Pages\EntradaInformePage.xbf
+Pages\SinistreDetallPage.xbf

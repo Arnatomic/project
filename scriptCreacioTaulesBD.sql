@@ -128,8 +128,8 @@ create table sinistre(
   descripcio varchar(100) not null,
   num_polissa int not null,
   num_perit int,
-  tipus_sinistre varchar(20),
-  estat_sinistre varchar(20),
+  tipus_sinistre varchar(20) not null,
+  estat_sinistre varchar(20) not null,
   arxivat int,
   
   
