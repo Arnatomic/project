@@ -74,6 +74,7 @@ namespace NullPointerSegurosApp.Pages
                 await stream.WriteAsync(bytes.AsBuffer());
                 stream.Seek(0);
                 await image.SetSourceAsync(stream);
+                
             }
             return image;
         }

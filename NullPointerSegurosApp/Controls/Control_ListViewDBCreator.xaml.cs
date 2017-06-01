@@ -53,6 +53,9 @@ namespace NullPointerSegurosApp.Controls
                     runDefaults(value);
                     generarListView(value);
                 }
+
+                if (((ObservableCollection<Object>)value).Count == 0) BuidaLlista();
+                else MostraLlista();
             }
         }
 
@@ -104,33 +107,19 @@ namespace NullPointerSegurosApp.Controls
 
         public void BuidaLlista()
         {
-            // lvGeneric.ItemsSource = new ObservableCollection<Habitacio>();
+            lvGeneric.Visibility = Visibility.Collapsed;
             borderEmpty.Visibility = Visibility.Visible;
         }
-
-        private bool mLlistaBuida;
-
-        public bool LlistaBuida
+        public void MostraLlista()
         {
-            get { return mLlistaBuida; }
-            set
-            {
-                mLlistaBuida = value;
-                if (value)
-                {
-                    borderEmpty.Visibility = Visibility.Visible;
-                    lvGeneric.Height = 0;
-                }
-                else
-                {
-                    borderEmpty.Visibility = Visibility.Collapsed;
-                    lvGeneric.Height = 200;
-                }
-            }
+            borderEmpty.Visibility = Visibility.Collapsed;
+            lvGeneric.Visibility = Visibility.Visible;
         }
 
+    
 
-        private Object mObjecteSeleccionat;
+
+  
 
         public Object ObjecteSeleccionat
         {
@@ -138,29 +127,25 @@ namespace NullPointerSegurosApp.Controls
             set { lvGeneric.SelectedItem = value; }
         }
 
-        private Object mUltimObjListView;
-
+      
         public Object UltimIbjListView
         {
             get { return ((ObservableCollection<Object>)lvGeneric.ItemsSource).Last<Object>(); }
         }
 
-        private ListView mListViewObjects;
 
         public ListView ListViewObjects
         {
             get { return lvGeneric; }
         }
 
-        private Object mPrimerObjListView;
-
+   
         public Object PrimerObjListView
         {
             get { return ((ObservableCollection<Object>)lvGeneric.ItemsSource).First<Object>(); ; }
 
         }
 
-        private int mIndexItemSeleccionat;
 
         public int IndexItemSeleccionat
         {

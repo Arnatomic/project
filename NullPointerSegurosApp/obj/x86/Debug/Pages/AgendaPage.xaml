@@ -26,34 +26,37 @@
 
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Perits" FontSize="60" Padding="25,0,0,0" />
-                <localControls:Control_ListViewDBCreator x:ConnectionId='10' x:Name="lvPerits" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridPerits, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" Height="300">
+                <localControls:Control_ListViewDBCreator x:ConnectionId='19' x:Name="lvPerits" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridPerits, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                </ScrollViewer>
                 <Grid Padding="30">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Nou Perit" Margin="45,0,0,0"/>
-                    <Button Content="Editar Perit" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,45,0"/>
-                    <Button Content="Esborrar Perit" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,45,0"/>
+                    <Button x:ConnectionId='16' x:Name="btnNou" Content="Nou Perit" Tag="Nou" Margin="45,0,0,0"                            />
+                    <Button x:ConnectionId='17' x:Name="btnEditar" Content="Editar Perit" Tag="Editar" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,45,0"                             IsEnabled="False"/>
+                    <Button x:ConnectionId='18' x:Name="btnEsborrar" Content="Esborrar Perit" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,45,0" IsEnabled="False"                          />
                 </Grid>
+                <TextBlock x:ConnectionId='15' x:Name="tbMissatgeError" Foreground="PaleVioletRed" Margin="50,0,0,0"/>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Row="1">
                 <TextBlock Text="Sinistres" FontSize="60" Padding="25,0,0,0" />
                 <StackPanel Orientation="Horizontal" Margin="45,20,0,0">
                     <TextBlock Text="Data Sinistre" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                    <CalendarDatePicker x:ConnectionId='6' x:Name="dpDataSinistre" Margin="10,0,0,0"/>
+                    <CalendarDatePicker x:ConnectionId='10' x:Name="dpDataSinistre" Margin="10,0,0,0"/>
                     <TextBlock Text="Estat Sinistre" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                    <ComboBox x:ConnectionId='7' x:Name="cboxEstatSinistre" Margin="10,0,0,0" />
+                    <ComboBox x:ConnectionId='11' x:Name="cboxEstatSinistre" Margin="10,0,0,0" />
                     <TextBlock Text="Client" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                    <ComboBox x:ConnectionId='8' x:Name="cboxClient" Margin="10,0,0,0"/>
-                    <TextBlock Text="Perit" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                    <ComboBox x:ConnectionId='9' x:Name="cboxPerit" Margin="10,0,0,0"/>
-                    <Button Content="Filtre On" Margin="10,0,0,0"/>
-                    <Button Content="Filtre Off" Margin="10,0,0,0"/>
+                    <ComboBox x:ConnectionId='12' x:Name="cboxClient" Margin="10,0,0,0"/>                   
+                    <Button x:ConnectionId='13' x:Name="btnFiltreOn" Content="Filtre On"  Margin="10,0,0,0"                           IsEnabled="False"/>
+                    <Button x:ConnectionId='14' x:Name="btnFiltreOff" Content="Filtre Off" Margin="10,0,0,0"                           />
                 </StackPanel>
-                <localControls:Control_ListViewDBCreator x:ConnectionId='5' x:Name="lvSinistres" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridPerits, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <localControls:Control_ListViewDBCreator x:ConnectionId='9' x:Name="lvSinistres" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridPerits, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                </ScrollViewer>
             </StackPanel>
 
         </Grid>
@@ -65,10 +68,23 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Sinistres Pendents de Cita" FontSize="60" Padding="25,0,0,0"/>
-                <ListView x:ConnectionId='4' x:Name="lvCites" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridAgenda, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" Height="300">
+                <localControls:Control_ListViewDBCreator x:ConnectionId='8' x:Name="lvSinistresSenseCita" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridAgenda, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Hora Inicial: " VerticalAlignment="Center"/>
+                    <ComboBox x:ConnectionId='5' x:Name="cboxHoresDia" Width="150" Margin="20,0,0,0"/>
+                    <TextBlock Text="Duració: " VerticalAlignment="Center" Margin="20,0,0,0"/>
+                    <TextBox x:ConnectionId='6' x:Name="tbDuracio" Text="1" Width="150" Margin="20,0,0,0"/>
+                    <Button x:ConnectionId='7' x:Name="btnAssignaCita" Content="Assignar Cita" Margin="20,0,0,0"                             />
+                </StackPanel>
+                <TextBlock x:ConnectionId='4' x:Name="tbErrorCita" Text="" Foreground="PaleVioletRed" Margin="0,20,0,0" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <localControls:ControlCalendar x:ConnectionId='3' x:Name="controlCalendari" Grid.Row="1"/>
+            <Border Grid.Row="1" Padding="40">
+                <localControls:ControlAgenda x:ConnectionId='3' x:Name="controlAgenda" />
+            </Border>
+            
 
         </Grid>
 

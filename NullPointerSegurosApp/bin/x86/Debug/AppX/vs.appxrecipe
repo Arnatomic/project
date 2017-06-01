@@ -28,13 +28,13 @@
     <AppXManifest Include="G:\DAM 2.1\M12Project\NullPointerSeguros\project\NullPointerSegurosApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-29T21:17:32.589</Modified>
+      <Modified>2017-06-01T11:28:04.260</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="G:\DAM 2.1\M12Project\NullPointerSeguros\project\NullPointerSegurosApp\bin\x86\Debug\NullPointerSegurosApp.exe">
       <PackagePath>entrypoint\NullPointerSegurosApp.exe</PackagePath>
-      <Modified>2017-05-29T21:17:31.866</Modified>
+      <Modified>2017-06-01T11:28:04.043</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mr. Robot\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -516,7 +516,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\DAM 2.1\M12Project\NullPointerSeguros\project\NullPointerSegurosApp\bin\x86\Debug\NullPointerSegurosApp.xr.xml">
       <PackagePath>NullPointerSegurosApp.xr.xml</PackagePath>
-      <Modified>2017-05-29T21:17:31.610</Modified>
+      <Modified>2017-06-01T10:02:04.181</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -524,11 +524,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\DAM 2.1\M12Project\NullPointerSeguros\project\NullPointerSegurosApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2017-05-29T21:17:32.321</Modified>
+      <Modified>2017-06-01T11:19:50.071</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\DAM 2.1\M12Project\NullPointerSeguros\project\NullPointerSegurosApp\bin\x86\Debug\Core\NullPointerSegurosApp.exe">
       <PackagePath>NullPointerSegurosApp.exe</PackagePath>
-      <Modified>2017-05-29T21:17:32.585</Modified>
+      <Modified>2017-06-01T11:28:04.257</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

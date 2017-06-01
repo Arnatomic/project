@@ -345,7 +345,7 @@ public class FormulariSinistre extends javax.swing.JFrame {
         if (cboxPerits.getSelectedIndex() == 0) {
             s.setPerit(null);
         } else {
-            s.setPerit(perits.get(cboxPerits.getSelectedIndex()));
+            s.setPerit(perits.get(cboxPerits.getSelectedIndex()-1));
         }
         
         s.setPolissa(polices.get(cboxPolices.getSelectedIndex()));
@@ -362,12 +362,13 @@ public class FormulariSinistre extends javax.swing.JFrame {
     class GestioEstatSinistre implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("SSS: " + cboxPerits.getSelectedItem());
+        public void actionPerformed(ActionEvent e) {            
             if (!cboxPerits.getSelectedItem().toString().equals("No assignat") && !tancat) {
                 cboxEstatSinistre.setSelectedIndex(1);
+                jXDatePickerAssignacio.setDate(new Date());
             } else if (!tancat) {
                 cboxEstatSinistre.setSelectedIndex(0);
+                jXDatePickerAssignacio.setDate(null);
             } else if (tancat) {
                 cboxEstatSinistre.setSelectedIndex(2);
             }

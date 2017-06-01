@@ -8,7 +8,7 @@ namespace NullPointerSegurosApp.Model
 {
     public class Trucada
     {
-      
+
 
         public Trucada(int numero, DateTime dataHora, string descripcio, string personaContacte)
         {

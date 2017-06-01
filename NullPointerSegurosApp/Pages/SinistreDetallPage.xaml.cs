@@ -1,4 +1,5 @@
-﻿using NullPointerSegurosApp.Model;
+﻿using NullPointerSegurosApp.Controls;
+using NullPointerSegurosApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,7 +25,7 @@ namespace NullPointerSegurosApp.Pages
     /// </summary>
     public sealed partial class SinistreDetallPage : Page
     {
-        private Sinistre sin;
+        private SinistreDetall sinistreDetall;
         public SinistreDetallPage()
         {
             this.InitializeComponent();
@@ -41,13 +42,21 @@ namespace NullPointerSegurosApp.Pages
             else
             {
 
-               sin = (Sinistre)e.Parameter;
+                sinistreDetall = (SinistreDetall)e.Parameter;
 
-                controlSinistre.Sinistre = sin;
+                controlSinistre.Sinistre = sinistreDetall.Sinistre;
+                controlSinistre.Perits = sinistreDetall.Perits;
                 controlSinistre.onClickEntradesInforme += ControlSinistre_onClickEntradesInforme;
                 controlSinistre.onClickTornar += ControlSinistre_onClickTornar;
+                controlSinistre.onClickUpdatePerit += ControlSinistre_onClickUpdatePerit;
 
             }
+        }
+
+        private void ControlSinistre_onClickUpdatePerit(object sender, EventArgs e)
+        {
+            DetallSinistre ds = (DetallSinistre)sender;
+            this.Frame.Navigate(typeof(AgendaPage),ds.Sinistre);
         }
 
         private void ControlSinistre_onClickTornar(object sender, EventArgs e)
@@ -57,7 +66,7 @@ namespace NullPointerSegurosApp.Pages
 
         private void ControlSinistre_onClickEntradesInforme(object sender, EventArgs e)
         {
-            this.Frame.Navigate(typeof(EntradaInformePage), sin.Informe?.Entrades);
+            this.Frame.Navigate(typeof(EntradaInformePage), sinistreDetall.Sinistre.Informe?.Entrades);
         }
 
 

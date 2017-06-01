@@ -132,38 +132,38 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[46];
-            _typeNameTable[0] = "NullPointerSegurosApp.Controls.ControlCalendar";
+            _typeNameTable = new string[57];
+            _typeNameTable[0] = "NullPointerSegurosApp.Controls.ControlAgenda";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[2] = "System.DateTime";
-            _typeNameTable[3] = "System.ValueType";
+            _typeNameTable[2] = "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Cita>";
+            _typeNameTable[3] = "System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Cita>";
             _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "Boolean";
-            _typeNameTable[6] = "NullPointerSegurosApp.Controls.BackgroundStyleSelecter";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.StyleSelector";
-            _typeNameTable[8] = "NullPointerSegurosApp.Controls.Control_ListViewDBCreator";
-            _typeNameTable[9] = "System.Collections.ObjectModel.ObservableCollection`1<Object>";
-            _typeNameTable[10] = "System.Collections.ObjectModel.Collection`1<Object>";
-            _typeNameTable[11] = "Windows.UI.Xaml.Controls.ListView";
-            _typeNameTable[12] = "Int32";
-            _typeNameTable[13] = "System.Collections.Generic.Dictionary`2<String, Boolean>";
-            _typeNameTable[14] = "String";
-            _typeNameTable[15] = "System.Collections.Generic.Dictionary`2<String, Int32>";
-            _typeNameTable[16] = "System.Collections.Generic.Dictionary`2<String, String>";
-            _typeNameTable[17] = "Double[]";
-            _typeNameTable[18] = "System.Array";
-            _typeNameTable[19] = "Double";
-            _typeNameTable[20] = "NullPointerSegurosApp.Controls.DetallSinistre";
-            _typeNameTable[21] = "NullPointerSegurosApp.Model.Sinistre";
-            _typeNameTable[22] = "NullPointerSegurosApp.Converters.DoubleToPercentConverter";
-            _typeNameTable[23] = "NullPointerSegurosApp.MainPage";
-            _typeNameTable[24] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[25] = "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Perit>";
-            _typeNameTable[26] = "System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Perit>";
-            _typeNameTable[27] = "NullPointerSegurosApp.Model.Perit";
-            _typeNameTable[28] = "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Cita>";
-            _typeNameTable[29] = "System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Cita>";
-            _typeNameTable[30] = "NullPointerSegurosApp.Model.Cita";
+            _typeNameTable[5] = "NullPointerSegurosApp.Model.Cita";
+            _typeNameTable[6] = "Int32";
+            _typeNameTable[7] = "System.DateTime";
+            _typeNameTable[8] = "System.ValueType";
+            _typeNameTable[9] = "NullPointerSegurosApp.Controls.ControlCalendar";
+            _typeNameTable[10] = "Boolean";
+            _typeNameTable[11] = "NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit";
+            _typeNameTable[12] = "NullPointerSegurosApp.BD.BDConnector";
+            _typeNameTable[13] = "NullPointerSegurosApp.Model.Perit";
+            _typeNameTable[14] = "NullPointerSegurosApp.Controls.BackgroundStyleSelecter";
+            _typeNameTable[15] = "Windows.UI.Xaml.Controls.StyleSelector";
+            _typeNameTable[16] = "NullPointerSegurosApp.Controls.Control_ListViewDBCreator";
+            _typeNameTable[17] = "System.Collections.ObjectModel.ObservableCollection`1<Object>";
+            _typeNameTable[18] = "System.Collections.ObjectModel.Collection`1<Object>";
+            _typeNameTable[19] = "Windows.UI.Xaml.Controls.ListView";
+            _typeNameTable[20] = "System.Collections.Generic.Dictionary`2<String, Boolean>";
+            _typeNameTable[21] = "String";
+            _typeNameTable[22] = "System.Collections.Generic.Dictionary`2<String, Int32>";
+            _typeNameTable[23] = "System.Collections.Generic.Dictionary`2<String, String>";
+            _typeNameTable[24] = "Double[]";
+            _typeNameTable[25] = "System.Array";
+            _typeNameTable[26] = "Double";
+            _typeNameTable[27] = "NullPointerSegurosApp.Controls.DetallSinistre";
+            _typeNameTable[28] = "NullPointerSegurosApp.Model.Sinistre";
+            _typeNameTable[29] = "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Perit>";
+            _typeNameTable[30] = "System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Perit>";
             _typeNameTable[31] = "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Sinistre>";
             _typeNameTable[32] = "System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Sinistre>";
             _typeNameTable[33] = "System.Nullable`1<System.DateTime>";
@@ -175,43 +175,54 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
             _typeNameTable[39] = "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Trucada>";
             _typeNameTable[40] = "System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Trucada>";
             _typeNameTable[41] = "NullPointerSegurosApp.Model.Trucada";
-            _typeNameTable[42] = "NullPointerSegurosApp.Pages.AgendaPage";
-            _typeNameTable[43] = "NullPointerSegurosApp.Pages.EntradaInformeDetallPage";
-            _typeNameTable[44] = "NullPointerSegurosApp.Pages.EntradaInformePage";
-            _typeNameTable[45] = "NullPointerSegurosApp.Pages.SinistreDetallPage";
+            _typeNameTable[42] = "NullPointerSegurosApp.Dialogs.DialogNouPerit";
+            _typeNameTable[43] = "Windows.UI.Xaml.Controls.ContentDialog";
+            _typeNameTable[44] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[45] = "NullPointerSegurosApp.Model.Enums.BOTO";
+            _typeNameTable[46] = "NullPointerSegurosApp.Converters.DoubleToPercentConverter";
+            _typeNameTable[47] = "NullPointerSegurosApp.MainPage";
+            _typeNameTable[48] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[49] = "NullPointerSegurosApp.Pages.AgendaPage";
+            _typeNameTable[50] = "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Client>";
+            _typeNameTable[51] = "System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Client>";
+            _typeNameTable[52] = "NullPointerSegurosApp.Model.Client";
+            _typeNameTable[53] = "System.Collections.Generic.List`1<NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE>";
+            _typeNameTable[54] = "NullPointerSegurosApp.Pages.EntradaInformeDetallPage";
+            _typeNameTable[55] = "NullPointerSegurosApp.Pages.EntradaInformePage";
+            _typeNameTable[56] = "NullPointerSegurosApp.Pages.SinistreDetallPage";
 
-            _typeTable = new global::System.Type[46];
-            _typeTable[0] = typeof(global::NullPointerSegurosApp.Controls.ControlCalendar);
+            _typeTable = new global::System.Type[57];
+            _typeTable[0] = typeof(global::NullPointerSegurosApp.Controls.ControlAgenda);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[2] = typeof(global::System.DateTime);
-            _typeTable[3] = typeof(global::System.ValueType);
+            _typeTable[2] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Cita>);
+            _typeTable[3] = typeof(global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Cita>);
             _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::System.Boolean);
-            _typeTable[6] = typeof(global::NullPointerSegurosApp.Controls.BackgroundStyleSelecter);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.StyleSelector);
-            _typeTable[8] = typeof(global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator);
-            _typeTable[9] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>);
-            _typeTable[10] = typeof(global::System.Collections.ObjectModel.Collection<global::System.Object>);
-            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.ListView);
-            _typeTable[12] = typeof(global::System.Int32);
-            _typeTable[13] = typeof(global::System.Collections.Generic.Dictionary<global::System.String, global::System.Boolean>);
-            _typeTable[14] = typeof(global::System.String);
-            _typeTable[15] = typeof(global::System.Collections.Generic.Dictionary<global::System.String, global::System.Int32>);
-            _typeTable[16] = typeof(global::System.Collections.Generic.Dictionary<global::System.String, global::System.String>);
-            _typeTable[17] = typeof(global::System.Double[]);
-            _typeTable[18] = typeof(global::System.Array);
-            _typeTable[19] = typeof(global::System.Double);
-            _typeTable[20] = typeof(global::NullPointerSegurosApp.Controls.DetallSinistre);
-            _typeTable[21] = typeof(global::NullPointerSegurosApp.Model.Sinistre);
-            _typeTable[22] = typeof(global::NullPointerSegurosApp.Converters.DoubleToPercentConverter);
-            _typeTable[23] = typeof(global::NullPointerSegurosApp.MainPage);
-            _typeTable[24] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[25] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Perit>);
-            _typeTable[26] = typeof(global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Perit>);
-            _typeTable[27] = typeof(global::NullPointerSegurosApp.Model.Perit);
-            _typeTable[28] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Cita>);
-            _typeTable[29] = typeof(global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Cita>);
-            _typeTable[30] = typeof(global::NullPointerSegurosApp.Model.Cita);
+            _typeTable[5] = typeof(global::NullPointerSegurosApp.Model.Cita);
+            _typeTable[6] = typeof(global::System.Int32);
+            _typeTable[7] = typeof(global::System.DateTime);
+            _typeTable[8] = typeof(global::System.ValueType);
+            _typeTable[9] = typeof(global::NullPointerSegurosApp.Controls.ControlCalendar);
+            _typeTable[10] = typeof(global::System.Boolean);
+            _typeTable[11] = typeof(global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit);
+            _typeTable[12] = typeof(global::NullPointerSegurosApp.BD.BDConnector);
+            _typeTable[13] = typeof(global::NullPointerSegurosApp.Model.Perit);
+            _typeTable[14] = typeof(global::NullPointerSegurosApp.Controls.BackgroundStyleSelecter);
+            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.StyleSelector);
+            _typeTable[16] = typeof(global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator);
+            _typeTable[17] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>);
+            _typeTable[18] = typeof(global::System.Collections.ObjectModel.Collection<global::System.Object>);
+            _typeTable[19] = typeof(global::Windows.UI.Xaml.Controls.ListView);
+            _typeTable[20] = typeof(global::System.Collections.Generic.Dictionary<global::System.String, global::System.Boolean>);
+            _typeTable[21] = typeof(global::System.String);
+            _typeTable[22] = typeof(global::System.Collections.Generic.Dictionary<global::System.String, global::System.Int32>);
+            _typeTable[23] = typeof(global::System.Collections.Generic.Dictionary<global::System.String, global::System.String>);
+            _typeTable[24] = typeof(global::System.Double[]);
+            _typeTable[25] = typeof(global::System.Array);
+            _typeTable[26] = typeof(global::System.Double);
+            _typeTable[27] = typeof(global::NullPointerSegurosApp.Controls.DetallSinistre);
+            _typeTable[28] = typeof(global::NullPointerSegurosApp.Model.Sinistre);
+            _typeTable[29] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Perit>);
+            _typeTable[30] = typeof(global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Perit>);
             _typeTable[31] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Sinistre>);
             _typeTable[32] = typeof(global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Sinistre>);
             _typeTable[33] = typeof(global::System.Nullable<global::System.DateTime>);
@@ -223,10 +234,21 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
             _typeTable[39] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Trucada>);
             _typeTable[40] = typeof(global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Trucada>);
             _typeTable[41] = typeof(global::NullPointerSegurosApp.Model.Trucada);
-            _typeTable[42] = typeof(global::NullPointerSegurosApp.Pages.AgendaPage);
-            _typeTable[43] = typeof(global::NullPointerSegurosApp.Pages.EntradaInformeDetallPage);
-            _typeTable[44] = typeof(global::NullPointerSegurosApp.Pages.EntradaInformePage);
-            _typeTable[45] = typeof(global::NullPointerSegurosApp.Pages.SinistreDetallPage);
+            _typeTable[42] = typeof(global::NullPointerSegurosApp.Dialogs.DialogNouPerit);
+            _typeTable[43] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
+            _typeTable[44] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[45] = typeof(global::NullPointerSegurosApp.Model.Enums.BOTO);
+            _typeTable[46] = typeof(global::NullPointerSegurosApp.Converters.DoubleToPercentConverter);
+            _typeTable[47] = typeof(global::NullPointerSegurosApp.MainPage);
+            _typeTable[48] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[49] = typeof(global::NullPointerSegurosApp.Pages.AgendaPage);
+            _typeTable[50] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Client>);
+            _typeTable[51] = typeof(global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Client>);
+            _typeTable[52] = typeof(global::NullPointerSegurosApp.Model.Client);
+            _typeTable[53] = typeof(global::System.Collections.Generic.List<global::NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE>);
+            _typeTable[54] = typeof(global::NullPointerSegurosApp.Pages.EntradaInformeDetallPage);
+            _typeTable[55] = typeof(global::NullPointerSegurosApp.Pages.EntradaInformePage);
+            _typeTable[56] = typeof(global::NullPointerSegurosApp.Pages.SinistreDetallPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -261,85 +283,91 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_ControlCalendar() { return new global::NullPointerSegurosApp.Controls.ControlCalendar(); }
-        private object Activate_6_BackgroundStyleSelecter() { return new global::NullPointerSegurosApp.Controls.BackgroundStyleSelecter(); }
-        private object Activate_8_Control_ListViewDBCreator() { return new global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator(); }
-        private object Activate_9_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>(); }
-        private object Activate_10_Collection() { return new global::System.Collections.ObjectModel.Collection<global::System.Object>(); }
-        private object Activate_13_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Boolean>(); }
-        private object Activate_15_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Int32>(); }
-        private object Activate_16_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.String, global::System.String>(); }
-        private object Activate_20_DetallSinistre() { return new global::NullPointerSegurosApp.Controls.DetallSinistre(); }
-        private object Activate_22_DoubleToPercentConverter() { return new global::NullPointerSegurosApp.Converters.DoubleToPercentConverter(); }
-        private object Activate_23_MainPage() { return new global::NullPointerSegurosApp.MainPage(); }
-        private object Activate_25_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Perit>(); }
-        private object Activate_26_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Perit>(); }
-        private object Activate_28_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Cita>(); }
-        private object Activate_29_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Cita>(); }
+        private object Activate_0_ControlAgenda() { return new global::NullPointerSegurosApp.Controls.ControlAgenda(); }
+        private object Activate_2_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Cita>(); }
+        private object Activate_3_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Cita>(); }
+        private object Activate_9_ControlCalendar() { return new global::NullPointerSegurosApp.Controls.ControlCalendar(); }
+        private object Activate_11_ControlEdicioCreacioPerit() { return new global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit(); }
+        private object Activate_13_Perit() { return new global::NullPointerSegurosApp.Model.Perit(); }
+        private object Activate_14_BackgroundStyleSelecter() { return new global::NullPointerSegurosApp.Controls.BackgroundStyleSelecter(); }
+        private object Activate_16_Control_ListViewDBCreator() { return new global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator(); }
+        private object Activate_17_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>(); }
+        private object Activate_18_Collection() { return new global::System.Collections.ObjectModel.Collection<global::System.Object>(); }
+        private object Activate_20_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Boolean>(); }
+        private object Activate_22_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Int32>(); }
+        private object Activate_23_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.String, global::System.String>(); }
+        private object Activate_27_DetallSinistre() { return new global::NullPointerSegurosApp.Controls.DetallSinistre(); }
+        private object Activate_29_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Perit>(); }
+        private object Activate_30_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Perit>(); }
         private object Activate_31_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Sinistre>(); }
         private object Activate_32_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Sinistre>(); }
         private object Activate_37_InformePericial() { return new global::NullPointerSegurosApp.Model.InformePericial(); }
         private object Activate_39_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Trucada>(); }
         private object Activate_40_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Trucada>(); }
-        private object Activate_42_AgendaPage() { return new global::NullPointerSegurosApp.Pages.AgendaPage(); }
-        private object Activate_43_EntradaInformeDetallPage() { return new global::NullPointerSegurosApp.Pages.EntradaInformeDetallPage(); }
-        private object Activate_44_EntradaInformePage() { return new global::NullPointerSegurosApp.Pages.EntradaInformePage(); }
-        private object Activate_45_SinistreDetallPage() { return new global::NullPointerSegurosApp.Pages.SinistreDetallPage(); }
-        private void VectorAdd_9_ObservableCollection(object instance, object item)
+        private object Activate_46_DoubleToPercentConverter() { return new global::NullPointerSegurosApp.Converters.DoubleToPercentConverter(); }
+        private object Activate_47_MainPage() { return new global::NullPointerSegurosApp.MainPage(); }
+        private object Activate_49_AgendaPage() { return new global::NullPointerSegurosApp.Pages.AgendaPage(); }
+        private object Activate_50_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Client>(); }
+        private object Activate_51_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NullPointerSegurosApp.Model.Client>(); }
+        private object Activate_53_List() { return new global::System.Collections.Generic.List<global::NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE>(); }
+        private object Activate_54_EntradaInformeDetallPage() { return new global::NullPointerSegurosApp.Pages.EntradaInformeDetallPage(); }
+        private object Activate_55_EntradaInformePage() { return new global::NullPointerSegurosApp.Pages.EntradaInformePage(); }
+        private object Activate_56_SinistreDetallPage() { return new global::NullPointerSegurosApp.Pages.SinistreDetallPage(); }
+        private void VectorAdd_2_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Cita>)instance;
+            var newItem = (global::NullPointerSegurosApp.Model.Cita)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_3_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Cita>)instance;
+            var newItem = (global::NullPointerSegurosApp.Model.Cita)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_17_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_10_Collection(object instance, object item)
+        private void VectorAdd_18_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void MapAdd_13_Dictionary(object instance, object key, object item)
+        private void MapAdd_20_Dictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Boolean>)instance;
             var newKey = (global::System.String)key;
             var newItem = (global::System.Boolean)item;
             collection.Add(newKey, newItem);
         }
-        private void MapAdd_15_Dictionary(object instance, object key, object item)
+        private void MapAdd_22_Dictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Int32>)instance;
             var newKey = (global::System.String)key;
             var newItem = (global::System.Int32)item;
             collection.Add(newKey, newItem);
         }
-        private void MapAdd_16_Dictionary(object instance, object key, object item)
+        private void MapAdd_23_Dictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.String>)instance;
             var newKey = (global::System.String)key;
             var newItem = (global::System.String)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_25_ObservableCollection(object instance, object item)
+        private void VectorAdd_29_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Perit>)instance;
             var newItem = (global::NullPointerSegurosApp.Model.Perit)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_26_Collection(object instance, object item)
+        private void VectorAdd_30_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Perit>)instance;
             var newItem = (global::NullPointerSegurosApp.Model.Perit)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_28_ObservableCollection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Cita>)instance;
-            var newItem = (global::NullPointerSegurosApp.Model.Cita)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_29_Collection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Cita>)instance;
-            var newItem = (global::NullPointerSegurosApp.Model.Cita)item;
             collection.Add(newItem);
         }
         private void VectorAdd_31_ObservableCollection(object instance, object item)
@@ -366,6 +394,24 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
             var newItem = (global::NullPointerSegurosApp.Model.Trucada)item;
             collection.Add(newItem);
         }
+        private void VectorAdd_50_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Client>)instance;
+            var newItem = (global::NullPointerSegurosApp.Model.Client)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_51_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Client>)instance;
+            var newItem = (global::NullPointerSegurosApp.Model.Client)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_53_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE>)instance;
+            var newItem = (global::NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE)item;
+            collection.Add(newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -377,11 +423,10 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  NullPointerSegurosApp.Controls.ControlCalendar
+            case 0:   //  NullPointerSegurosApp.Controls.ControlAgenda
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_0_ControlCalendar;
-                userType.AddMemberName("MCurrentDate");
-                userType.AddMemberName("MDibuixat");
+                userType.Activator = Activate_0_ControlAgenda;
+                userType.AddMemberName("CitesPerit");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -390,14 +435,17 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
                 xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  System.DateTime
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+            case 2:   //  System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Cita>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Cita>"));
+                userType.CollectionAdd = VectorAdd_2_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 3:   //  System.ValueType
+            case 3:   //  System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Cita>
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_3_Collection;
+                userType.CollectionAdd = VectorAdd_3_Collection;
                 xamlType = userType;
                 break;
 
@@ -405,163 +453,66 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
                 xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Boolean
-                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 6:   //  NullPointerSegurosApp.Controls.BackgroundStyleSelecter
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.StyleSelector"));
-                userType.Activator = Activate_6_BackgroundStyleSelecter;
+            case 5:   //  NullPointerSegurosApp.Model.Cita
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.AddMemberName("Id");
+                userType.AddMemberName("NumPerit");
+                userType.AddMemberName("NumSinistre");
+                userType.AddMemberName("Duracio");
+                userType.AddMemberName("DiaHora");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Controls.StyleSelector
+            case 6:   //  Int32
                 xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  NullPointerSegurosApp.Controls.Control_ListViewDBCreator
+            case 7:   //  System.DateTime
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 8:   //  System.ValueType
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 9:   //  NullPointerSegurosApp.Controls.ControlCalendar
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_8_Control_ListViewDBCreator;
-                userType.AddMemberName("ItemsSource");
-                userType.AddMemberName("LlistaBuida");
-                userType.AddMemberName("ObjecteSeleccionat");
-                userType.AddMemberName("UltimIbjListView");
-                userType.AddMemberName("ListViewObjects");
-                userType.AddMemberName("PrimerObjListView");
-                userType.AddMemberName("IndexItemSeleccionat");
-                userType.AddMemberName("CampsVisibles");
-                userType.AddMemberName("OrdreCamps");
-                userType.AddMemberName("Capsaleres");
-                userType.AddMemberName("MidaColumnes");
+                userType.Activator = Activate_9_ControlCalendar;
+                userType.AddMemberName("MCurrentDate");
+                userType.AddMemberName("MDibuixat");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  System.Collections.ObjectModel.ObservableCollection`1<Object>
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Object>"));
-                userType.CollectionAdd = VectorAdd_9_ObservableCollection;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 10:   //  System.Collections.ObjectModel.Collection`1<Object>
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_10_Collection;
-                userType.CollectionAdd = VectorAdd_10_Collection;
-                xamlType = userType;
-                break;
-
-            case 11:   //  Windows.UI.Xaml.Controls.ListView
+            case 10:   //  Boolean
                 xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 12:   //  Int32
-                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 13:   //  System.Collections.Generic.Dictionary`2<String, Boolean>
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_13_Dictionary;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 14:   //  String
-                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 15:   //  System.Collections.Generic.Dictionary`2<String, Int32>
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_15_Dictionary;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 16:   //  System.Collections.Generic.Dictionary`2<String, String>
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_16_Dictionary;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 17:   //  Double[]
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Array"));
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 18:   //  System.Array
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                xamlType = userType;
-                break;
-
-            case 19:   //  Double
-                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 20:   //  NullPointerSegurosApp.Controls.DetallSinistre
+            case 11:   //  NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_20_DetallSinistre;
-                userType.AddMemberName("Sinistre");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 21:   //  NullPointerSegurosApp.Model.Sinistre
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.AddMemberName("Numero");
-                userType.AddMemberName("DataAssignacio");
-                userType.AddMemberName("DataObertura");
-                userType.AddMemberName("DataTancament");
-                userType.AddMemberName("Descripcio");
-                userType.AddMemberName("IdPerit");
+                userType.Activator = Activate_11_ControlEdicioCreacioPerit;
+                userType.AddMemberName("Con");
+                userType.AddMemberName("NouPerit");
                 userType.AddMemberName("Perit");
-                userType.AddMemberName("EstatSininistre");
-                userType.AddMemberName("TipusSinistre");
-                userType.AddMemberName("Informe");
-                userType.AddMemberName("NumPolissa");
-                userType.AddMemberName("Polissa");
-                userType.AddMemberName("Trucades");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 22:   //  NullPointerSegurosApp.Converters.DoubleToPercentConverter
+            case 12:   //  NullPointerSegurosApp.BD.BDConnector
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_22_DoubleToPercentConverter;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 23:   //  NullPointerSegurosApp.MainPage
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_23_MainPage;
-                userType.AddMemberName("Perits");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 24:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 25:   //  System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Perit>
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Perit>"));
-                userType.CollectionAdd = VectorAdd_25_ObservableCollection;
                 userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 26:   //  System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Perit>
+            case 13:   //  NullPointerSegurosApp.Model.Perit
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_26_Collection;
-                userType.CollectionAdd = VectorAdd_26_Collection;
-                xamlType = userType;
-                break;
-
-            case 27:   //  NullPointerSegurosApp.Model.Perit
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_13_Perit;
+                userType.AddMemberName("FullName");
                 userType.AddMemberName("Numero");
                 userType.AddMemberName("Login");
                 userType.AddMemberName("Password");
@@ -576,29 +527,132 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 28:   //  System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Cita>
-                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Cita>"));
-                userType.CollectionAdd = VectorAdd_28_ObservableCollection;
+            case 14:   //  NullPointerSegurosApp.Controls.BackgroundStyleSelecter
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.StyleSelector"));
+                userType.Activator = Activate_14_BackgroundStyleSelecter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Windows.UI.Xaml.Controls.StyleSelector
+                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 16:   //  NullPointerSegurosApp.Controls.Control_ListViewDBCreator
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_16_Control_ListViewDBCreator;
+                userType.AddMemberName("ItemsSource");
+                userType.AddMemberName("ObjecteSeleccionat");
+                userType.AddMemberName("UltimIbjListView");
+                userType.AddMemberName("ListViewObjects");
+                userType.AddMemberName("PrimerObjListView");
+                userType.AddMemberName("IndexItemSeleccionat");
+                userType.AddMemberName("CampsVisibles");
+                userType.AddMemberName("OrdreCamps");
+                userType.AddMemberName("Capsaleres");
+                userType.AddMemberName("MidaColumnes");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 17:   //  System.Collections.ObjectModel.ObservableCollection`1<Object>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Object>"));
+                userType.CollectionAdd = VectorAdd_17_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 29:   //  System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Cita>
+            case 18:   //  System.Collections.ObjectModel.Collection`1<Object>
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_29_Collection;
-                userType.CollectionAdd = VectorAdd_29_Collection;
+                userType.Activator = Activate_18_Collection;
+                userType.CollectionAdd = VectorAdd_18_Collection;
                 xamlType = userType;
                 break;
 
-            case 30:   //  NullPointerSegurosApp.Model.Cita
+            case 19:   //  Windows.UI.Xaml.Controls.ListView
+                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  System.Collections.Generic.Dictionary`2<String, Boolean>
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.AddMemberName("Id");
-                userType.AddMemberName("NumPerit");
-                userType.AddMemberName("NumSinistre");
-                userType.AddMemberName("Duracio");
-                userType.AddMemberName("DiaHora");
-                userType.AddMemberName("HoresPrevistes");
+                userType.DictionaryAdd = MapAdd_20_Dictionary;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 21:   //  String
+                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 22:   //  System.Collections.Generic.Dictionary`2<String, Int32>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.DictionaryAdd = MapAdd_22_Dictionary;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 23:   //  System.Collections.Generic.Dictionary`2<String, String>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.DictionaryAdd = MapAdd_23_Dictionary;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 24:   //  Double[]
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Array"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 25:   //  System.Array
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 26:   //  Double
+                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 27:   //  NullPointerSegurosApp.Controls.DetallSinistre
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_27_DetallSinistre;
+                userType.AddMemberName("Sinistre");
+                userType.AddMemberName("Perits");
                 userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 28:   //  NullPointerSegurosApp.Model.Sinistre
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.AddMemberName("Numero");
+                userType.AddMemberName("DataAssignacio");
+                userType.AddMemberName("DataObertura");
+                userType.AddMemberName("DataTancament");
+                userType.AddMemberName("Descripcio");
+                userType.AddMemberName("IdPerit");
+                userType.AddMemberName("Perit");
+                userType.AddMemberName("EstatSininistre");
+                userType.AddMemberName("TipusSinistre");
+                userType.AddMemberName("Informe");
+                userType.AddMemberName("NumPolissa");
+                userType.AddMemberName("SinistreTancat");
+                userType.AddMemberName("Polissa");
+                userType.AddMemberName("Trucades");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 29:   //  System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Perit>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Perit>"));
+                userType.CollectionAdd = VectorAdd_29_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 30:   //  System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Perit>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_30_Collection;
+                userType.CollectionAdd = VectorAdd_30_Collection;
                 xamlType = userType;
                 break;
 
@@ -687,31 +741,110 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 42:   //  NullPointerSegurosApp.Pages.AgendaPage
+            case 42:   //  NullPointerSegurosApp.Dialogs.DialogNouPerit
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
+                userType.AddMemberName("BotoClicat");
+                userType.AddMemberName("PeritActual");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 43:   //  Windows.UI.Xaml.Controls.ContentDialog
+                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 44:   //  Windows.UI.Xaml.Controls.ContentControl
+                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 45:   //  NullPointerSegurosApp.Model.Enums.BOTO
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("CANCELAR", global::NullPointerSegurosApp.Model.Enums.BOTO.CANCELAR);
+                userType.AddEnumValue("DESAR", global::NullPointerSegurosApp.Model.Enums.BOTO.DESAR);
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 46:   //  NullPointerSegurosApp.Converters.DoubleToPercentConverter
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_46_DoubleToPercentConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 47:   //  NullPointerSegurosApp.MainPage
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_42_AgendaPage;
+                userType.Activator = Activate_47_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 48:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 49:   //  NullPointerSegurosApp.Pages.AgendaPage
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_49_AgendaPage;
                 userType.AddMemberName("Perits");
+                userType.AddMemberName("Clients");
+                userType.AddMemberName("Sinistres");
+                userType.AddMemberName("EstatsSinistre");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 43:   //  NullPointerSegurosApp.Pages.EntradaInformeDetallPage
+            case 50:   //  System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Client>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Client>"));
+                userType.CollectionAdd = VectorAdd_50_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 51:   //  System.Collections.ObjectModel.Collection`1<NullPointerSegurosApp.Model.Client>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_51_Collection;
+                userType.CollectionAdd = VectorAdd_51_Collection;
+                xamlType = userType;
+                break;
+
+            case 52:   //  NullPointerSegurosApp.Model.Client
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.AddMemberName("FullName");
+                userType.AddMemberName("Numero");
+                userType.AddMemberName("Nif");
+                userType.AddMemberName("Nom");
+                userType.AddMemberName("Cognom1");
+                userType.AddMemberName("Cognom2");
+                userType.AddMemberName("DataNaix");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 53:   //  System.Collections.Generic.List`1<NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE>
+                userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_53_List;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 54:   //  NullPointerSegurosApp.Pages.EntradaInformeDetallPage
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_43_EntradaInformeDetallPage;
+                userType.Activator = Activate_54_EntradaInformeDetallPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 44:   //  NullPointerSegurosApp.Pages.EntradaInformePage
+            case 55:   //  NullPointerSegurosApp.Pages.EntradaInformePage
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_44_EntradaInformePage;
+                userType.Activator = Activate_55_EntradaInformePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 45:   //  NullPointerSegurosApp.Pages.SinistreDetallPage
+            case 56:   //  NullPointerSegurosApp.Pages.SinistreDetallPage
                 userType = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_45_SinistreDetallPage;
+                userType.Activator = Activate_56_SinistreDetallPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -720,480 +853,640 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
         }
 
 
-        private object get_0_ControlCalendar_MCurrentDate(object instance)
+        private object get_0_ControlAgenda_CitesPerit(object instance)
         {
-            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
-            return that.MCurrentDate;
+            var that = (global::NullPointerSegurosApp.Controls.ControlAgenda)instance;
+            return that.CitesPerit;
         }
-        private void set_0_ControlCalendar_MCurrentDate(object instance, object Value)
+        private void set_0_ControlAgenda_CitesPerit(object instance, object Value)
         {
-            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
-            that.MCurrentDate = (global::System.DateTime)Value;
+            var that = (global::NullPointerSegurosApp.Controls.ControlAgenda)instance;
+            that.CitesPerit = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Cita>)Value;
         }
-        private object get_1_ControlCalendar_MDibuixat(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
-            return that.MDibuixat;
-        }
-        private void set_1_ControlCalendar_MDibuixat(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
-            that.MDibuixat = (global::System.Boolean)Value;
-        }
-        private object get_2_Control_ListViewDBCreator_ItemsSource(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.ItemsSource;
-        }
-        private void set_2_Control_ListViewDBCreator_ItemsSource(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.ItemsSource = (global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>)Value;
-        }
-        private object get_3_Control_ListViewDBCreator_LlistaBuida(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.LlistaBuida;
-        }
-        private void set_3_Control_ListViewDBCreator_LlistaBuida(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.LlistaBuida = (global::System.Boolean)Value;
-        }
-        private object get_4_Control_ListViewDBCreator_ObjecteSeleccionat(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.ObjecteSeleccionat;
-        }
-        private void set_4_Control_ListViewDBCreator_ObjecteSeleccionat(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.ObjecteSeleccionat = (global::System.Object)Value;
-        }
-        private object get_5_Control_ListViewDBCreator_UltimIbjListView(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.UltimIbjListView;
-        }
-        private object get_6_Control_ListViewDBCreator_ListViewObjects(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.ListViewObjects;
-        }
-        private object get_7_Control_ListViewDBCreator_PrimerObjListView(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.PrimerObjListView;
-        }
-        private object get_8_Control_ListViewDBCreator_IndexItemSeleccionat(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.IndexItemSeleccionat;
-        }
-        private void set_8_Control_ListViewDBCreator_IndexItemSeleccionat(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.IndexItemSeleccionat = (global::System.Int32)Value;
-        }
-        private object get_9_Control_ListViewDBCreator_CampsVisibles(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.CampsVisibles;
-        }
-        private void set_9_Control_ListViewDBCreator_CampsVisibles(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.CampsVisibles = (global::System.Collections.Generic.Dictionary<global::System.String, global::System.Boolean>)Value;
-        }
-        private object get_10_Control_ListViewDBCreator_OrdreCamps(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.OrdreCamps;
-        }
-        private void set_10_Control_ListViewDBCreator_OrdreCamps(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.OrdreCamps = (global::System.Collections.Generic.Dictionary<global::System.String, global::System.Int32>)Value;
-        }
-        private object get_11_Control_ListViewDBCreator_Capsaleres(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.Capsaleres;
-        }
-        private void set_11_Control_ListViewDBCreator_Capsaleres(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.Capsaleres = (global::System.Collections.Generic.Dictionary<global::System.String, global::System.String>)Value;
-        }
-        private object get_12_Control_ListViewDBCreator_MidaColumnes(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            return that.MidaColumnes;
-        }
-        private void set_12_Control_ListViewDBCreator_MidaColumnes(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
-            that.MidaColumnes = (global::System.Double[])Value;
-        }
-        private object get_13_DetallSinistre_Sinistre(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.DetallSinistre)instance;
-            return that.Sinistre;
-        }
-        private void set_13_DetallSinistre_Sinistre(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Controls.DetallSinistre)instance;
-            that.Sinistre = (global::NullPointerSegurosApp.Model.Sinistre)Value;
-        }
-        private object get_14_MainPage_Perits(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.MainPage)instance;
-            return that.Perits;
-        }
-        private void set_14_MainPage_Perits(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.MainPage)instance;
-            that.Perits = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Perit>)Value;
-        }
-        private object get_15_Perit_Numero(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Numero;
-        }
-        private void set_15_Perit_Numero(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Numero = (global::System.Int32)Value;
-        }
-        private object get_16_Perit_Login(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Login;
-        }
-        private void set_16_Perit_Login(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Login = (global::System.String)Value;
-        }
-        private object get_17_Perit_Password(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Password;
-        }
-        private void set_17_Perit_Password(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Password = (global::System.String)Value;
-        }
-        private object get_18_Perit_Nif(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Nif;
-        }
-        private void set_18_Perit_Nif(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Nif = (global::System.String)Value;
-        }
-        private object get_19_Perit_Nom(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Nom;
-        }
-        private void set_19_Perit_Nom(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Nom = (global::System.String)Value;
-        }
-        private object get_20_Perit_Cognom1(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Cognom1;
-        }
-        private void set_20_Perit_Cognom1(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Cognom1 = (global::System.String)Value;
-        }
-        private object get_21_Perit_Cognom2(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Cognom2;
-        }
-        private void set_21_Perit_Cognom2(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Cognom2 = (global::System.String)Value;
-        }
-        private object get_22_Perit_DataNaix(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.DataNaix;
-        }
-        private void set_22_Perit_DataNaix(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.DataNaix = (global::System.DateTime)Value;
-        }
-        private object get_23_Perit_Cites(object instance)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            return that.Cites;
-        }
-        private void set_23_Perit_Cites(object instance, object Value)
-        {
-            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
-            that.Cites = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Cita>)Value;
-        }
-        private object get_24_Cita_Id(object instance)
+        private object get_1_Cita_Id(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             return that.Id;
         }
-        private void set_24_Cita_Id(object instance, object Value)
+        private void set_1_Cita_Id(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             that.Id = (global::System.Int32)Value;
         }
-        private object get_25_Cita_NumPerit(object instance)
+        private object get_2_Cita_NumPerit(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             return that.NumPerit;
         }
-        private void set_25_Cita_NumPerit(object instance, object Value)
+        private void set_2_Cita_NumPerit(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             that.NumPerit = (global::System.Int32)Value;
         }
-        private object get_26_Cita_NumSinistre(object instance)
+        private object get_3_Cita_NumSinistre(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             return that.NumSinistre;
         }
-        private void set_26_Cita_NumSinistre(object instance, object Value)
+        private void set_3_Cita_NumSinistre(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             that.NumSinistre = (global::System.Int32)Value;
         }
-        private object get_27_Cita_Duracio(object instance)
+        private object get_4_Cita_Duracio(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             return that.Duracio;
         }
-        private void set_27_Cita_Duracio(object instance, object Value)
+        private void set_4_Cita_Duracio(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             that.Duracio = (global::System.Int32)Value;
         }
-        private object get_28_Cita_DiaHora(object instance)
+        private object get_5_Cita_DiaHora(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             return that.DiaHora;
         }
-        private void set_28_Cita_DiaHora(object instance, object Value)
+        private void set_5_Cita_DiaHora(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Cita)instance;
             that.DiaHora = (global::System.DateTime)Value;
         }
-        private object get_29_Cita_HoresPrevistes(object instance)
+        private object get_6_ControlCalendar_MCurrentDate(object instance)
         {
-            var that = (global::NullPointerSegurosApp.Model.Cita)instance;
-            return that.HoresPrevistes;
+            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
+            return that.MCurrentDate;
         }
-        private void set_29_Cita_HoresPrevistes(object instance, object Value)
+        private void set_6_ControlCalendar_MCurrentDate(object instance, object Value)
         {
-            var that = (global::NullPointerSegurosApp.Model.Cita)instance;
-            that.HoresPrevistes = (global::System.Int32)Value;
+            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
+            that.MCurrentDate = (global::System.DateTime)Value;
         }
-        private object get_30_Perit_Sinistres(object instance)
+        private object get_7_ControlCalendar_MDibuixat(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
+            return that.MDibuixat;
+        }
+        private void set_7_ControlCalendar_MDibuixat(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlCalendar)instance;
+            that.MDibuixat = (global::System.Boolean)Value;
+        }
+        private object get_8_ControlEdicioCreacioPerit_Con(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit)instance;
+            return that.Con;
+        }
+        private void set_8_ControlEdicioCreacioPerit_Con(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit)instance;
+            that.Con = (global::NullPointerSegurosApp.BD.BDConnector)Value;
+        }
+        private object get_9_ControlEdicioCreacioPerit_NouPerit(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit)instance;
+            return that.NouPerit;
+        }
+        private void set_9_ControlEdicioCreacioPerit_NouPerit(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit)instance;
+            that.NouPerit = (global::System.Boolean)Value;
+        }
+        private object get_10_ControlEdicioCreacioPerit_Perit(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit)instance;
+            return that.Perit;
+        }
+        private void set_10_ControlEdicioCreacioPerit_Perit(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit)instance;
+            that.Perit = (global::NullPointerSegurosApp.Model.Perit)Value;
+        }
+        private object get_11_Control_ListViewDBCreator_ItemsSource(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.ItemsSource;
+        }
+        private void set_11_Control_ListViewDBCreator_ItemsSource(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            that.ItemsSource = (global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>)Value;
+        }
+        private object get_12_Control_ListViewDBCreator_ObjecteSeleccionat(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.ObjecteSeleccionat;
+        }
+        private void set_12_Control_ListViewDBCreator_ObjecteSeleccionat(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            that.ObjecteSeleccionat = (global::System.Object)Value;
+        }
+        private object get_13_Control_ListViewDBCreator_UltimIbjListView(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.UltimIbjListView;
+        }
+        private object get_14_Control_ListViewDBCreator_ListViewObjects(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.ListViewObjects;
+        }
+        private object get_15_Control_ListViewDBCreator_PrimerObjListView(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.PrimerObjListView;
+        }
+        private object get_16_Control_ListViewDBCreator_IndexItemSeleccionat(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.IndexItemSeleccionat;
+        }
+        private void set_16_Control_ListViewDBCreator_IndexItemSeleccionat(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            that.IndexItemSeleccionat = (global::System.Int32)Value;
+        }
+        private object get_17_Control_ListViewDBCreator_CampsVisibles(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.CampsVisibles;
+        }
+        private void set_17_Control_ListViewDBCreator_CampsVisibles(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            that.CampsVisibles = (global::System.Collections.Generic.Dictionary<global::System.String, global::System.Boolean>)Value;
+        }
+        private object get_18_Control_ListViewDBCreator_OrdreCamps(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.OrdreCamps;
+        }
+        private void set_18_Control_ListViewDBCreator_OrdreCamps(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            that.OrdreCamps = (global::System.Collections.Generic.Dictionary<global::System.String, global::System.Int32>)Value;
+        }
+        private object get_19_Control_ListViewDBCreator_Capsaleres(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.Capsaleres;
+        }
+        private void set_19_Control_ListViewDBCreator_Capsaleres(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            that.Capsaleres = (global::System.Collections.Generic.Dictionary<global::System.String, global::System.String>)Value;
+        }
+        private object get_20_Control_ListViewDBCreator_MidaColumnes(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            return that.MidaColumnes;
+        }
+        private void set_20_Control_ListViewDBCreator_MidaColumnes(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.Control_ListViewDBCreator)instance;
+            that.MidaColumnes = (global::System.Double[])Value;
+        }
+        private object get_21_DetallSinistre_Sinistre(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.DetallSinistre)instance;
+            return that.Sinistre;
+        }
+        private void set_21_DetallSinistre_Sinistre(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.DetallSinistre)instance;
+            that.Sinistre = (global::NullPointerSegurosApp.Model.Sinistre)Value;
+        }
+        private object get_22_DetallSinistre_Perits(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.DetallSinistre)instance;
+            return that.Perits;
+        }
+        private void set_22_DetallSinistre_Perits(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Controls.DetallSinistre)instance;
+            that.Perits = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Perit>)Value;
+        }
+        private object get_23_Perit_FullName(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.FullName;
+        }
+        private void set_23_Perit_FullName(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.FullName = (global::System.String)Value;
+        }
+        private object get_24_Perit_Numero(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Numero;
+        }
+        private void set_24_Perit_Numero(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Numero = (global::System.Int32)Value;
+        }
+        private object get_25_Perit_Login(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Login;
+        }
+        private void set_25_Perit_Login(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Login = (global::System.String)Value;
+        }
+        private object get_26_Perit_Password(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Password;
+        }
+        private void set_26_Perit_Password(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Password = (global::System.String)Value;
+        }
+        private object get_27_Perit_Nif(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Nif;
+        }
+        private void set_27_Perit_Nif(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Nif = (global::System.String)Value;
+        }
+        private object get_28_Perit_Nom(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Nom;
+        }
+        private void set_28_Perit_Nom(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Nom = (global::System.String)Value;
+        }
+        private object get_29_Perit_Cognom1(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Cognom1;
+        }
+        private void set_29_Perit_Cognom1(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Cognom1 = (global::System.String)Value;
+        }
+        private object get_30_Perit_Cognom2(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Cognom2;
+        }
+        private void set_30_Perit_Cognom2(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Cognom2 = (global::System.String)Value;
+        }
+        private object get_31_Perit_DataNaix(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.DataNaix;
+        }
+        private void set_31_Perit_DataNaix(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.DataNaix = (global::System.DateTime)Value;
+        }
+        private object get_32_Perit_Cites(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            return that.Cites;
+        }
+        private void set_32_Perit_Cites(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Perit)instance;
+            that.Cites = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Cita>)Value;
+        }
+        private object get_33_Perit_Sinistres(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Perit)instance;
             return that.Sinistres;
         }
-        private void set_30_Perit_Sinistres(object instance, object Value)
+        private void set_33_Perit_Sinistres(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Perit)instance;
             that.Sinistres = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Sinistre>)Value;
         }
-        private object get_31_Sinistre_Numero(object instance)
+        private object get_34_Sinistre_Numero(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.Numero;
         }
-        private void set_31_Sinistre_Numero(object instance, object Value)
+        private void set_34_Sinistre_Numero(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.Numero = (global::System.Int32)Value;
         }
-        private object get_32_Sinistre_DataAssignacio(object instance)
+        private object get_35_Sinistre_DataAssignacio(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.DataAssignacio;
         }
-        private void set_32_Sinistre_DataAssignacio(object instance, object Value)
+        private void set_35_Sinistre_DataAssignacio(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.DataAssignacio = (global::System.Nullable<global::System.DateTime>)Value;
         }
-        private object get_33_Sinistre_DataObertura(object instance)
+        private object get_36_Sinistre_DataObertura(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.DataObertura;
         }
-        private void set_33_Sinistre_DataObertura(object instance, object Value)
+        private void set_36_Sinistre_DataObertura(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.DataObertura = (global::System.DateTime)Value;
         }
-        private object get_34_Sinistre_DataTancament(object instance)
+        private object get_37_Sinistre_DataTancament(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.DataTancament;
         }
-        private void set_34_Sinistre_DataTancament(object instance, object Value)
+        private void set_37_Sinistre_DataTancament(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.DataTancament = (global::System.Nullable<global::System.DateTime>)Value;
         }
-        private object get_35_Sinistre_Descripcio(object instance)
+        private object get_38_Sinistre_Descripcio(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.Descripcio;
         }
-        private void set_35_Sinistre_Descripcio(object instance, object Value)
+        private void set_38_Sinistre_Descripcio(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.Descripcio = (global::System.String)Value;
         }
-        private object get_36_Sinistre_IdPerit(object instance)
+        private object get_39_Sinistre_IdPerit(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.IdPerit;
         }
-        private void set_36_Sinistre_IdPerit(object instance, object Value)
+        private void set_39_Sinistre_IdPerit(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.IdPerit = (global::System.Int32)Value;
         }
-        private object get_37_Sinistre_Perit(object instance)
+        private object get_40_Sinistre_Perit(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.Perit;
         }
-        private void set_37_Sinistre_Perit(object instance, object Value)
+        private void set_40_Sinistre_Perit(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.Perit = (global::NullPointerSegurosApp.Model.Perit)Value;
         }
-        private object get_38_Sinistre_EstatSininistre(object instance)
+        private object get_41_Sinistre_EstatSininistre(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.EstatSininistre;
         }
-        private void set_38_Sinistre_EstatSininistre(object instance, object Value)
+        private void set_41_Sinistre_EstatSininistre(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.EstatSininistre = (global::NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE)Value;
         }
-        private object get_39_Sinistre_TipusSinistre(object instance)
+        private object get_42_Sinistre_TipusSinistre(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.TipusSinistre;
         }
-        private void set_39_Sinistre_TipusSinistre(object instance, object Value)
+        private void set_42_Sinistre_TipusSinistre(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.TipusSinistre = (global::NullPointerSegurosApp.Model.Enums.TIPUS_SINISTRE)Value;
         }
-        private object get_40_Sinistre_Informe(object instance)
+        private object get_43_Sinistre_Informe(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.Informe;
         }
-        private void set_40_Sinistre_Informe(object instance, object Value)
+        private void set_43_Sinistre_Informe(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.Informe = (global::NullPointerSegurosApp.Model.InformePericial)Value;
         }
-        private object get_41_Sinistre_NumPolissa(object instance)
+        private object get_44_Sinistre_NumPolissa(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.NumPolissa;
         }
-        private void set_41_Sinistre_NumPolissa(object instance, object Value)
+        private void set_44_Sinistre_NumPolissa(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.NumPolissa = (global::System.Int32)Value;
         }
-        private object get_42_Sinistre_Polissa(object instance)
+        private object get_45_Sinistre_SinistreTancat(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
+            return that.SinistreTancat;
+        }
+        private void set_45_Sinistre_SinistreTancat(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
+            that.SinistreTancat = (global::System.Boolean)Value;
+        }
+        private object get_46_Sinistre_Polissa(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.Polissa;
         }
-        private void set_42_Sinistre_Polissa(object instance, object Value)
+        private void set_46_Sinistre_Polissa(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.Polissa = (global::NullPointerSegurosApp.Model.Polissa)Value;
         }
-        private object get_43_Sinistre_Trucades(object instance)
+        private object get_47_Sinistre_Trucades(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             return that.Trucades;
         }
-        private void set_43_Sinistre_Trucades(object instance, object Value)
+        private void set_47_Sinistre_Trucades(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Sinistre)instance;
             that.Trucades = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Trucada>)Value;
         }
-        private object get_44_Trucada_Numero(object instance)
+        private object get_48_Trucada_Numero(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             return that.Numero;
         }
-        private void set_44_Trucada_Numero(object instance, object Value)
+        private void set_48_Trucada_Numero(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             that.Numero = (global::System.Int32)Value;
         }
-        private object get_45_Trucada_DataHora(object instance)
+        private object get_49_Trucada_DataHora(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             return that.DataHora;
         }
-        private void set_45_Trucada_DataHora(object instance, object Value)
+        private void set_49_Trucada_DataHora(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             that.DataHora = (global::System.DateTime)Value;
         }
-        private object get_46_Trucada_Descripcio(object instance)
+        private object get_50_Trucada_Descripcio(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             return that.Descripcio;
         }
-        private void set_46_Trucada_Descripcio(object instance, object Value)
+        private void set_50_Trucada_Descripcio(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             that.Descripcio = (global::System.String)Value;
         }
-        private object get_47_Trucada_PersonaContacte(object instance)
+        private object get_51_Trucada_PersonaContacte(object instance)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             return that.PersonaContacte;
         }
-        private void set_47_Trucada_PersonaContacte(object instance, object Value)
+        private void set_51_Trucada_PersonaContacte(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Model.Trucada)instance;
             that.PersonaContacte = (global::System.String)Value;
         }
-        private object get_48_AgendaPage_Perits(object instance)
+        private object get_52_DialogNouPerit_BotoClicat(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Dialogs.DialogNouPerit)instance;
+            return that.BotoClicat;
+        }
+        private void set_52_DialogNouPerit_BotoClicat(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Dialogs.DialogNouPerit)instance;
+            that.BotoClicat = (global::NullPointerSegurosApp.Model.Enums.BOTO)Value;
+        }
+        private object get_53_DialogNouPerit_PeritActual(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Dialogs.DialogNouPerit)instance;
+            return that.PeritActual;
+        }
+        private void set_53_DialogNouPerit_PeritActual(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Dialogs.DialogNouPerit)instance;
+            that.PeritActual = (global::NullPointerSegurosApp.Model.Perit)Value;
+        }
+        private object get_54_AgendaPage_Perits(object instance)
         {
             var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
             return that.Perits;
         }
-        private void set_48_AgendaPage_Perits(object instance, object Value)
+        private void set_54_AgendaPage_Perits(object instance, object Value)
         {
             var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
             that.Perits = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Perit>)Value;
+        }
+        private object get_55_AgendaPage_Clients(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
+            return that.Clients;
+        }
+        private void set_55_AgendaPage_Clients(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
+            that.Clients = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Client>)Value;
+        }
+        private object get_56_Client_FullName(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            return that.FullName;
+        }
+        private void set_56_Client_FullName(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            that.FullName = (global::System.String)Value;
+        }
+        private object get_57_Client_Numero(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            return that.Numero;
+        }
+        private void set_57_Client_Numero(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            that.Numero = (global::System.Int32)Value;
+        }
+        private object get_58_Client_Nif(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            return that.Nif;
+        }
+        private void set_58_Client_Nif(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            that.Nif = (global::System.String)Value;
+        }
+        private object get_59_Client_Nom(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            return that.Nom;
+        }
+        private void set_59_Client_Nom(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            that.Nom = (global::System.String)Value;
+        }
+        private object get_60_Client_Cognom1(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            return that.Cognom1;
+        }
+        private void set_60_Client_Cognom1(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            that.Cognom1 = (global::System.String)Value;
+        }
+        private object get_61_Client_Cognom2(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            return that.Cognom2;
+        }
+        private void set_61_Client_Cognom2(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            that.Cognom2 = (global::System.String)Value;
+        }
+        private object get_62_Client_DataNaix(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            return that.DataNaix;
+        }
+        private void set_62_Client_DataNaix(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Model.Client)instance;
+            that.DataNaix = (global::System.DateTime)Value;
+        }
+        private object get_63_AgendaPage_Sinistres(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
+            return that.Sinistres;
+        }
+        private void set_63_AgendaPage_Sinistres(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
+            that.Sinistres = (global::System.Collections.ObjectModel.ObservableCollection<global::NullPointerSegurosApp.Model.Sinistre>)Value;
+        }
+        private object get_64_AgendaPage_EstatsSinistre(object instance)
+        {
+            var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
+            return that.EstatsSinistre;
+        }
+        private void set_64_AgendaPage_EstatsSinistre(object instance, object Value)
+        {
+            var that = (global::NullPointerSegurosApp.Pages.AgendaPage)instance;
+            that.EstatsSinistre = (global::System.Collections.Generic.List<global::NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE>)Value;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -1203,300 +1496,397 @@ namespace NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "NullPointerSegurosApp.Controls.ControlAgenda.CitesPerit":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.ControlAgenda");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "CitesPerit", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Cita>");
+                xamlMember.Getter = get_0_ControlAgenda_CitesPerit;
+                xamlMember.Setter = set_0_ControlAgenda_CitesPerit;
+                break;
+            case "NullPointerSegurosApp.Model.Cita.Id":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Id", "Int32");
+                xamlMember.Getter = get_1_Cita_Id;
+                xamlMember.Setter = set_1_Cita_Id;
+                break;
+            case "NullPointerSegurosApp.Model.Cita.NumPerit":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "NumPerit", "Int32");
+                xamlMember.Getter = get_2_Cita_NumPerit;
+                xamlMember.Setter = set_2_Cita_NumPerit;
+                break;
+            case "NullPointerSegurosApp.Model.Cita.NumSinistre":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "NumSinistre", "Int32");
+                xamlMember.Getter = get_3_Cita_NumSinistre;
+                xamlMember.Setter = set_3_Cita_NumSinistre;
+                break;
+            case "NullPointerSegurosApp.Model.Cita.Duracio":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Duracio", "Int32");
+                xamlMember.Getter = get_4_Cita_Duracio;
+                xamlMember.Setter = set_4_Cita_Duracio;
+                break;
+            case "NullPointerSegurosApp.Model.Cita.DiaHora":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DiaHora", "System.DateTime");
+                xamlMember.Getter = get_5_Cita_DiaHora;
+                xamlMember.Setter = set_5_Cita_DiaHora;
+                break;
             case "NullPointerSegurosApp.Controls.ControlCalendar.MCurrentDate":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.ControlCalendar");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "MCurrentDate", "System.DateTime");
-                xamlMember.Getter = get_0_ControlCalendar_MCurrentDate;
-                xamlMember.Setter = set_0_ControlCalendar_MCurrentDate;
+                xamlMember.Getter = get_6_ControlCalendar_MCurrentDate;
+                xamlMember.Setter = set_6_ControlCalendar_MCurrentDate;
                 break;
             case "NullPointerSegurosApp.Controls.ControlCalendar.MDibuixat":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.ControlCalendar");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "MDibuixat", "Boolean");
-                xamlMember.Getter = get_1_ControlCalendar_MDibuixat;
-                xamlMember.Setter = set_1_ControlCalendar_MDibuixat;
+                xamlMember.Getter = get_7_ControlCalendar_MDibuixat;
+                xamlMember.Setter = set_7_ControlCalendar_MDibuixat;
+                break;
+            case "NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit.Con":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Con", "NullPointerSegurosApp.BD.BDConnector");
+                xamlMember.Getter = get_8_ControlEdicioCreacioPerit_Con;
+                xamlMember.Setter = set_8_ControlEdicioCreacioPerit_Con;
+                break;
+            case "NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit.NouPerit":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "NouPerit", "Boolean");
+                xamlMember.Getter = get_9_ControlEdicioCreacioPerit_NouPerit;
+                xamlMember.Setter = set_9_ControlEdicioCreacioPerit_NouPerit;
+                break;
+            case "NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit.Perit":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.ControlEdicioCreacioPerit");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Perit", "NullPointerSegurosApp.Model.Perit");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_ControlEdicioCreacioPerit_Perit;
+                xamlMember.Setter = set_10_ControlEdicioCreacioPerit_Perit;
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.ItemsSource":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "ItemsSource", "System.Collections.ObjectModel.ObservableCollection`1<Object>");
-                xamlMember.Getter = get_2_Control_ListViewDBCreator_ItemsSource;
-                xamlMember.Setter = set_2_Control_ListViewDBCreator_ItemsSource;
-                break;
-            case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.LlistaBuida":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
-                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "LlistaBuida", "Boolean");
-                xamlMember.Getter = get_3_Control_ListViewDBCreator_LlistaBuida;
-                xamlMember.Setter = set_3_Control_ListViewDBCreator_LlistaBuida;
+                xamlMember.Getter = get_11_Control_ListViewDBCreator_ItemsSource;
+                xamlMember.Setter = set_11_Control_ListViewDBCreator_ItemsSource;
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.ObjecteSeleccionat":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "ObjecteSeleccionat", "Object");
-                xamlMember.Getter = get_4_Control_ListViewDBCreator_ObjecteSeleccionat;
-                xamlMember.Setter = set_4_Control_ListViewDBCreator_ObjecteSeleccionat;
+                xamlMember.Getter = get_12_Control_ListViewDBCreator_ObjecteSeleccionat;
+                xamlMember.Setter = set_12_Control_ListViewDBCreator_ObjecteSeleccionat;
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.UltimIbjListView":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "UltimIbjListView", "Object");
-                xamlMember.Getter = get_5_Control_ListViewDBCreator_UltimIbjListView;
+                xamlMember.Getter = get_13_Control_ListViewDBCreator_UltimIbjListView;
                 xamlMember.SetIsReadOnly();
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.ListViewObjects":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "ListViewObjects", "Windows.UI.Xaml.Controls.ListView");
-                xamlMember.Getter = get_6_Control_ListViewDBCreator_ListViewObjects;
+                xamlMember.Getter = get_14_Control_ListViewDBCreator_ListViewObjects;
                 xamlMember.SetIsReadOnly();
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.PrimerObjListView":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "PrimerObjListView", "Object");
-                xamlMember.Getter = get_7_Control_ListViewDBCreator_PrimerObjListView;
+                xamlMember.Getter = get_15_Control_ListViewDBCreator_PrimerObjListView;
                 xamlMember.SetIsReadOnly();
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.IndexItemSeleccionat":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "IndexItemSeleccionat", "Int32");
-                xamlMember.Getter = get_8_Control_ListViewDBCreator_IndexItemSeleccionat;
-                xamlMember.Setter = set_8_Control_ListViewDBCreator_IndexItemSeleccionat;
+                xamlMember.Getter = get_16_Control_ListViewDBCreator_IndexItemSeleccionat;
+                xamlMember.Setter = set_16_Control_ListViewDBCreator_IndexItemSeleccionat;
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.CampsVisibles":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "CampsVisibles", "System.Collections.Generic.Dictionary`2<String, Boolean>");
-                xamlMember.Getter = get_9_Control_ListViewDBCreator_CampsVisibles;
-                xamlMember.Setter = set_9_Control_ListViewDBCreator_CampsVisibles;
+                xamlMember.Getter = get_17_Control_ListViewDBCreator_CampsVisibles;
+                xamlMember.Setter = set_17_Control_ListViewDBCreator_CampsVisibles;
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.OrdreCamps":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "OrdreCamps", "System.Collections.Generic.Dictionary`2<String, Int32>");
-                xamlMember.Getter = get_10_Control_ListViewDBCreator_OrdreCamps;
-                xamlMember.Setter = set_10_Control_ListViewDBCreator_OrdreCamps;
+                xamlMember.Getter = get_18_Control_ListViewDBCreator_OrdreCamps;
+                xamlMember.Setter = set_18_Control_ListViewDBCreator_OrdreCamps;
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.Capsaleres":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Capsaleres", "System.Collections.Generic.Dictionary`2<String, String>");
-                xamlMember.Getter = get_11_Control_ListViewDBCreator_Capsaleres;
-                xamlMember.Setter = set_11_Control_ListViewDBCreator_Capsaleres;
+                xamlMember.Getter = get_19_Control_ListViewDBCreator_Capsaleres;
+                xamlMember.Setter = set_19_Control_ListViewDBCreator_Capsaleres;
                 break;
             case "NullPointerSegurosApp.Controls.Control_ListViewDBCreator.MidaColumnes":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.Control_ListViewDBCreator");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "MidaColumnes", "Double[]");
-                xamlMember.Getter = get_12_Control_ListViewDBCreator_MidaColumnes;
-                xamlMember.Setter = set_12_Control_ListViewDBCreator_MidaColumnes;
+                xamlMember.Getter = get_20_Control_ListViewDBCreator_MidaColumnes;
+                xamlMember.Setter = set_20_Control_ListViewDBCreator_MidaColumnes;
                 break;
             case "NullPointerSegurosApp.Controls.DetallSinistre.Sinistre":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.DetallSinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Sinistre", "NullPointerSegurosApp.Model.Sinistre");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_13_DetallSinistre_Sinistre;
-                xamlMember.Setter = set_13_DetallSinistre_Sinistre;
+                xamlMember.Getter = get_21_DetallSinistre_Sinistre;
+                xamlMember.Setter = set_21_DetallSinistre_Sinistre;
                 break;
-            case "NullPointerSegurosApp.MainPage.Perits":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.MainPage");
+            case "NullPointerSegurosApp.Controls.DetallSinistre.Perits":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Controls.DetallSinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Perits", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Perit>");
-                xamlMember.Getter = get_14_MainPage_Perits;
-                xamlMember.Setter = set_14_MainPage_Perits;
+                xamlMember.Getter = get_22_DetallSinistre_Perits;
+                xamlMember.Setter = set_22_DetallSinistre_Perits;
+                break;
+            case "NullPointerSegurosApp.Model.Perit.FullName":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "FullName", "String");
+                xamlMember.Getter = get_23_Perit_FullName;
+                xamlMember.Setter = set_23_Perit_FullName;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Numero":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Numero", "Int32");
-                xamlMember.Getter = get_15_Perit_Numero;
-                xamlMember.Setter = set_15_Perit_Numero;
+                xamlMember.Getter = get_24_Perit_Numero;
+                xamlMember.Setter = set_24_Perit_Numero;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Login":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Login", "String");
-                xamlMember.Getter = get_16_Perit_Login;
-                xamlMember.Setter = set_16_Perit_Login;
+                xamlMember.Getter = get_25_Perit_Login;
+                xamlMember.Setter = set_25_Perit_Login;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Password":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Password", "String");
-                xamlMember.Getter = get_17_Perit_Password;
-                xamlMember.Setter = set_17_Perit_Password;
+                xamlMember.Getter = get_26_Perit_Password;
+                xamlMember.Setter = set_26_Perit_Password;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Nif":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Nif", "String");
-                xamlMember.Getter = get_18_Perit_Nif;
-                xamlMember.Setter = set_18_Perit_Nif;
+                xamlMember.Getter = get_27_Perit_Nif;
+                xamlMember.Setter = set_27_Perit_Nif;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Nom":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Nom", "String");
-                xamlMember.Getter = get_19_Perit_Nom;
-                xamlMember.Setter = set_19_Perit_Nom;
+                xamlMember.Getter = get_28_Perit_Nom;
+                xamlMember.Setter = set_28_Perit_Nom;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Cognom1":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Cognom1", "String");
-                xamlMember.Getter = get_20_Perit_Cognom1;
-                xamlMember.Setter = set_20_Perit_Cognom1;
+                xamlMember.Getter = get_29_Perit_Cognom1;
+                xamlMember.Setter = set_29_Perit_Cognom1;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Cognom2":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Cognom2", "String");
-                xamlMember.Getter = get_21_Perit_Cognom2;
-                xamlMember.Setter = set_21_Perit_Cognom2;
+                xamlMember.Getter = get_30_Perit_Cognom2;
+                xamlMember.Setter = set_30_Perit_Cognom2;
                 break;
             case "NullPointerSegurosApp.Model.Perit.DataNaix":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DataNaix", "System.DateTime");
-                xamlMember.Getter = get_22_Perit_DataNaix;
-                xamlMember.Setter = set_22_Perit_DataNaix;
+                xamlMember.Getter = get_31_Perit_DataNaix;
+                xamlMember.Setter = set_31_Perit_DataNaix;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Cites":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Cites", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Cita>");
-                xamlMember.Getter = get_23_Perit_Cites;
-                xamlMember.Setter = set_23_Perit_Cites;
-                break;
-            case "NullPointerSegurosApp.Model.Cita.Id":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
-                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Id", "Int32");
-                xamlMember.Getter = get_24_Cita_Id;
-                xamlMember.Setter = set_24_Cita_Id;
-                break;
-            case "NullPointerSegurosApp.Model.Cita.NumPerit":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
-                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "NumPerit", "Int32");
-                xamlMember.Getter = get_25_Cita_NumPerit;
-                xamlMember.Setter = set_25_Cita_NumPerit;
-                break;
-            case "NullPointerSegurosApp.Model.Cita.NumSinistre":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
-                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "NumSinistre", "Int32");
-                xamlMember.Getter = get_26_Cita_NumSinistre;
-                xamlMember.Setter = set_26_Cita_NumSinistre;
-                break;
-            case "NullPointerSegurosApp.Model.Cita.Duracio":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
-                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Duracio", "Int32");
-                xamlMember.Getter = get_27_Cita_Duracio;
-                xamlMember.Setter = set_27_Cita_Duracio;
-                break;
-            case "NullPointerSegurosApp.Model.Cita.DiaHora":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
-                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DiaHora", "System.DateTime");
-                xamlMember.Getter = get_28_Cita_DiaHora;
-                xamlMember.Setter = set_28_Cita_DiaHora;
-                break;
-            case "NullPointerSegurosApp.Model.Cita.HoresPrevistes":
-                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Cita");
-                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "HoresPrevistes", "Int32");
-                xamlMember.Getter = get_29_Cita_HoresPrevistes;
-                xamlMember.Setter = set_29_Cita_HoresPrevistes;
+                xamlMember.Getter = get_32_Perit_Cites;
+                xamlMember.Setter = set_32_Perit_Cites;
                 break;
             case "NullPointerSegurosApp.Model.Perit.Sinistres":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Perit");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Sinistres", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Sinistre>");
-                xamlMember.Getter = get_30_Perit_Sinistres;
-                xamlMember.Setter = set_30_Perit_Sinistres;
+                xamlMember.Getter = get_33_Perit_Sinistres;
+                xamlMember.Setter = set_33_Perit_Sinistres;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.Numero":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Numero", "Int32");
-                xamlMember.Getter = get_31_Sinistre_Numero;
-                xamlMember.Setter = set_31_Sinistre_Numero;
+                xamlMember.Getter = get_34_Sinistre_Numero;
+                xamlMember.Setter = set_34_Sinistre_Numero;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.DataAssignacio":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DataAssignacio", "System.Nullable`1<System.DateTime>");
-                xamlMember.Getter = get_32_Sinistre_DataAssignacio;
-                xamlMember.Setter = set_32_Sinistre_DataAssignacio;
+                xamlMember.Getter = get_35_Sinistre_DataAssignacio;
+                xamlMember.Setter = set_35_Sinistre_DataAssignacio;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.DataObertura":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DataObertura", "System.DateTime");
-                xamlMember.Getter = get_33_Sinistre_DataObertura;
-                xamlMember.Setter = set_33_Sinistre_DataObertura;
+                xamlMember.Getter = get_36_Sinistre_DataObertura;
+                xamlMember.Setter = set_36_Sinistre_DataObertura;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.DataTancament":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DataTancament", "System.Nullable`1<System.DateTime>");
-                xamlMember.Getter = get_34_Sinistre_DataTancament;
-                xamlMember.Setter = set_34_Sinistre_DataTancament;
+                xamlMember.Getter = get_37_Sinistre_DataTancament;
+                xamlMember.Setter = set_37_Sinistre_DataTancament;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.Descripcio":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Descripcio", "String");
-                xamlMember.Getter = get_35_Sinistre_Descripcio;
-                xamlMember.Setter = set_35_Sinistre_Descripcio;
+                xamlMember.Getter = get_38_Sinistre_Descripcio;
+                xamlMember.Setter = set_38_Sinistre_Descripcio;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.IdPerit":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "IdPerit", "Int32");
-                xamlMember.Getter = get_36_Sinistre_IdPerit;
-                xamlMember.Setter = set_36_Sinistre_IdPerit;
+                xamlMember.Getter = get_39_Sinistre_IdPerit;
+                xamlMember.Setter = set_39_Sinistre_IdPerit;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.Perit":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Perit", "NullPointerSegurosApp.Model.Perit");
-                xamlMember.Getter = get_37_Sinistre_Perit;
-                xamlMember.Setter = set_37_Sinistre_Perit;
+                xamlMember.Getter = get_40_Sinistre_Perit;
+                xamlMember.Setter = set_40_Sinistre_Perit;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.EstatSininistre":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "EstatSininistre", "NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE");
-                xamlMember.Getter = get_38_Sinistre_EstatSininistre;
-                xamlMember.Setter = set_38_Sinistre_EstatSininistre;
+                xamlMember.Getter = get_41_Sinistre_EstatSininistre;
+                xamlMember.Setter = set_41_Sinistre_EstatSininistre;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.TipusSinistre":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "TipusSinistre", "NullPointerSegurosApp.Model.Enums.TIPUS_SINISTRE");
-                xamlMember.Getter = get_39_Sinistre_TipusSinistre;
-                xamlMember.Setter = set_39_Sinistre_TipusSinistre;
+                xamlMember.Getter = get_42_Sinistre_TipusSinistre;
+                xamlMember.Setter = set_42_Sinistre_TipusSinistre;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.Informe":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Informe", "NullPointerSegurosApp.Model.InformePericial");
-                xamlMember.Getter = get_40_Sinistre_Informe;
-                xamlMember.Setter = set_40_Sinistre_Informe;
+                xamlMember.Getter = get_43_Sinistre_Informe;
+                xamlMember.Setter = set_43_Sinistre_Informe;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.NumPolissa":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "NumPolissa", "Int32");
-                xamlMember.Getter = get_41_Sinistre_NumPolissa;
-                xamlMember.Setter = set_41_Sinistre_NumPolissa;
+                xamlMember.Getter = get_44_Sinistre_NumPolissa;
+                xamlMember.Setter = set_44_Sinistre_NumPolissa;
+                break;
+            case "NullPointerSegurosApp.Model.Sinistre.SinistreTancat":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "SinistreTancat", "Boolean");
+                xamlMember.Getter = get_45_Sinistre_SinistreTancat;
+                xamlMember.Setter = set_45_Sinistre_SinistreTancat;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.Polissa":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Polissa", "NullPointerSegurosApp.Model.Polissa");
-                xamlMember.Getter = get_42_Sinistre_Polissa;
-                xamlMember.Setter = set_42_Sinistre_Polissa;
+                xamlMember.Getter = get_46_Sinistre_Polissa;
+                xamlMember.Setter = set_46_Sinistre_Polissa;
                 break;
             case "NullPointerSegurosApp.Model.Sinistre.Trucades":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Sinistre");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Trucades", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Trucada>");
-                xamlMember.Getter = get_43_Sinistre_Trucades;
-                xamlMember.Setter = set_43_Sinistre_Trucades;
+                xamlMember.Getter = get_47_Sinistre_Trucades;
+                xamlMember.Setter = set_47_Sinistre_Trucades;
                 break;
             case "NullPointerSegurosApp.Model.Trucada.Numero":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Trucada");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Numero", "Int32");
-                xamlMember.Getter = get_44_Trucada_Numero;
-                xamlMember.Setter = set_44_Trucada_Numero;
+                xamlMember.Getter = get_48_Trucada_Numero;
+                xamlMember.Setter = set_48_Trucada_Numero;
                 break;
             case "NullPointerSegurosApp.Model.Trucada.DataHora":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Trucada");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DataHora", "System.DateTime");
-                xamlMember.Getter = get_45_Trucada_DataHora;
-                xamlMember.Setter = set_45_Trucada_DataHora;
+                xamlMember.Getter = get_49_Trucada_DataHora;
+                xamlMember.Setter = set_49_Trucada_DataHora;
                 break;
             case "NullPointerSegurosApp.Model.Trucada.Descripcio":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Trucada");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Descripcio", "String");
-                xamlMember.Getter = get_46_Trucada_Descripcio;
-                xamlMember.Setter = set_46_Trucada_Descripcio;
+                xamlMember.Getter = get_50_Trucada_Descripcio;
+                xamlMember.Setter = set_50_Trucada_Descripcio;
                 break;
             case "NullPointerSegurosApp.Model.Trucada.PersonaContacte":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Trucada");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "PersonaContacte", "String");
-                xamlMember.Getter = get_47_Trucada_PersonaContacte;
-                xamlMember.Setter = set_47_Trucada_PersonaContacte;
+                xamlMember.Getter = get_51_Trucada_PersonaContacte;
+                xamlMember.Setter = set_51_Trucada_PersonaContacte;
+                break;
+            case "NullPointerSegurosApp.Dialogs.DialogNouPerit.BotoClicat":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Dialogs.DialogNouPerit");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "BotoClicat", "NullPointerSegurosApp.Model.Enums.BOTO");
+                xamlMember.Getter = get_52_DialogNouPerit_BotoClicat;
+                xamlMember.Setter = set_52_DialogNouPerit_BotoClicat;
+                break;
+            case "NullPointerSegurosApp.Dialogs.DialogNouPerit.PeritActual":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Dialogs.DialogNouPerit");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "PeritActual", "NullPointerSegurosApp.Model.Perit");
+                xamlMember.Getter = get_53_DialogNouPerit_PeritActual;
+                xamlMember.Setter = set_53_DialogNouPerit_PeritActual;
                 break;
             case "NullPointerSegurosApp.Pages.AgendaPage.Perits":
                 userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Pages.AgendaPage");
                 xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Perits", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Perit>");
-                xamlMember.Getter = get_48_AgendaPage_Perits;
-                xamlMember.Setter = set_48_AgendaPage_Perits;
+                xamlMember.Getter = get_54_AgendaPage_Perits;
+                xamlMember.Setter = set_54_AgendaPage_Perits;
+                break;
+            case "NullPointerSegurosApp.Pages.AgendaPage.Clients":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Pages.AgendaPage");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Clients", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Client>");
+                xamlMember.Getter = get_55_AgendaPage_Clients;
+                xamlMember.Setter = set_55_AgendaPage_Clients;
+                break;
+            case "NullPointerSegurosApp.Model.Client.FullName":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Client");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "FullName", "String");
+                xamlMember.Getter = get_56_Client_FullName;
+                xamlMember.Setter = set_56_Client_FullName;
+                break;
+            case "NullPointerSegurosApp.Model.Client.Numero":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Client");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Numero", "Int32");
+                xamlMember.Getter = get_57_Client_Numero;
+                xamlMember.Setter = set_57_Client_Numero;
+                break;
+            case "NullPointerSegurosApp.Model.Client.Nif":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Client");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Nif", "String");
+                xamlMember.Getter = get_58_Client_Nif;
+                xamlMember.Setter = set_58_Client_Nif;
+                break;
+            case "NullPointerSegurosApp.Model.Client.Nom":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Client");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Nom", "String");
+                xamlMember.Getter = get_59_Client_Nom;
+                xamlMember.Setter = set_59_Client_Nom;
+                break;
+            case "NullPointerSegurosApp.Model.Client.Cognom1":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Client");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Cognom1", "String");
+                xamlMember.Getter = get_60_Client_Cognom1;
+                xamlMember.Setter = set_60_Client_Cognom1;
+                break;
+            case "NullPointerSegurosApp.Model.Client.Cognom2":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Client");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Cognom2", "String");
+                xamlMember.Getter = get_61_Client_Cognom2;
+                xamlMember.Setter = set_61_Client_Cognom2;
+                break;
+            case "NullPointerSegurosApp.Model.Client.DataNaix":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Model.Client");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "DataNaix", "System.DateTime");
+                xamlMember.Getter = get_62_Client_DataNaix;
+                xamlMember.Setter = set_62_Client_DataNaix;
+                break;
+            case "NullPointerSegurosApp.Pages.AgendaPage.Sinistres":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Pages.AgendaPage");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "Sinistres", "System.Collections.ObjectModel.ObservableCollection`1<NullPointerSegurosApp.Model.Sinistre>");
+                xamlMember.Getter = get_63_AgendaPage_Sinistres;
+                xamlMember.Setter = set_63_AgendaPage_Sinistres;
+                break;
+            case "NullPointerSegurosApp.Pages.AgendaPage.EstatsSinistre":
+                userType = (global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NullPointerSegurosApp.Pages.AgendaPage");
+                xamlMember = new global::NullPointerSegurosApp.NullPointerSegurosApp_XamlTypeInfo.XamlMember(this, "EstatsSinistre", "System.Collections.Generic.List`1<NullPointerSegurosApp.Model.Enums.ESTAT_SINISTRE>");
+                xamlMember.Getter = get_64_AgendaPage_EstatsSinistre;
+                xamlMember.Setter = set_64_AgendaPage_EstatsSinistre;
                 break;
             }
             return xamlMember;

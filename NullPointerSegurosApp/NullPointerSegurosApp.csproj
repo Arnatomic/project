@@ -97,8 +97,14 @@
     </Compile>
     <Compile Include="BD\BDConnector.cs" />
     <Compile Include="Controls\BackgroundStyleSelecter.cs" />
+    <Compile Include="Controls\ControlAgenda.xaml.cs">
+      <DependentUpon>ControlAgenda.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ControlCalendar.xaml.cs">
       <DependentUpon>ControlCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlEdicioCreacioPerit.xaml.cs">
+      <DependentUpon>ControlEdicioCreacioPerit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Control_ListViewDBCreator.xaml.cs">
       <DependentUpon>Control_ListViewDBCreator.xaml</DependentUpon>
@@ -107,12 +113,17 @@
       <DependentUpon>DetallSinistre.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\DoubleToPercentConverter.cs" />
+    <Compile Include="Converters\MD5Encryptor.cs" />
     <Compile Include="Converters\Utils.cs" />
+    <Compile Include="Dialogs\DialogNouPerit.xaml.cs">
+      <DependentUpon>DialogNouPerit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Cita.cs" />
     <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\SinistreDetall.cs" />
     <Compile Include="Model\EntradaInforme.cs" />
     <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\InformePericial.cs" />
@@ -161,7 +172,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\ControlAgenda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ControlCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ControlEdicioCreacioPerit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DetallSinistre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogNouPerit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,6 +222,7 @@
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.7.9\Assemblies\RT\MySql.Data.RT.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

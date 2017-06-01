@@ -41,18 +41,17 @@ import javax.persistence.Transient;
  * @author Mr. Robot
  */
 @NamedQueries({
-    @NamedQuery(name="Sinistre.getLlistaSinistres", 
-            query="select s from Sinistre s"),
-    
+    @NamedQuery(name = "Sinistre.getLlistaSinistres",
+            query = "select s from Sinistre s"),
+
     @NamedQuery(name = "Sinistre.getSinistrePeriNum",
             query = "select s from Sinistre s where s.numero = ?1"),
-    
+
     @NamedQuery(name = "Sinistre.getSinistresFromClient",
             query = "select s from Sinistre s where s.polissa.client.numero = ?1")})
 
-
 @Entity
-public class Sinistre implements Serializable{
+public class Sinistre implements Serializable {
 
     //readOnly
     @Id
@@ -76,13 +75,12 @@ public class Sinistre implements Serializable{
     @Enumerated(EnumType.STRING)
     @Column(name = "tipus_sinistre", nullable = false)
     private TIPUS_SINISTRE tipusSinistre;
-    
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "num_polissa")
     private Polissa polissa;
     //nullable
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "num_perit")
     private Perit perit;
@@ -91,8 +89,7 @@ public class Sinistre implements Serializable{
     @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @PrimaryKeyJoinColumn(name = "num_sinistre")
     private InformePericial informe;
-    
-    
+
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "trucada",
             joinColumns = @JoinColumn(name = "num_sinistre"))
@@ -115,7 +112,6 @@ public class Sinistre implements Serializable{
         setTipusSinistre(tipusSinistre);
         setPerit(perit);
         setPolissa(polissa);
-  
 
     }
 
@@ -132,17 +128,17 @@ public class Sinistre implements Serializable{
     }
 
     public Date getDataAssignacio() {
-        if(dataAssignacio != null)
-        return (Date) dataAssignacio.clone();
-        else return null;
+        if (dataAssignacio != null) {
+            return (Date) dataAssignacio.clone();
+        } else {
+            return null;
+        }
     }
 
     public void setDataAssignacio(Date dataAssignacio) {
         if (dataAssignacio != null) {
             this.dataAssignacio = new Date(dataAssignacio.getTime());
-        } else {
-            throw new SinistreException("data assignacio invàlida (valor null no permés)");
-        }
+        } 
     }
 
     public Date getDataObertura() {
@@ -158,16 +154,16 @@ public class Sinistre implements Serializable{
     }
 
     public Date getDataTancament() {
-        if(dataTancament != null)
-        return (Date) dataTancament.clone();
-        else return null;
+        if (dataTancament != null) {
+            return (Date) dataTancament.clone();
+        } else {
+            return null;
+        }
     }
 
     public void setDataTancament(Date dataTancament) {
         if (dataTancament != null) {
             this.dataTancament = new Date(dataTancament.getTime());
-        } else {
-            throw new SinistreException("data tancament invàlida (valor null no permés)");
         }
     }
 
@@ -207,7 +203,6 @@ public class Sinistre implements Serializable{
         }
     }
 
-
     public Polissa getPolissa() {
         return polissa;
     }
@@ -229,8 +224,10 @@ public class Sinistre implements Serializable{
 
     public void setPerit(Perit perit) {
         this.perit = perit;
-        if (!perit.existeixSinistre(this)) {
-            perit.addSinistre(this);
+        if (perit != null) {
+            if (!perit.existeixSinistre(this)) {
+                perit.addSinistre(this);
+            }
         }
     }
 
@@ -261,7 +258,7 @@ public class Sinistre implements Serializable{
             trucades.add(trucada);
         } else {
             System.out.println("Mostre: " + trucada);
-            for(Trucada t: trucades){
+            for (Trucada t : trucades) {
                 System.out.println("T: " + t);
             }
             throw new SinistreException("trucada invàlida (valor null o repetit no permés)");
@@ -294,8 +291,5 @@ public class Sinistre implements Serializable{
     public String toString() {
         return "Sinistre{" + "numero=" + numero + ", dataAssignacio=" + dataAssignacio + ", dataObertura=" + dataObertura + ", dataTancament=" + dataTancament + ", descripcio=" + descripcio + ", estatSinistre=" + estatSinistre + ", tipusSinistre=" + tipusSinistre + ", polissa=" + polissa + ", perit=" + perit + ", informe=" + informe + ", trucades=" + trucades + '}';
     }
-
-    
-
 
 }

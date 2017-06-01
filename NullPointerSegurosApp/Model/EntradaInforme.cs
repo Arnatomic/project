@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace NullPointerSegurosApp.Model
 {
@@ -25,10 +28,38 @@ namespace NullPointerSegurosApp.Model
 
         public string Descripcio { get; set; }
 
-        public Byte[] Foto { get; set; }
+        private byte[] mFoto;
+
+        public byte[] Foto
+        {
+            get { return mFoto; }
+            set { mFoto = value;
+                setImage();
+            }
+        }
+
 
         public bool PostReparacio { get; set; }
 
+        public BitmapImage BitmapFoto { get; set; }
+
+
+        private async void setImage()
+        {
+            BitmapFoto = await ImageFromBytes(Foto);
+        }
+
+        public async static Task<BitmapImage> ImageFromBytes(byte[] bytes)
+        {
+            BitmapImage image = new BitmapImage();
+            using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+            {
+                await stream.WriteAsync(bytes.AsBuffer());
+                stream.Seek(0);
+                await image.SetSourceAsync(stream);
+            }
+            return image;
+        }
 
     }
 }

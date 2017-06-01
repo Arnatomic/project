@@ -9,7 +9,7 @@ namespace NullPointerSegurosApp.Model
 {
     public class Perit
     {
-        
+     
 
         public Perit(int numero, string nif, string nom, string cognom1, string cognom2, DateTime dataNaix, string loggin, string password)
         {
@@ -21,8 +21,15 @@ namespace NullPointerSegurosApp.Model
             DataNaix = dataNaix;
             Login = loggin;
             Password = password;
+
+            FullName = Nom + " " + cognom1 + (cognom2 == null ? "" : " " + cognom2);
         }
 
+        public Perit()
+        {
+        }
+
+        public string FullName { get; set; }
 
         public int Numero { get; set; }
 

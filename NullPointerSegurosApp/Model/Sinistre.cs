@@ -44,6 +44,8 @@ namespace NullPointerSegurosApp.Model
 
         private Polissa mPolissa;
 
+        public bool SinistreTancat { get; set; }
+
 
         public Sinistre(int numero, DateTime? dataAssignacio, DateTime dObertura, DateTime? dataTancament, string descripcio, int numPolissa, int idPerit, Enums.TIPUS_SINISTRE tipusSinistre, Enums.ESTAT_SINISTRE estatSinistre)
         {
@@ -56,6 +58,9 @@ namespace NullPointerSegurosApp.Model
             IdPerit = idPerit;
             TipusSinistre = tipusSinistre;
             EstatSininistre = estatSinistre;
+
+            SinistreTancat = EstatSininistre == Enums.ESTAT_SINISTRE.TANCAT;
+
         }
 
         public Polissa Polissa

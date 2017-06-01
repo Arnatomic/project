@@ -16,7 +16,11 @@ namespace NullPointerSegurosApp.Model
             Cognom1 = cognom1;
             Cognom2 = cognom2;
             DataNaix = dataNaix;
+
+            FullName = Nom + " " + cognom1 + (cognom2 == null ? "" : " " + cognom2); 
         }
+
+        public string FullName { get; set; }
 
         public int Numero { get; set; }
         

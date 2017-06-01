@@ -126,6 +126,13 @@ namespace NullPointerSegurosApp.Model
             }
         }
 
+        public enum BOTO {
+
+            CANCELAR,
+            DESAR
+
+        }
+
 
     }
     }

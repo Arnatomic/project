@@ -14,6 +14,15 @@ namespace NullPointerSegurosApp.Model
         {
             Id = id;
             NumPerit = numPerit;
+            DiaHora = diaHora;
+            NumSinistre = numSinistre;
+            Duracio = duracio;
+        }
+
+        public Cita(int numPerit, DateTime diaHora, int numSinistre, int duracio)
+        {
+            NumPerit = numPerit;
+            DiaHora = diaHora;
             NumSinistre = numSinistre;
             Duracio = duracio;
         }
@@ -28,9 +37,7 @@ namespace NullPointerSegurosApp.Model
 
         public DateTime DiaHora { get; set; }
 
-        public int HoresPrevistes { get; set; }
 
-    //    public Sinistre Sinistre { get; set; }
 
     }
 }
