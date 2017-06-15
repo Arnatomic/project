@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/visualitzarInforme" android:title="Visualitzar Sinistre"/>
+    <item android:id="@+id/editarInforme" android:title="Editar Informe"/>
+    <item android:id="@+id/tancarInforme" android:title="Tancar Informe"/>
+</menu>

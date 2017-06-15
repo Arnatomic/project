@@ -28,7 +28,8 @@ namespace DemoImagesInsert
         {
             this.InitializeComponent();
 
-            BDConnector con = new BDConnector("server=127.0.0.1;uid=root;pwd=root;database=projecte;SslMode=None;");
+            BDConnector con = new BDConnector("server=92.222.27.83;uid=m2-agonzalez;pwd=47111651S;database=m2_agonzalez;SslMode=None;");
+            //BDConnector con = new BDConnector("server=localhost;uid=root;pwd=root;database=projecte;SslMode=None;");
 
             Debug.WriteLine("Insert Imatges");
             Task.Run(() => con.insertDemoImages());

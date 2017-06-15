@@ -1,0 +1,99 @@
+﻿<Page
+    x:Class="NullPointerSegurosApp.Pages.AgendaPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NullPointerSegurosApp.Pages"
+    xmlns:localControls="using:NullPointerSegurosApp.Controls"
+    xmlns:localConverters="using:NullPointerSegurosApp.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <localConverters:DoubleToPercentConverter x:Key="doubleToPercent"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="gridPerits">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Perits" FontSize="60" Padding="25,0,0,0" />
+                <ScrollViewer VerticalScrollBarVisibility="Visible" Height="300">
+                <localControls:Control_ListViewDBCreator x:Name="lvPerits" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridPerits, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                </ScrollViewer>
+                <Grid Padding="30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnNou" Content="Nou Perit" Tag="Nou" Margin="45,0,0,0" Click="btnNou_editar_Click"/>
+                    <Button x:Name="btnEditar" Content="Editar Perit" Tag="Editar" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,45,0" Click="btnNou_editar_Click" IsEnabled="False"/>
+                    <Button x:Name="btnEsborrar" Content="Esborrar Perit" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,45,0" IsEnabled="False" Click="btnEsborrar_Click"/>
+                </Grid>
+                <TextBlock x:Name="tbMissatgeError" Foreground="PaleVioletRed" Margin="50,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1">
+                <TextBlock Text="Sinistres" FontSize="60" Padding="25,0,0,0" />
+                <StackPanel Orientation="Horizontal" Margin="45,20,0,0">
+                    <TextBlock Text="Data Sinistre" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <CalendarDatePicker x:Name="dpDataSinistre" Margin="10,0,0,0"/>
+                    <TextBlock Text="Estat Sinistre" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cboxEstatSinistre" Margin="10,0,0,0" />
+                    <TextBlock Text="Client" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cboxClient" Margin="10,0,0,0"/>                   
+                    <Button x:Name="btnFiltreOn" Content="Filtre On"  Margin="10,0,0,0" Click="btnFiltreOn_Click" IsEnabled="False"/>
+                    <Button x:Name="btnFiltreOff" Content="Filtre Off" Margin="10,0,0,0" Click="btnFiltreOff_Click"/>
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <localControls:Control_ListViewDBCreator x:Name="lvSinistres" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridPerits, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                </ScrollViewer>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid x:Name="gridAgenda" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Sinistres Pendents de Cita" FontSize="60" Padding="25,0,0,0"/>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" Height="300">
+                <localControls:Control_ListViewDBCreator x:Name="lvSinistresSenseCita" Background="AliceBlue" Width="{Binding ActualWidth, ElementName=gridAgenda, Converter={StaticResource doubleToPercent},ConverterParameter='0.9', Mode=OneTime}" Height="300" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Hora Inicial: " VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cboxHoresDia" Width="150" Margin="20,0,0,0"/>
+                    <TextBlock Text="Duració: " VerticalAlignment="Center" Margin="20,0,0,0"/>
+                    <TextBox x:Name="tbDuracio" Text="1" Width="150" Margin="20,0,0,0"/>
+                    <Button x:Name="btnAssignaCita" Content="Assignar Cita" Margin="20,0,0,0" Click="btnAssignaCita_Click"/>
+                </StackPanel>
+                <TextBlock x:Name="tbErrorCita" Text="" Foreground="PaleVioletRed" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <Border Grid.Row="1" Padding="40">
+                <localControls:ControlAgenda x:Name="controlAgenda" />
+            </Border>
+            
+
+        </Grid>
+
+
+
+
+
+
+    </Grid>
+
+   
+</Page>

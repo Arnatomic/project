@@ -48,6 +48,12 @@ public class EntradaInforme implements Serializable {
         setFoto(foto);
         setPostReparacio(postReparacio);      
     }
+    
+    public EntradaInforme(Date data,String descripcio, boolean postReparacio) {        
+        setData(data);
+        setDescripcio(descripcio);      
+        setPostReparacio(postReparacio);      
+    }
 
     protected EntradaInforme() {
     }
@@ -73,8 +79,12 @@ public class EntradaInforme implements Serializable {
         else throw new EntradaInformeException("descripcio invàlida (valor null o cadena buida no permés)");
     }
     
-    
+    public int getNumero(){ return numero;}
 
+    public void setNumero(int nunmero) {
+        this.numero = nunmero;
+    }
+    
     public Blob getFoto() {
         return foto;
     }

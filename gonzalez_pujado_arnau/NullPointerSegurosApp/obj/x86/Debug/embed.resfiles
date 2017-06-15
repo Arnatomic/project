@@ -1,0 +1,12 @@
+App.xbf
+Controls\Control_ListViewDBCreator.xbf
+Controls\ControlAgenda.xbf
+Controls\ControlCalendar.xbf
+Controls\ControlEdicioCreacioPerit.xbf
+Controls\DetallSinistre.xbf
+Dialogs\DialogNouPerit.xbf
+MainPage.xbf
+Pages\AgendaPage.xbf
+Pages\EntradaInformeDetallPage.xbf
+Pages\EntradaInformePage.xbf
+Pages\SinistreDetallPage.xbf

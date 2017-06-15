@@ -1,4 +1,4 @@
-insert into perit values(1,"12345678F","Nil","Centellas","Calaf",STR_TO_DATE('1996-07-25 18:00', '%Y-%m-%d %H:%i'),"nilcente","4567527766403b33df1717882f8c2d3c");
+insert into perit values(1,"12345678F","Nil","Centellas","Calaf",STR_TO_DATE('1996-07-25 18:00', '%Y-%m-%d %H:%i'),"nilcente","0DE24EBFD92565A643A5C83D57D24699");
 insert into perit values(2,"11223344A","Mayte","Hinojosa","Arenas",STR_TO_DATE('1979-04-12 18:00', '%Y-%m-%d %H:%i'),"mayte","0e29be28f22f45dc8fbb973e81645dd7");
 insert into perit values(3,"55667788B","Oriol","Bernaus","Rovira",STR_TO_DATE('1992-01-23 18:00', '%Y-%m-%d %H:%i'),"bernaus","d07f55040ac2236bec1df6b8a7da51b3");
 insert into perit values(4,"22334455C","Carles","Mas","Jene",STR_TO_DATE('1974-11-06 18:00', '%Y-%m-%d %H:%i'),"cmas","fcb1cb75483e6bc683fa92f7c4dd9611");
@@ -69,10 +69,35 @@ insert into sinistre values(4,STR_TO_DATE('2017-03-24 18:00', '%Y-%m-%d %H:%i'),
                 
 insert into sinistre values(5,null,STR_TO_DATE('2017-05-31 22:00', '%Y-%m-%d %H:%i'),null,
 				"Inundació en un Pis",4,null,"FUITA_AIGUA","NOU",0); 
+
+
+ -- Inserts per app android                
+insert into sinistre values(6,STR_TO_DATE('2017-06-12 18:00', '%Y-%m-%d %H:%i'),STR_TO_DATE('2017-06-12 18:00', '%Y-%m-%d %H:%i'),null,
+				"La torradora ha creat un corcircuit que ha causat un petit incendi",2,1,"ELECTRICITAT","ASSIGNAT",0); 
+                
+insert into informe_pericial values(6,STR_TO_DATE('2017-06-12 20:00', '%Y-%m-%d %H:%i'),345.43,"La torradora ha causat un incendi, però el problema estava a la instal·lació elèctrica del edifici",1,"PENDENT","COBERT_PARCIAL");
+
+insert into sinistre values(7,STR_TO_DATE('2017-06-10 11:00', '%Y-%m-%d %H:%i'),STR_TO_DATE('2017-06-11 10:00', '%Y-%m-%d %H:%i'),null,
+				"La rentadora ha rebentat causant una gran inundació",1,1,"ELECTRODOMESTIC","ASSIGNAT",0); 
+  
+  
+insert into cita values(4,1,STR_TO_DATE('2017-06-14 20:00', '%Y-%m-%d %H:%i'),6,2);
+insert into cita values(5,1,STR_TO_DATE('2017-06-12 10:30', '%Y-%m-%d %H:%i'),7,1);
+  -- end inserts app android
+                
+/*
+  id int not null,
+  num_perit int not null,
+  dia_hora timestamp not null,
+  num_sinistre int not null,
+  duracio int not null,
+
+
+*/ 
      
      
-insert into comptadors values("sinistre",6);
-update comptadors set comptador = 6 where taula = "sinistre";
+insert into comptadors values("sinistre",8);
+-- update comptadors set comptador = 8 where taula = "sinistre";
 -- perits 1,2,4
 insert into cita values(1,1,STR_TO_DATE('2017-05-31 09:00', '%Y-%m-%d %H:%i'),1,1);
 insert into cita values(2,1,STR_TO_DATE('2017-06-01 10:00', '%Y-%m-%d %H:%i'),1,2);

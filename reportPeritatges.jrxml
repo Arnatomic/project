@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportPeritatges" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/m2-agonzalez/projecte/resumPerits"/>
+	<property name="ireport.jasperserver.url" value="http://92.222.27.83:8080/jasperserver/services/repository"/>
+	<parameter name="perits" class="java.util.Collection"/>
+	<parameter name="dataIni" class="java.util.Date"/>
+	<parameter name="dataFi" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT
+     perit.`numero` AS perit_numero,
+     perit.`nif` AS perit_nif,
+     perit.`nom` AS perit_nom,
+     perit.`cognom1` AS perit_cognom1,
+     perit.`cognom2` AS perit_cognom2,
+     perit.`data_naix` AS perit_data_naix,
+     sinistre.`numero` AS sinistre_numero,
+     sinistre.`data_assignacio` AS sinistre_data_assignacio,
+     sinistre.`data_obertura` AS sinistre_data_obertura,
+     sinistre.`data_tancament` AS sinistre_data_tancament,
+     sinistre.`descripcio` AS sinistre_descripcio,
+     sinistre.`num_polissa` AS sinistre_num_polissa,
+     sinistre.`num_perit` AS sinistre_num_perit,
+     sinistre.`tipus_sinistre` AS sinistre_tipus_sinistre,
+     sinistre.`estat_sinistre` AS sinistre_estat_sinistre,
+     sinistre.`arxivat` AS sinistre_arxivat,
+     informe_pericial.`num_sinistre` AS informe_pericial_num_sinistre,
+     informe_pericial.`data_emisio` AS informe_pericial_data_emisio,
+     informe_pericial.`import_cobert` AS informe_pericial_import_cobert,
+     informe_pericial.`informe` AS informe_pericial_informe,
+     informe_pericial.`num_perit` AS informe_pericial_num_perit,
+     informe_pericial.`estat_informe` AS informe_pericial_estat_informe,
+     informe_pericial.`resultat_peritatge` AS informe_pericial_resultat_peritatge,
+     entrada_informe.`numero` AS entrada_informe_numero,
+     entrada_informe.`ordre` AS entrada_informe_ordre,
+     entrada_informe.`data_informe` AS entrada_informe_data_informe,
+     entrada_informe.`descripcio` AS entrada_informe_descripcio,
+     entrada_informe.`despres_reparacio` AS entrada_informe_despres_reparacio,
+     entrada_informe.`foto` AS entrada_informe_foto
+FROM
+     `perit` perit LEFT OUTER JOIN `sinistre` sinistre ON perit.`numero` = sinistre.`num_perit`
+     LEFT OUTER JOIN `informe_pericial` informe_pericial ON sinistre.`numero` = informe_pericial.`num_sinistre`
+     AND perit.`numero` = informe_pericial.`num_perit`
+     LEFT OUTER JOIN `entrada_informe` entrada_informe ON informe_pericial.`num_sinistre` = entrada_informe.`numero`
+ where $X{IN,perit.numero,perits} and ($P{dataIni} is null or  sinistre.data_obertura >= $P{dataIni}) and ($P{dataFi} is null or  sinistre.data_obertura <= $P{dataFi})]]>
+	</queryString>
+	<field name="perit_numero" class="java.lang.Integer"/>
+	<field name="perit_nif" class="java.lang.String"/>
+	<field name="perit_nom" class="java.lang.String"/>
+	<field name="perit_cognom1" class="java.lang.String"/>
+	<field name="perit_cognom2" class="java.lang.String"/>
+	<field name="perit_data_naix" class="java.sql.Timestamp"/>
+	<field name="sinistre_numero" class="java.lang.Integer"/>
+	<field name="sinistre_data_assignacio" class="java.sql.Timestamp"/>
+	<field name="sinistre_data_obertura" class="java.sql.Timestamp"/>
+	<field name="sinistre_data_tancament" class="java.sql.Timestamp"/>
+	<field name="sinistre_descripcio" class="java.lang.String"/>
+	<field name="sinistre_num_polissa" class="java.lang.Integer"/>
+	<field name="sinistre_num_perit" class="java.lang.Integer"/>
+	<field name="sinistre_tipus_sinistre" class="java.lang.String"/>
+	<field name="sinistre_estat_sinistre" class="java.lang.String"/>
+	<field name="sinistre_arxivat" class="java.lang.Integer"/>
+	<field name="informe_pericial_num_sinistre" class="java.lang.Integer"/>
+	<field name="informe_pericial_data_emisio" class="java.sql.Timestamp"/>
+	<field name="informe_pericial_import_cobert" class="java.math.BigDecimal"/>
+	<field name="informe_pericial_informe" class="java.lang.String"/>
+	<field name="informe_pericial_num_perit" class="java.lang.Integer"/>
+	<field name="informe_pericial_estat_informe" class="java.lang.String"/>
+	<field name="informe_pericial_resultat_peritatge" class="java.lang.String"/>
+	<field name="entrada_informe_numero" class="java.lang.Integer"/>
+	<field name="entrada_informe_ordre" class="java.lang.Integer"/>
+	<field name="entrada_informe_data_informe" class="java.sql.Timestamp"/>
+	<field name="entrada_informe_descripcio" class="java.lang.String"/>
+	<field name="entrada_informe_despres_reparacio" class="java.lang.Boolean"/>
+	<field name="entrada_informe_foto" class="java.io.InputStream"/>
+	<group name="peritGrup" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{perit_numero}]]></groupExpression>
+		<groupHeader>
+			<band height="96">
+				<textField>
+					<reportElement x="132" y="43" width="174" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{perit_nom} + " " + $F{perit_cognom1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="13" width="72" height="30"/>
+					<textElement verticalAlignment="Middle">
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Perit]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="86" y="43" width="28" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nom:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="86" y="65" width="28" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[NIF:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="132" y="65" width="100" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{perit_nif}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="333" y="43" width="42" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[D Naix:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="385" y="45" width="100" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{perit_data_naix}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="sinsitreGroup">
+		<groupExpression><![CDATA[$F{sinistre_numero}]]></groupExpression>
+		<groupHeader>
+			<band height="249">
+				<staticText>
+					<reportElement x="25" y="9" width="107" height="30">
+						<printWhenExpression><![CDATA[$F{sinistre_numero} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sinistre ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="132" y="9" width="76" height="30"/>
+					<textElement verticalAlignment="Middle">
+						<font size="18"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sinistre_numero}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="44" y="49" width="70" height="20">
+						<printWhenExpression><![CDATA[$F{sinistre_numero} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tipus Sinistre: ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="148" y="49" width="122" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{sinistre_tipus_sinistre}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="44" y="74" width="88" height="20">
+						<printWhenExpression><![CDATA[$F{sinistre_numero} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data Obertura:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="44" y="99" width="88" height="20">
+						<printWhenExpression><![CDATA[$F{sinistre_numero} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data Tancament: ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="148" y="74" width="122" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{sinistre_data_obertura}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="148" y="99" width="122" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{sinistre_data_tancament}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="315" y="49" width="81" height="20">
+						<printWhenExpression><![CDATA[$F{sinistre_numero} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Import Cobert:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="405" y="49" width="135" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{informe_pericial_import_cobert}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="315" y="74" width="70" height="20">
+						<printWhenExpression><![CDATA[$F{sinistre_numero} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Descripció: ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="405" y="74" width="135" height="63"/>
+					<textElement verticalAlignment="Top">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sinistre_descripcio}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="137" width="156" height="30">
+						<printWhenExpression><![CDATA[$F{informe_pericial_informe} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="16" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Informe Pericial:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="225" y="147" width="310" height="40"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{informe_pericial_informe}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="209" width="245" height="30">
+						<printWhenExpression><![CDATA[$F{informe_pericial_informe} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="16" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Entrades Informe:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="9" width="256" height="52"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resum Peritatges]]></text>
+			</staticText>
+			<image>
+				<reportElement x="270" y="9" width="137" height="52"/>
+				<imageExpression><![CDATA["repo:corp.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="57" width="72" height="20">
+					<printWhenExpression><![CDATA[$F{informe_pericial_num_sinistre} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripció:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="96" y="57" width="174" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{entrada_informe_descripcio}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="334" y="25" width="163" height="69"/>
+				<imageExpression><![CDATA[$F{entrada_informe_foto}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="14" y="28" width="72" height="20">
+					<printWhenExpression><![CDATA[$F{informe_pericial_num_sinistre} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Entrada:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="97" y="28" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{entrada_informe_data_informe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="25" width="40" height="20">
+					<printWhenExpression><![CDATA[$F{informe_pericial_num_sinistre} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Foto:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="34" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="34" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="34" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

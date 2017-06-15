@@ -27,6 +27,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
+import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 
@@ -39,7 +40,6 @@ import javax.persistence.Transient;
 @NamedQueries({
     @NamedQuery(name="Perit.login", 
             query="select count(p.numero) from Perit p where p.login=?1 and p.password=?2"),
-
     @NamedQuery(name="Perit.getPeritPerLogin",
             query="select p.numero from Perit p where p.login=?1"),
     @NamedQuery(name = "Perit.getLlistaPerits",
@@ -48,6 +48,7 @@ import javax.persistence.Transient;
 
 
 @Entity
+@Table(name = "perit")
 public class Perit  implements Serializable{
     @Transient
     private static final int passwordLenght = 9;

@@ -29,11 +29,11 @@ namespace DemoImagesInsert
         {
 
 
-            byte[] robatori1 = File.ReadAllBytes("G:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\robatori1.jpg");
-            byte[] robatori2 = File.ReadAllBytes("G:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\robatori2.jpg");
-            byte[] robatori3 = File.ReadAllBytes("G:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\robatori3.jpg");
+            byte[] robatori1 = File.ReadAllBytes("F:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\robatori1.jpg");
+            byte[] robatori2 = File.ReadAllBytes("F:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\robatori2.jpg");
+            byte[] robatori3 = File.ReadAllBytes("F:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\robatori3.jpg");
 
-            byte[] humitats = File.ReadAllBytes("G:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\humitats.jpg");
+            byte[] humitats = File.ReadAllBytes("F:\\DAM 2.1\\M12Project\\NullPointerSeguros\\project\\DemoImagesInsert\\bin\\x86\\Debug\\AppX\\Assets\\humitats.jpg");
 
             insertFotoInEntradaInforme(robatori1, 1, 1);
             insertFotoInEntradaInforme(robatori2, 1, 2);
@@ -58,7 +58,7 @@ namespace DemoImagesInsert
 
                     Connection.Open();
                     MySqlCommand command = Connection.CreateCommand();
-                    command.CommandText = "Update entrada_informe set foto = @foto where numero = @idSinistre and ordre = @numEntrada";
+                    command.CommandText = "update entrada_informe set foto = @foto where numero = @idSinistre and ordre = @numEntrada";
                     command.Parameters.Add(new MySqlParameter("idSinistre", idSinistre));
                     command.Parameters.Add(new MySqlParameter("numEntrada", numEntrada));
                     command.Parameters.Add(new MySqlParameter("foto", rawData));

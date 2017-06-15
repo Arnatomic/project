@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanc">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/header">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/chkBoxTancats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tancats"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+
+        <Spinner
+            android:id="@+id/spTipusSinistre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/etPoblacio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Població"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/ivFiltrar"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:onClick="onClickFiltrar"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/filtre_on"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/blue"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvSinistres"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

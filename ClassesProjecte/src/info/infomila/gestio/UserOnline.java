@@ -41,11 +41,12 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "user_online")
 public class UserOnline implements Serializable{
-    @Id
+    
     @Column(name = "connection_code")
     private long connectionCode;
     @Column(name = "user_id", nullable = true)
     private int userId;
+    @Id
     @Column(name = "user_name")
     private String userName;    
     @Column(name = "connection_time")
@@ -84,6 +85,10 @@ public class UserOnline implements Serializable{
         this.connectionCode = connectionCode;
         this.connectionTime = new Date();
         
+    }
+    
+    public void setConnectonCode(long connectionCode){
+        this.connectionCode = connectionCode;
     }
 
     public int getUserId() {

@@ -33,6 +33,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Query;
+import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 
@@ -45,12 +46,15 @@ import javax.persistence.Transient;
             query = "select s from Sinistre s"),
 
     @NamedQuery(name = "Sinistre.getSinistrePeriNum",
-            query = "select s from Sinistre s where s.numero = ?1"),
+            query = "select s from Sinistre s where s.perit.numero = ?1"),
 
     @NamedQuery(name = "Sinistre.getSinistresFromClient",
-            query = "select s from Sinistre s where s.polissa.client.numero = ?1")})
+            query = "select s from Sinistre s where s.polissa.client.numero = ?1"),
+    @NamedQuery(name = "Sinistre.getSinistrePerId",
+            query = "select s from Sinistre s where s.numero = ?1")})
 
 @Entity
+@Table(name = "sinistre")
 public class Sinistre implements Serializable {
 
     //readOnly
@@ -76,21 +80,21 @@ public class Sinistre implements Serializable {
     @Column(name = "tipus_sinistre", nullable = false)
     private TIPUS_SINISTRE tipusSinistre;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "num_polissa")
     private Polissa polissa;
     //nullable
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "num_perit")
     private Perit perit;
     //nullable
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @PrimaryKeyJoinColumn(name = "num_sinistre")
     private InformePericial informe;
 
-    @ElementCollection(fetch = FetchType.LAZY)
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "trucada",
             joinColumns = @JoinColumn(name = "num_sinistre"))
     @Column(name = "trucada", nullable = false, unique = true)

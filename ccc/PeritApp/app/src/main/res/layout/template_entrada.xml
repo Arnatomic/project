@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tvDataEntrada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matadepera"
+            android:layout_weight="0"
+            android:layout_gravity="center_vertical"
+            />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/chPostRepa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post-Reparació"
+            android:layout_weight="0"
+            android:enabled="false"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tvDescEntrada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loerm ipsum"
+            android:layout_weight="1"
+            android:scrollbars="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            />
+
+        <Button
+            android:id="@+id/btnDeleteEntrada"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/delete"
+            android:layout_weight="0"
+            android:layout_marginLeft="5dp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

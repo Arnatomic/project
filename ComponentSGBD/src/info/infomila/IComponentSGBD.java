@@ -12,6 +12,7 @@ import info.infomila.model.Perit;
 import info.infomila.model.Polissa;
 import info.infomila.model.Sinistre;
 import info.infomila.model.Trucada;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -129,4 +130,8 @@ public interface IComponentSGBD {
     public boolean crearNouSinistre(Sinistre s) throws IComponentSGBDException;
     
     public boolean afegirTrucada(Trucada tr, Sinistre s) throws IComponentSGBDException;
+
+    public void updateInforme(int idInforme);
+
+    public int desarEntradaInforme(long codiPerit, int sinId, String resultat, String desc, BigDecimal importCobert);
 }

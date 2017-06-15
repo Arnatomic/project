@@ -11,3 +11,5 @@ nbdist/
 # End of https://www.gitignore.io/
 /SAT/nbproject/private/
 /ComponentSGBD/nbproject/private/
+/Servidor/nbproject/private/
+/ConnectorBDJPA/nbproject/private/
